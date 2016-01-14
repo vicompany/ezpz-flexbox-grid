@@ -1,0 +1,8 @@
+{
+  "name": "ezpz-flexbox-grid",
+  "version": "1.0.0",
+  "description": "A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation.",
+  "main": "_ezpz-flexbox-grid.scss",
+  "author": "Sven Sigmond - VI Company",
+  "license": "MIT"
+}
