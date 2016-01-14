@@ -4,19 +4,19 @@
 
 /* Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
    ========================================================================== */
-$ezpz-namespace:				'grid';
-$ezpz-grid-type:				'columns';  // 'columns' or 'fractions'
-$ezpz-gutter: 					1rem;
+$ezpz-namespace:				'grid' !default;
+$ezpz-grid-type:				'columns' !default;  // 'columns' or 'fractions'
+$ezpz-gutter: 					1rem !default;
 
 // Only used when $ezpz-grid-type is set to 'columns'
-$ezpz-columns: 					12;
+$ezpz-columns: 					12 !default;
 
 // Only used when $ezpz-grid-type is set to 'fractions'
 $ezpz-fractions:				(1:2),
 								(1:3),
 								(2:3),
 								(1:4),
-								(3:4);
+								(3:4) !default;
 
 // Breakpoints
 // Please note that adding more breakpoints adds quite a lot of extra css depending on the optional features
@@ -25,15 +25,15 @@ $ezpz-breakpoints: 				(
 									'small':	37.5rem,
 									'medium':	60rem,
 									'large':	90rem
-								);
+								) !default;
 
 // Optional grid features - Set to true to enable
-$ezpz-grid-align:				false;
-$ezpz-grid-wrap:				false;
-$ezpz-cell-order:				false;
-$ezpz-cell-offset:				false;
-$ezpz-cell-align:				false;
-$ezpz-gutter-collapse:			false;
+$ezpz-grid-align:				false !default;
+$ezpz-grid-wrap:				false !default;
+$ezpz-cell-order:				false !default;
+$ezpz-cell-offset:				false !default;
+$ezpz-cell-align:				false !default;
+$ezpz-gutter-collapse:			false !default;
 
 
 
