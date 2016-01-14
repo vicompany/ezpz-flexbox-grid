@@ -3,9 +3,9 @@ A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a
 ) – ([VI Company](http://www.vicompany.nl))
 
 ## Examples ##
-* [Default features](/default-features.html)
-* [Optional features](/optional-features.html)
-* [Responsive features](/responsive-features.html)
+* [Default features](http://vicompany.github.io/ezpz-flexbox-grid/)
+* [Optional features](http://vicompany.github.io/ezpz-flexbox-grid/optional-features.html)
+* [Responsive features](http://vicompany.github.io/ezpz-flexbox-grid/responsive-features.html)
 
 ## Is this the grid for you? ##
 * Easy peasy to setup and use
