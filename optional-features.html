@@ -12,13 +12,14 @@
     <body>
         <header class="header">
             <div>
-                <h1>EZPZ Flexbox Grid</h1>
+                <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
 
                 <nav class="nav">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="index.html">Default features</a></li>
                         <li class="nav__item is-active"><a href="optional-features.html">Optional features</a></li>
                         <li class="nav__item"><a href="responsive-features.html">Responsive features</a></li>
+                        <li class="nav__item"><a href="fractions.html">Using fractions</a></li>
                     </ul>
                 </nav>
             </div>
@@ -32,12 +33,7 @@
             <div class="toc">
                 <ul class="toc__list">
                     <li class="toc__item">1: <a href="#cell-order">Cell order</a></li>
-                    <li class="toc__item">2: <a href="#horizontal-cell-offset">Horizontal cell offset</a>
-                        <ul class="toc__list">
-                            <li>2.1: <a href="#horizontal-cell-offset-columns">When using columns</a></li>
-                            <li>2.2: <a href="#horizontal-cell-offset-fractions">When using fractions</a></li>
-                        </ul>
-                    </li>
+                    <li class="toc__item">2: <a href="#horizontal-cell-offset">Horizontal cell offset</a></li>
                     <li class="toc__item">3: <a href="#grid-cells-align">Alignment of all cells within a grid section</a>
                         <ul>
                             <li>3.1: <a href="#grid-cells-align-start">Align start</a></li>
@@ -82,23 +78,13 @@
                 <h1 class="h2">2: Horizontal cell offset</h1>
                 <p>Cells within a grid section can be offset horizontally to create a gap between that specific cell and the previous cell in the section. All cells will automatically take up an equal amount of the remaining space in the section.</p>
 
-                <section id="horizontal-cell-offset-columns">
-                    <h1 class="h3">2.1: When using columns</h1>
+                <p>When using a column based grid type, cells can be offset by adding a <span class="mono">.cell--offset-{#}</span> class to a <span class="mono">.cell</span> element. The second cell in the example has been offset by 3 cell widths.</p>
 
-                    <p>When using a column based grid type, cells can be offset by adding a <span class="mono">.cell--offset-{#}</span> class to a <span class="mono">.cell</span> element. The second cell in the example has been offset by 3 cell widths.</p>
-
-                    <div class="grid">
-                        <div class="cell">25%</div>
-                        <div class="cell cell--offset-3">25%</div>
-                        <div class="cell">25%</div>
-                    </div>
-                </section>
-
-                <section id="horizontal-cell-offset-fractions">
-                    <h1 class="h3">2.2: When using fractions</h1>
-
-                    <p>When using a fraction based grid type, cells can be offset by adding a <span class="mono">.cell--offset-{fraction}</span> class to a <span class="mono">.cell</span> element. The second cell in the example has been offset by one-quarter.</p>
-                </section>
+                <div class="grid">
+                    <div class="cell">25%</div>
+                    <div class="cell cell--offset-3">25%</div>
+                    <div class="cell">25%</div>
+                </div>
             </section>
 
             <section class="chapter" id="grid-cells-align">

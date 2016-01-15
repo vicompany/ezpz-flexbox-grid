@@ -63,6 +63,8 @@ h3,
 
 .header {
   padding: 0 0.5rem; }
+  .header h1 a {
+    text-decoration: none; }
 
 .nav {
   padding: 1rem 0;

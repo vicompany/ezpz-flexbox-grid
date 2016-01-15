@@ -12,13 +12,14 @@
     <body>
         <header class="header">
             <div>
-                <h1>EZPZ Flexbox Grid</h1>
+                <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
 
                 <nav class="nav">
                     <ul class="nav__list">
                         <li class="nav__item is-active"><a href="index.html">Default features</a></li>
                         <li class="nav__item"><a href="optional-features.html">Optional features</a></li>
                         <li class="nav__item"><a href="responsive-features.html">Responsive features</a></li>
+                        <li class="nav__item"><a href="fractions.html">Using fractions</a></li>
                     </ul>
                 </nav>
             </div>
@@ -28,17 +29,14 @@
             <h1>Default features</h1>
             <p>This page contains examples of the grid features that are <span class="bold">enabled by default</span>.</p>
 
+            <p>All examples on this page are based on a 12 column grid system. Please refer to the examples of the <a href="fractions-default.html">fraction based grid</a> system if you prefer this over a column based setup.</p>
+
             <div class="toc">
                 <ul class="toc__list">
                     <li class="toc__item">1: <a href="#horizontal-layout">Horizontal layout</a></li>
                     <li class="toc__item">2: <a href="#vertical-layout">Vertical layout</a></li>
                     <li class="toc__item">3: <a href="#nested-grid-sections">Nested grid sections</a></li>
-                    <li class="toc__item">4: <a href="#cell-sizes">Cells with specific sizes</a>
-                        <ul class="toc__list">
-                            <li class="toc__item">4.1: <a href="#cell-sizes-columns">When using columns</a></li>
-                            <li class="toc__item">4.2: <a href="#cell-sizes-fractions">When using fractions</a></li>
-                        </ul>
-                    </li>
+                    <li class="toc__item">4: <a href="#cell-sizes">Cells with specific sizes</a></li>
                 </ul>
             </div>
 
@@ -93,37 +91,23 @@
 
             <section class="chapter" id="cell-sizes">
                 <h1 class="h2">4: Cells with specific sizes</h1>
-                <p>There are two ways to force a certain size upon a cell, depending on the chosen grid type. This can either be <span class="mono">'columns'</span> or <span class="mono">'fractions'</span>. Different classes are used to achieve the desired width of the cell(s) for these options.</p>
 
-                <section id="cell-sizes-columns">
-                    <h1 class="h3">4.1: When using columns</h1>
-                    <p>By adding a <span class="mono">.cell--{#}</span> class to a <span class="mono">.cell</span> element a percentual width can be applied to the cell. A <span class="mono">.cell--1</span> class means that the element will take up 1 cell out of a maximum of 12. An element with the <span class="mono">.cell--6</span> class will take up 6 cell spaces etc.</p>
+                <p>By adding a <span class="mono">.cell--{#}</span> class to a <span class="mono">.cell</span> element a percentual width can be applied to the cell. A <span class="mono">.cell--1</span> class means that the element will take up 1 cell out of a maximum of 12. An element with the <span class="mono">.cell--6</span> class will take up 6 cell spaces etc.</p>
 
-                    <div class="grid">
-                        <div class="cell cell--4">4</div>
-                        <div class="cell cell--2">2</div>
-                        <div class="cell cell--5">5</div>
-                        <div class="cell cell--1">1</div>
-                    </div>
+                <div class="grid">
+                    <div class="cell cell--4">4</div>
+                    <div class="cell cell--2">2</div>
+                    <div class="cell cell--5">5</div>
+                    <div class="cell cell--1">1</div>
+                </div>
 
-                    <p>By only applying a <span class="mono">.cell-#</span> to specific cells, a width can be set for these cells. The remaining cells will equaly divide the remaining space within the grid section automatically.</p>
+                <p>By only applying a <span class="mono">.cell-#</span> to specific cells, a width can be set for these cells. The remaining cells will equaly divide the remaining space within the grid section automatically.</p>
 
-                    <div class="grid">
-                        <div class="cell cell--6">6</div>
-                        <div class="cell">25%</div>
-                        <div class="cell">25%</div>
-                    </div>
-                </section>
-
-                <section id="cell-sizes-fractions">
-                    <h1 class="h3">4.2: When using fractions</h1>
-
-                    <p>When the grid style is set to <span class="mono">'fractions'</span> cell width can be defined by adding a <span class="mono">.cell--{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
-
-                    <p>A <span class="mono">.cell--2/3</span> class means that the element will take up two-thirds of the available space in the grid section. An element with the <span class="mono">.cell--1/2</span> class will take up one-half of the grid section, etc.</p>
-
-                    <p>By only applying a <span class="mono">.cell--{fraction}</span> to specific cells, a width can be set for these cells. The remaining cells will equaly divide the remaining space within the grid section automatically.</p>
-                </section>
+                <div class="grid">
+                    <div class="cell cell--6">6</div>
+                    <div class="cell">25%</div>
+                    <div class="cell">25%</div>
+                </div>
             </section>
         </article>
     </body>

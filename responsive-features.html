@@ -12,13 +12,14 @@
     <body>
         <header class="header">
             <div>
-                <h1>EZPZ Flexbox Grid</h1>
+                <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
 
                 <nav class="nav">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="index.html">Default features</a></li>
                         <li class="nav__item"><a href="optional-features.html">Optional features</a></li>
                         <li class="nav__item is-active"><a href="responsive-features.html">Responsive features</a></li>
+                        <li class="nav__item"><a href="fractions.html">Using fractions</a></li>
                     </ul>
                 </nav>
             </div>
@@ -31,19 +32,9 @@
             <div class="toc">
                 <ul class="toc__list">
                     <li class="toc__item">1: <a href="#grid-orientation">Changing the grid orientation</a></li>
-                    <li class="toc__item">2: <a href="#cell-sizes">Changing cell sizes</a>
-                        <ul class="toc__list">
-                            <li class="toc__item">2.1: <a href="#cell-sizes-columns">When using columns</a></li>
-                            <li class="toc__item">2.2: <a href="#cell-sizes-fractions">When using fractions</a></li>
-                        </ul>
-                    </li>
+                    <li class="toc__item">2: <a href="#cell-sizes">Changing cell sizes</a></li>
                     <li class="toc__item">3: <a href="#order">Changing cell order</a></li>
-                    <li class="toc__item">4: <a href="#offset">Changing cell offset</a>
-                        <ul>
-                            <li>4.1: <a href="#offset-columns">When using columns</a></li>
-                            <li>4.2: <a href="#offset-fractions">When using fractions</a></li>
-                        </ul>
-                    </li>
+                    <li class="toc__item">4: <a href="#offset">Changing cell offset</a></li>
                     <li class="toc__item">5: <a href="#alignment">Changing cell alignment</a>
                         <ul>
                             <li>5.1: <a href="#alignment-grid">For all cells within a grid section</a></li>
@@ -75,22 +66,12 @@
                 <h1 class="h2">2: Changing cell sizes</h1>
                 <p>There are two ways to force a certain size upon a cell, depending on the chosen grid type. This can either be <span class="mono">'columns'</span> or <span class="mono">'fractions'</span>. Different classes are used to achieve the desired width of the cell(s) for these options.</p>
 
-                <section id="cell-sizes-columns">
-                    <h1 class="h3">2.1 When using columns</h1>
+                <p>The size of specific cells can be altered from certain breakpoints and up by adding the <span class="mono">.cell--{breakpoint}-{#}</span> or <span class="mono">.cell--{breakpoint}-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
 
-                    <p>The size of specific cells can be altered from certain breakpoints and up by adding the <span class="mono">.cell--{breakpoint}-{#}</span> class to a <span class="mono">.cell</span> element.</p>
-
-                    <div class="grid">
-                        <div class="cell cell--small-4 cell--medium-8">a</div>
-                        <div class="cell cell--small-8 cell--medium-4">b</div>
-                    </div>
-                </section>
-
-                <section id="cell-sizes-fractions">
-                    <h1 class="h3">2.2 When using fractions</h1>
-
-                    <p>The size of specific cells can be altered from certain breakpoints and up by adding the <span class="mono">.cell--{breakpoint}-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
-                </section>
+                <div class="grid">
+                    <div class="cell cell--small-4 cell--medium-8">a</div>
+                    <div class="cell cell--small-8 cell--medium-4">b</div>
+                </div>
             </section>
 
             <section class="chapter" id="order">
@@ -111,22 +92,13 @@
                 <h1 class="h2">4: Changing cell offset</h1>
                 <p>There are two ways to force a certain offset upon a cell, depending on the chosen grid type. This can either be 'columns' or 'fractions'. Different classes are used to achieve the desired offset of the cell(s) for these options.</p>
 
-                <section id="offset-columns">
-                    <h1 class="h3">4.1: When using columns</h1>
-                    <p>In a column based grid, a cell can be offset by adding the <span class="mono">.cell--{breakpoint}-offset-{#}</span> class to a <span class="mono">.cell</span> element.</p>
+                <p>A cell can be offset by adding a <span class="mono">.cell--{breakpoint}-offset-{#}</span> or <span class="mono">.cell--{breakpoint}-offset-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
 
-                    <div class="grid">
-                        <div class="cell">a</div>
-                        <div class="cell cell--small-offset-3 cell--medium-offset-6">b</div>
-                        <div class="cell">c</div>
-                    </div>
-                </section>
-
-                <section id="offset-fractions">
-                    <h1 class="h3">4.2: When using fractions</h1>
-
-                    <p>In a fraction based grid, a cell can be offset by adding the <span class="mono">.cell--{breakpoint}-offset-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
-                </section>
+                <div class="grid">
+                    <div class="cell">a</div>
+                    <div class="cell cell--small-offset-3 cell--medium-offset-6">b</div>
+                    <div class="cell">c</div>
+                </div>
             </section>
 
             <section class="chapter" id="alignment">

@@ -101,6 +101,12 @@ h3,
 
 .header {
 	padding: 0 ($gutter / 2);
+
+	h1 {
+		a {
+			text-decoration: none;
+		}
+	}
 }
 
 .nav {
