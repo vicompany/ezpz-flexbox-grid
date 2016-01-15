@@ -293,5 +293,5 @@ The cells within the grid will both start out taking up half of the available sp
 [Avalanche CSS grid system](https://github.com/colourgarden/avalanche).
 * Multiple cross-browser issues have been resolved through the extremely helpful [Flexbugs](https://github.com/philipwalton/flexbugs) repository.
 * [A guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) by Chris Coyier has been a great resource throughout the development of the EZPZ grid.
-* Wes Bos' [What the Flexbox](http://flexbox.io) which re-ignited my interested in Flexbox.
+* Wes Bos' [What the Flexbox](http://flexbox.io) which re-ignited my interest in Flexbox.
 * The grid functionality in the example pages has been illustrated through the use of the [Ocean Five color pallete](http://www.colourlovers.com/palette/1473/Ocean_Five) by Designjunkee.
