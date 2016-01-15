@@ -6,6 +6,7 @@ A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a
 * [Default features](http://vicompany.github.io/ezpz-flexbox-grid/)
 * [Optional features](http://vicompany.github.io/ezpz-flexbox-grid/optional-features.html)
 * [Responsive features](http://vicompany.github.io/ezpz-flexbox-grid/responsive-features.html)
+* [Using fractions](http://vicompany.github.io/ezpz-flexbox-grid/fractions.html)
 
 ## Is this the grid for you? ##
 * Easy peasy to setup and use
