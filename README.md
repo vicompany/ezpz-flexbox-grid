@@ -289,10 +289,13 @@ In this example the grid will start out in a vertical layout but will change to 
 The cells within the grid will both start out taking up half of the available space in the grid section. As soon as the 'small' breakpoint is reached they will take up 4 and 8 columns. When the 'medium' breakpoint is reached they will be divided in a 10 and 2 column fashion.
 
 
-##Credits##
+## Credits ##
 * Variable namespacing and the .grid and .cell classes have been inspired by the
 [Avalanche CSS grid system](https://github.com/colourgarden/avalanche).
 * Multiple cross-browser issues have been resolved through the extremely helpful [Flexbugs](https://github.com/philipwalton/flexbugs) repository.
 * [A guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) by Chris Coyier has been a great resource throughout the development of the EZPZ grid.
 * Wes Bos' [What the Flexbox](http://flexbox.io) which re-ignited my interest in Flexbox.
 * The grid functionality in the example pages has been illustrated through the use of the [Ocean Five color pallete](http://www.colourlovers.com/palette/1473/Ocean_Five) by Designjunkee.
+
+## License ##
+The EZPZ Flexbox Grid is licensed under the [MIT License](https://github.com/vicompany/ezpz-flexbox-grid/blob/master/LICENSE).
