@@ -164,7 +164,45 @@ h3,
       background: #EB6841; }
   .example-flex-grid .grid--collapsed .cell:before, .example-flex-grid .grid--collapsed .cell:after {
     display: none; }
-  .example-flex-grid [class*='-expanded'] .cell:before, .example-flex-grid [class*='-expanded'] .cell:after {
-    display: block; }
+  @media (min-width: 25rem) {
+    .example-flex-grid .grid--tiny-collapsed .cell:before, .example-flex-grid .grid--tiny-collapsed .cell:after {
+      display: none; }
+    .example-flex-grid .grid--tiny-expanded .cell:before, .example-flex-grid .grid--tiny-expanded .cell:after {
+      display: block; } }
+  @media (min-width: 37.5rem) {
+    .example-flex-grid .grid--small-collapsed .cell:before, .example-flex-grid .grid--small-collapsed .cell:after {
+      display: none; }
+    .example-flex-grid .grid--small-expanded .cell:before, .example-flex-grid .grid--small-expanded .cell:after {
+      display: block; } }
+  @media (min-width: 60rem) {
+    .example-flex-grid .grid--medium-collapsed .cell:before, .example-flex-grid .grid--medium-collapsed .cell:after {
+      display: none; }
+    .example-flex-grid .grid--medium-expanded .cell:before, .example-flex-grid .grid--medium-expanded .cell:after {
+      display: block; } }
+  @media (min-width: 90rem) {
+    .example-flex-grid .grid--large-collapsed .cell:before, .example-flex-grid .grid--large-collapsed .cell:after {
+      display: none; }
+    .example-flex-grid .grid--large-expanded .cell:before, .example-flex-grid .grid--large-expanded .cell:after {
+      display: block; } }
   .example-flex-grid .cell--collapsed:before, .example-flex-grid .cell--collapsed:after {
     display: none; }
+  @media (min-width: 25rem) {
+    .example-flex-grid .cell--tiny-collapsed:before, .example-flex-grid .cell--tiny-collapsed:after {
+      display: none; }
+    .example-flex-grid .cell--tiny-expanded:before, .example-flex-grid .cell--tiny-expanded:after {
+      display: block; } }
+  @media (min-width: 37.5rem) {
+    .example-flex-grid .cell--small-collapsed:before, .example-flex-grid .cell--small-collapsed:after {
+      display: none; }
+    .example-flex-grid .cell--small-expanded:before, .example-flex-grid .cell--small-expanded:after {
+      display: block; } }
+  @media (min-width: 60rem) {
+    .example-flex-grid .cell--medium-collapsed:before, .example-flex-grid .cell--medium-collapsed:after {
+      display: none; }
+    .example-flex-grid .cell--medium-expanded:before, .example-flex-grid .cell--medium-expanded:after {
+      display: block; } }
+  @media (min-width: 90rem) {
+    .example-flex-grid .cell--large-collapsed:before, .example-flex-grid .cell--large-collapsed:after {
+      display: none; }
+    .example-flex-grid .cell--large-expanded:before, .example-flex-grid .cell--large-expanded:after {
+      display: block; } }

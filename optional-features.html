@@ -205,11 +205,11 @@
                     <h1 class="h3">5.2: For specific cells</h1>
                     <p>Sometimes it might be preferable to disable the gutters of a specific cell instead of all cells. This can be achieved by adding the <span class="mono">.cell--collapsed</span> class to a <span class="mono">.cell</span> element.</p>
 
-                    <p>Please note that this ONLY WORKS when combined with a specific <span class="mono">.cell--{#}</span> or <span class="mono">.cell--{fraction}</span> class (<a href="/default-features.html">see default features</a>). Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
+                    <p>Please note that this ONLY WORKS when combined with a specific <span class="mono">.cell--{#}</span> or <span class="mono">.cell--{fraction}</span> class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
 
                     <div class="grid">
                         <div class="cell">25%</div>
-                        <div class="cell">25%</div>
+                        <div class="cell cell--3 cell--collapsed">25%</div>
                         <div class="cell cell--3 cell--collapsed">25%</div>
                         <div class="cell">25%</div>
                     </div>

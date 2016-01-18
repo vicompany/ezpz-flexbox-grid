@@ -1,6 +1,12 @@
 @charset 'utf-8';
 
 $gutter: 1rem;
+$breakpoints: 	(
+					'tiny':		25rem,
+					'small':	37.5rem,
+					'medium':	60rem,
+					'large':	90rem
+				) !default;
 
 /* Example colors - Only used to highlight columns, do not use in production
    ========================================================================== */
@@ -290,19 +296,52 @@ h3,
 		}
 	}
 
-	[class*='-expanded'] {
-		.cell {
-			&:before,
-			&:after {
-				display: block;
+	// Create aditional classes for breakpoints
+	@each $breakpoint, $size in $breakpoints {
+		@media (min-width: $size) {
+			.grid--#{$breakpoint}-collapsed {
+				.cell {
+					&:before,
+					&:after {
+						display: none;
+					}
+				}
+			}
+
+			.grid--#{$breakpoint}-expanded {
+				.cell {
+					&:before,
+					&:after {
+						display: block;
+					}
+				}
 			}
 		}
 	}
 
+	// Remove gutter indications from specific cells
 	.cell--collapsed {
 		&:before,
 		&:after {
 			display: none;
+		}
+	}
+
+	@each $breakpoint, $size in $breakpoints {
+		@media (min-width: $size) {
+			.cell--#{$breakpoint}-collapsed {
+				&:before,
+				&:after {
+					display: none;
+				}
+			}
+
+			.cell--#{$breakpoint}-expanded {
+				&:before,
+				&:after {
+					display: block;
+				}
+			}
 		}
 	}
 }

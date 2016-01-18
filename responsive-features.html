@@ -167,10 +167,12 @@
 
                     <p>Gutters for specific cells within a grid section can be collapsed or expanded by adding the <span class="mono">.cell--{breakpoint]-collapsed</span> and <span class="mono">.cell--{breakpoint}-expanded</span> classes to the <span class="mono">.cell</span> element.</p>
 
+                    <p>Please note that this ONLY WORKS when combined with a specific .cell--{#} or .cell--{fraction} class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
+
                     <div class="grid">
                         <div class="cell">a</div>
-                        <div class="cell cell--collapsed cell--small-expanded cell--medium-collapsed">b</div>
-                        <div class="cell cell--collapsed cell--small-expanded cell--medium-collapsed">c</div>
+                        <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">b</div>
+                        <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">c</div>
                         <div class="cell">d</div>
                     </div>
                 </section>
