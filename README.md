@@ -2,7 +2,7 @@
 A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation. By [Sven Sigmond](https://www.vicompany.nl/vi-company/sven-sigmond
 ) – ([VI Company](http://www.vicompany.nl))
 
-## Examples ##
+## Demo ##
 * [Default features](http://vicompany.github.io/ezpz-flexbox-grid/)
 * [Optional features](http://vicompany.github.io/ezpz-flexbox-grid/optional-features.html)
 * [Responsive features](http://vicompany.github.io/ezpz-flexbox-grid/responsive-features.html)
