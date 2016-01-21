@@ -136,7 +136,7 @@ h3,
       display: block;
       position: absolute;
       left: 0;
-      background-color: rgba(35, 35, 35, 0.15); }
+      background-color: rgba(255, 255, 255, 0.4); }
     .example-flex-grid .cell:after {
       content: '';
       width: 0.5rem;
@@ -145,7 +145,7 @@ h3,
       position: absolute;
       top: 0;
       right: 0;
-      background-color: rgba(35, 35, 35, 0.15); }
+      background-color: rgba(255, 255, 255, 0.4); }
     .example-flex-grid .cell > .grid > .cell:nth-child(1) {
       background: #CC333F; }
     .example-flex-grid .cell > .grid > .cell:nth-child(2) {
