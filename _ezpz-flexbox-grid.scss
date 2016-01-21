@@ -59,7 +59,7 @@ $ezpz-gutter-collapse:			false !default;
 		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
 		flex-grow: 1;
 		flex-shrink: 1;
-		flex-basis: 0;
+		flex-basis: 0%;
 
 		padding: 0 ($ezpz-gutter / 2);
 	}
@@ -196,10 +196,18 @@ $ezpz-gutter-collapse:			false !default;
 @if $ezpz-grid-wrap {
 	.#{$ezpz-namespace}--wrap {
 		flex-wrap: wrap;
+
+		> .cell {
+			flex-basis: auto;
+		}
 	}
 
 	.#{$ezpz-namespace}--wrap-reverse {
 		flex-wrap: wrap-reverse;
+
+		> .cell {
+			flex-basis: auto;
+		}
 	}
 }
 
