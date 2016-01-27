@@ -24,6 +24,13 @@ The aim of the EZPZ Flexbox Grid is to offer an easy to use grid system that tak
 
 Unfortunately, legacy browsers like IE9 and below do not support the flexbox syntax and won't be able to use these properties. To maintain simplicity, reduce code bloat and in the light of [Microsoft's decision to stop support for IE10 and below](https://www.microsoft.com/en-us/WindowsForBusiness/End-of-IE-support), the decision has been made to not support older browsers.
 
+## Installation ##
+The EZPZ Flexbox Grid can be installed by importing the .SCSS file to your project and compiling your CSS. This can be achieved by manually downloading it from Github or using NPM to install the grid.
+
+### NPM ###
+```
+npm install ezpz-grid
+```
 
 ## Settings ##
 These variables control the generation CSS for the EZPZ grid and can be set to your own preferred values.
