@@ -47,6 +47,8 @@ $ezpz-gutter-collapse:			false !default;
 	flex-direction: row;
 	box-sizing: border-box;
 	display: flex;
+	margin-right: -($ezpz-gutter / 2);
+	margin-left: -($ezpz-gutter / 2);
 
 	> .cell {
 		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
