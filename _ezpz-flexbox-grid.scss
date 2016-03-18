@@ -249,6 +249,11 @@ $ezpz-gutter-collapse:			false !default;
 					@each $key, $val in $fraction {
 						$class-name: $key + '\\/' + $val;
 
+						> .cell--#{$breakpoint}-1 {
+							flex: 0 0 auto;
+							width: 100%;
+						}
+
 						> .cell--#{$breakpoint}-#{$class-name} {
 							flex: 0 0 auto;
 							width: percentage($key / $val);
