@@ -2,6 +2,7 @@
    EZPZ FLEXBOX GRID by Sven Sigmond - (VI Company) http://vicompany.nl
    ========================================================================== */
 
+
 /* Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
    ========================================================================== */
 $ezpz-namespace:				'grid' !default;
@@ -43,23 +44,25 @@ $ezpz-gutter-collapse:			false !default;
    ========================================================================== */
 
 .#{$ezpz-namespace} {
-	box-sizing: border-box;
-
-	display: flex;
 	flex-direction: row;
+	box-sizing: border-box;
+	display: flex;
+
+	margin-right: -($ezpz-gutter / 2);
+	margin-left: -($ezpz-gutter / 2);
 
 	> .cell {
-		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
-		display: flex;
-
-		flex-direction: column;
-		box-sizing: border-box;
-
 		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
 		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
+		flex-basis: 0%;
+		flex-direction: column;
 		flex-grow: 1;
 		flex-shrink: 1;
-		flex-basis: 0%;
+
+		box-sizing: border-box;
+
+		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
+		display: flex;
 
 		padding: 0 ($ezpz-gutter / 2);
 
@@ -259,9 +262,9 @@ $ezpz-gutter-collapse:			false !default;
 
 		@each $fraction in $ezpz-fractions {
 			@each $key, $val in $fraction {
-				$className: $key + '\\/' + $val;
+				$class-name: $key + '\\/' + $val;
 
-				> .cell--#{$className} {
+				> .cell--#{$class-name} {
 					flex: 0 0 auto;
 					width: percentage($key / $val);
 				}
@@ -273,9 +276,9 @@ $ezpz-gutter-collapse:			false !default;
 			@media (min-width: $size) {
 				@each $fraction in $ezpz-fractions {
 					@each $key, $val in $fraction {
-						$className: $key + '\\/' + $val;
+						$class-name: $key + '\\/' + $val;
 
-						> .cell--#{$breakpoint}-#{$className} {
+						> .cell--#{$breakpoint}-#{$class-name} {
 							flex: 0 0 auto;
 							width: percentage($key / $val);
 						}
@@ -286,14 +289,14 @@ $ezpz-gutter-collapse:			false !default;
 	}
 	// Throw error when no, or an invalid grid type has been set.
 	@else {
-		@error "Make sure to set $ezpz-grid-type to 'columns' or 'fractions'";
+		@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
 	}
 }
 
 
 /* Cell order (order is 0 by default)
    ========================================================================== */
-@mixin createCellOrderClasses($cell-amount) {
+@mixin create-cell-order-classes($cell-amount) {
 	.#{$ezpz-namespace} {
 		// Useful for pulling a single column to the front of the row
 		> .cell--order-start {
@@ -336,17 +339,17 @@ $ezpz-gutter-collapse:			false !default;
 @if $ezpz-cell-order {
 	// Generate the order classes for a column based grid
 	@if($ezpz-grid-type == 'columns') {
-		@include createCellOrderClasses($ezpz-columns);
+		@include create-cell-order-classes($ezpz-columns);
 	}
 	// Generate the order classes for a fraction based grid
 	@else if($ezpz-grid-type == 'fractions') {
-		@include createCellOrderClasses(
+		@include create-cell-order-classes(
 			length($ezpz-fractions)
 		);
 	}
 	// Throw error when no, or an invalid grid type has been set.
 	@else {
-		@error "Make sure to set $ezpz-grid-type to 'columns' or 'fractions'";
+		@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
 	}
 }
 
@@ -388,9 +391,9 @@ $ezpz-gutter-collapse:			false !default;
 
 			@each $fraction in $ezpz-fractions {
 				@each $key, $val in $fraction {
-					$className: $key + '\\/' + $val;
+					$class-name: $key + '\\/' + $val;
 
-					> .cell--offset-#{$className} {
+					> .cell--offset-#{$class-name} {
 						margin-left: percentage($key / $val);
 					}
 				}
@@ -409,9 +412,9 @@ $ezpz-gutter-collapse:			false !default;
 
 					@each $fraction in $ezpz-fractions {
 						@each $key, $val in $fraction {
-							$className: $key + '\\/' + $val;
+							$class-name: $key + '\\/' + $val;
 
-							> .cell--#{$breakpoint}-offset-#{$className} {
+							> .cell--#{$breakpoint}-offset-#{$class-name} {
 								margin-left: percentage($key / $val);
 							}
 						}
@@ -421,7 +424,7 @@ $ezpz-gutter-collapse:			false !default;
 		}
 		// Throw error when no, or an invalid grid type has been set.
 		@else {
-			@error "Make sure to set $ezpz-grid-type to 'columns' or 'fractions'";
+			@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
 		}
 	}
 }
