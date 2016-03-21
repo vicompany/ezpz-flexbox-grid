@@ -54,7 +54,6 @@ $ezpz-gutter-collapse:			false !default;
 
 		flex-direction: column;
 		box-sizing: border-box;
-		justify-content: center;
 
 		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
 		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
