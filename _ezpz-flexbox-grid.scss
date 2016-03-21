@@ -36,10 +36,6 @@ $ezpz-cell-align:				false !default;
 $ezpz-gutter-collapse:			false !default;
 
 
-
-
-
-
 /* Grid generator - !!!DO NOT EDIT OR REMOVE ANTHING BELOW THIS LINE!!!
    ========================================================================== */
 
@@ -53,7 +49,12 @@ $ezpz-gutter-collapse:			false !default;
 	flex-direction: row;
 
 	> .cell {
+		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
+		display: flex;
+
+		flex-direction: column;
 		box-sizing: border-box;
+		justify-content: center;
 
 		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
 		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
@@ -62,6 +63,12 @@ $ezpz-gutter-collapse:			false !default;
 		flex-basis: 0%;
 
 		padding: 0 ($ezpz-gutter / 2);
+
+		> * {
+			// All direct child elements within a cell try to use up the maximum (and same) amount of available space
+			flex-grow: 1;
+			min-width: 100%;
+		}
 	}
 }
 
@@ -122,6 +129,10 @@ $ezpz-gutter-collapse:			false !default;
 		align-items: center;
 	}
 
+	.#{$ezpz-namespace}--align-stretch {
+		align-items: stretch;
+	}
+
 	// Create aditional classes for breakpoints
 	@each $breakpoint, $size in $ezpz-breakpoints {
 		@media (min-width: $size) {
@@ -135,6 +146,10 @@ $ezpz-gutter-collapse:			false !default;
 
 			.#{$ezpz-namespace}--#{$breakpoint}-align-center {
 				align-items: center;
+			}
+
+			.#{$ezpz-namespace}--#{$breakpoint}-align-stretch {
+				align-items: stretch;
 			}
 		}
 	}
