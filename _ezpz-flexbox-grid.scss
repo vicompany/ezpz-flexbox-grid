@@ -2,7 +2,6 @@
    EZPZ FLEXBOX GRID by Sven Sigmond - (VI Company) http://vicompany.nl
    ========================================================================== */
 
-
 /* Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
    ========================================================================== */
 $ezpz-namespace:				'grid' !default;
@@ -44,24 +43,31 @@ $ezpz-gutter-collapse:			false !default;
    ========================================================================== */
 
 .#{$ezpz-namespace} {
-	flex-direction: row;
 	box-sizing: border-box;
+
 	display: flex;
-	margin-right: -($ezpz-gutter / 2);
-	margin-left: -($ezpz-gutter / 2);
+	flex-direction: row;
 
 	> .cell {
+		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
+		display: flex;
+
+		flex-direction: column;
+		box-sizing: border-box;
+		justify-content: center;
+
 		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
 		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
-		flex-basis: 0%;
 		flex-grow: 1;
 		flex-shrink: 1;
+		flex-basis: 0%;
 
-		box-sizing: border-box;
 		padding: 0 ($ezpz-gutter / 2);
 
-		.#{$ezpz-namespace} {
-			margin: 0 (-$ezpz-gutter / 2);
+		> * {
+			// All direct child elements within a cell try to use up the maximum (and same) amount of available space
+			flex-grow: 1;
+			min-width: 100%;
 		}
 	}
 }
@@ -97,6 +103,17 @@ $ezpz-gutter-collapse:			false !default;
 }
 
 
+/* Nested grid sections
+   ========================================================================== */
+.#{$ezpz-namespace} {
+	> .cell {
+		.#{$ezpz-namespace} {
+			margin: 0 (-$ezpz-gutter / 2);
+		}
+	}
+}
+
+
 /* Alignment of all cells within a grid section
    ========================================================================== */
 @if $ezpz-grid-align {
@@ -112,6 +129,10 @@ $ezpz-gutter-collapse:			false !default;
 		align-items: center;
 	}
 
+	.#{$ezpz-namespace}--align-stretch {
+		align-items: stretch;
+	}
+
 	// Create aditional classes for breakpoints
 	@each $breakpoint, $size in $ezpz-breakpoints {
 		@media (min-width: $size) {
@@ -125,6 +146,10 @@ $ezpz-gutter-collapse:			false !default;
 
 			.#{$ezpz-namespace}--#{$breakpoint}-align-center {
 				align-items: center;
+			}
+
+			.#{$ezpz-namespace}--#{$breakpoint}-align-stretch {
+				align-items: stretch;
 			}
 		}
 	}
@@ -235,9 +260,9 @@ $ezpz-gutter-collapse:			false !default;
 
 		@each $fraction in $ezpz-fractions {
 			@each $key, $val in $fraction {
-				$class-name: $key + '\\/' + $val;
+				$className: $key + '\\/' + $val;
 
-				> .cell--#{$class-name} {
+				> .cell--#{$className} {
 					flex: 0 0 auto;
 					width: percentage($key / $val);
 				}
@@ -249,14 +274,9 @@ $ezpz-gutter-collapse:			false !default;
 			@media (min-width: $size) {
 				@each $fraction in $ezpz-fractions {
 					@each $key, $val in $fraction {
-						$class-name: $key + '\\/' + $val;
+						$className: $key + '\\/' + $val;
 
-						> .cell--#{$breakpoint}-1 {
-							flex: 0 0 auto;
-							width: 100%;
-						}
-
-						> .cell--#{$breakpoint}-#{$class-name} {
+						> .cell--#{$breakpoint}-#{$className} {
 							flex: 0 0 auto;
 							width: percentage($key / $val);
 						}
@@ -267,14 +287,14 @@ $ezpz-gutter-collapse:			false !default;
 	}
 	// Throw error when no, or an invalid grid type has been set.
 	@else {
-		@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
+		@error "Make sure to set $ezpz-grid-type to 'columns' or 'fractions'";
 	}
 }
 
 
 /* Cell order (order is 0 by default)
    ========================================================================== */
-@mixin create-cell-order-classes($cell-amount) {
+@mixin createCellOrderClasses($cell-amount) {
 	.#{$ezpz-namespace} {
 		// Useful for pulling a single column to the front of the row
 		> .cell--order-start {
@@ -317,17 +337,17 @@ $ezpz-gutter-collapse:			false !default;
 @if $ezpz-cell-order {
 	// Generate the order classes for a column based grid
 	@if($ezpz-grid-type == 'columns') {
-		@include create-cell-order-classes($ezpz-columns);
+		@include createCellOrderClasses($ezpz-columns);
 	}
 	// Generate the order classes for a fraction based grid
 	@else if($ezpz-grid-type == 'fractions') {
-		@include create-cell-order-classes(
+		@include createCellOrderClasses(
 			length($ezpz-fractions)
 		);
 	}
 	// Throw error when no, or an invalid grid type has been set.
 	@else {
-		@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
+		@error "Make sure to set $ezpz-grid-type to 'columns' or 'fractions'";
 	}
 }
 
@@ -369,9 +389,9 @@ $ezpz-gutter-collapse:			false !default;
 
 			@each $fraction in $ezpz-fractions {
 				@each $key, $val in $fraction {
-					$class-name: $key + '\\/' + $val;
+					$className: $key + '\\/' + $val;
 
-					> .cell--offset-#{$class-name} {
+					> .cell--offset-#{$className} {
 						margin-left: percentage($key / $val);
 					}
 				}
@@ -390,9 +410,9 @@ $ezpz-gutter-collapse:			false !default;
 
 					@each $fraction in $ezpz-fractions {
 						@each $key, $val in $fraction {
-							$class-name: $key + '\\/' + $val;
+							$className: $key + '\\/' + $val;
 
-							> .cell--#{$breakpoint}-offset-#{$class-name} {
+							> .cell--#{$breakpoint}-offset-#{$className} {
 								margin-left: percentage($key / $val);
 							}
 						}
@@ -402,7 +422,7 @@ $ezpz-gutter-collapse:			false !default;
 		}
 		// Throw error when no, or an invalid grid type has been set.
 		@else {
-			@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
+			@error "Make sure to set $ezpz-grid-type to 'columns' or 'fractions'";
 		}
 	}
 }
