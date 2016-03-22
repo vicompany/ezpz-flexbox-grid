@@ -8,30 +8,32 @@
 /* Basic grid behaviour
    ========================================================================== */
 .grid {
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   box-sizing: border-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row; }
+  margin-right: -0.5rem;
+  margin-left: -0.5rem; }
   .grid > .cell {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-flex-basis: 0%;
+        -ms-flex-preferred-size: 0%;
+            flex-basis: 0%;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    box-sizing: border-box;
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
     -webkit-flex-shrink: 1;
         -ms-flex-negative: 1;
             flex-shrink: 1;
-    -webkit-flex-basis: 0%;
-        -ms-flex-preferred-size: 0%;
-            flex-basis: 0%;
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     padding: 0 0.5rem; }
     .grid > .cell > * {
       -webkit-flex-grow: 1;
@@ -320,26 +322,51 @@
   width: 75%; }
 
 @media (min-width: 25rem) {
+  .grid > .cell--tiny-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--tiny-1\/2 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 50%; }
+  .grid > .cell--tiny-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--tiny-1\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 33.33333%; }
+  .grid > .cell--tiny-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--tiny-2\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 66.66667%; }
+  .grid > .cell--tiny-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--tiny-1\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 25%; }
+  .grid > .cell--tiny-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--tiny-3\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
@@ -347,26 +374,51 @@
     width: 75%; } }
 
 @media (min-width: 37.5rem) {
+  .grid > .cell--small-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--small-1\/2 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 50%; }
+  .grid > .cell--small-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--small-1\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 33.33333%; }
+  .grid > .cell--small-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--small-2\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 66.66667%; }
+  .grid > .cell--small-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--small-1\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 25%; }
+  .grid > .cell--small-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--small-3\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
@@ -374,26 +426,51 @@
     width: 75%; } }
 
 @media (min-width: 60rem) {
+  .grid > .cell--medium-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--medium-1\/2 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 50%; }
+  .grid > .cell--medium-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--medium-1\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 33.33333%; }
+  .grid > .cell--medium-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--medium-2\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 66.66667%; }
+  .grid > .cell--medium-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--medium-1\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 25%; }
+  .grid > .cell--medium-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--medium-3\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
@@ -401,26 +478,51 @@
     width: 75%; } }
 
 @media (min-width: 90rem) {
+  .grid > .cell--large-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--large-1\/2 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 50%; }
+  .grid > .cell--large-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--large-1\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 33.33333%; }
+  .grid > .cell--large-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--large-2\/3 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 66.66667%; }
+  .grid > .cell--large-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--large-1\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     width: 25%; }
+  .grid > .cell--large-1 {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: 100%; }
   .grid > .cell--large-3\/4 {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
@@ -700,7 +802,11 @@
   .grid > .cell--tiny-align-center {
     -webkit-align-self: center;
         -ms-flex-item-align: center;
-            align-self: center; } }
+            align-self: center; }
+  .grid > .cell--tiny-align-stretch {
+    -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+            align-self: stretch; } }
 
 @media (min-width: 37.5rem) {
   .grid > .cell--small-align-start {
@@ -714,7 +820,11 @@
   .grid > .cell--small-align-center {
     -webkit-align-self: center;
         -ms-flex-item-align: center;
-            align-self: center; } }
+            align-self: center; }
+  .grid > .cell--small-align-stretch {
+    -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+            align-self: stretch; } }
 
 @media (min-width: 60rem) {
   .grid > .cell--medium-align-start {
@@ -728,7 +838,11 @@
   .grid > .cell--medium-align-center {
     -webkit-align-self: center;
         -ms-flex-item-align: center;
-            align-self: center; } }
+            align-self: center; }
+  .grid > .cell--medium-align-stretch {
+    -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+            align-self: stretch; } }
 
 @media (min-width: 90rem) {
   .grid > .cell--large-align-start {
@@ -742,4 +856,8 @@
   .grid > .cell--large-align-center {
     -webkit-align-self: center;
         -ms-flex-item-align: center;
-            align-self: center; } }
+            align-self: center; }
+  .grid > .cell--large-align-stretch {
+    -webkit-align-self: stretch;
+        -ms-flex-item-align: stretch;
+            align-self: stretch; } }
