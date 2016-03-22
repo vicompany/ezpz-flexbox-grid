@@ -34,12 +34,12 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    max-width: 100%;
     padding: 0 0.5rem; }
     .grid > .cell > * {
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
-              flex-grow: 1;
-      min-width: 100%; }
+              flex-grow: 1; }
 
 .grid--vertical {
   -webkit-flex-direction: column;
