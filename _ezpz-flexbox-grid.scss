@@ -63,12 +63,12 @@ $ezpz-gutter-collapse:			false !default;
 		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
 		display: flex;
 
+		max-width: 100%;
 		padding: 0 ($ezpz-gutter / 2);
 
 		> * {
 			// All direct child elements within a cell try to use up the maximum (and same) amount of available space
 			flex-grow: 1;
-			min-width: 100%;
 		}
 	}
 }
