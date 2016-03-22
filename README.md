@@ -193,9 +193,8 @@ Content within the grid can be divided and positioned through the use of element
 
 ```
 .cell
-
 ```
-Turns an element into a cell within a grid section. Cell elements have to be direct descendants of a grid element. This is a **mandatory class** for each cell, but can be used in conjunction with modifier classes.
+Turns an element into a cell within a grid section. Cell elements have to be direct descendants of a grid element. This is a **mandatory class** for each cell, but can be used in conjunction with modifier classes. By default direct child elements placed within a cell will try to take up the same height as the cell itself. This behaviour can be changed by using the various alignment classes.
 
 ```
 .cell--{#}
@@ -262,6 +261,7 @@ The following classes can be altered by adding a breakpoint at the specified pos
 .grid--{breakpoint}-align-start
 .grid--{breakpoint}-align-end
 .grid--{breakpoint}-align-center
+.grid--{breakpoint}-align-stretch
 
 .grid--{breakpoint}-collapsed
 .grid--{breakpoint}-expanded
@@ -279,6 +279,7 @@ The following classes can be altered by adding a breakpoint at the specified pos
 .cell--{breakpoint}-align-start
 .cell--{breakpoint}-align-end
 .cell--{breakpoint}-align-center
+.cell--{breakpoint}-align-stretch
 
 .cell--{breakpoint}-collapsed
 .cell--{breakpoint}-expanded
