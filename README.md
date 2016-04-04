@@ -185,6 +185,11 @@ Forces cells to wrap to a new line if there is no more space to house them in th
 ```
 Forces cells to wrap to a previous line if there is no more space to house them in the grid section. Wrapping cell are placed above the other cells in the section.
 
+```
+.grid--{breakpoint}-nowrap
+```
+Grid sections that have been previously set to wrap will no longer wrap from this breakpoint and up.
+
 
 ### Cell classes ###
 Content within the grid can be divided and positioned through the use of elements with a .cell class which have to be directed desendants of a .grid element. Different behaviour can be assigned to these cells through the use of the classes below.
