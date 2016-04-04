@@ -225,6 +225,15 @@ $ezpz-gutter-collapse:			false !default;
 			flex-basis: auto;
 		}
 	}
+
+	// Create aditional classes for breakpoints to disable wrapping
+	@each $breakpoint, $size in $ezpz-breakpoints {
+		@media (min-width: $size) {
+			.#{$ezpz-namespace}--#{$breakpoint}-nowrap {
+				flex-wrap: nowrap;
+			}
+		}
+	}
 }
 
 
