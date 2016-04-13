@@ -1,26 +1,29 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'start' ]
+1 verbose cli   'version',
+1 verbose cli   'minor' ]
 2 info using npm@3.3.12
 3 info using node@v5.3.0
-4 verbose stack Error: missing script: start
-4 verbose stack     at run (C:\Program Files\nodejs\node_modules\npm\lib\run-script.js:147:19)
-4 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\run-script.js:57:5
-4 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:345:5
-4 verbose stack     at checkBinReferences_ (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:309:45)
-4 verbose stack     at final (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:343:3)
-4 verbose stack     at then (C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:113:5)
-4 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-package-json\read-json.js:232:12
-4 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:76:16
-4 verbose stack     at tryToString (fs.js:414:3)
-4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:401:12)
-5 verbose cwd C:\vicompany\development\ezpz-flexbox-grid
-6 error Windows_NT 10.0.10240
-7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-8 error node v5.3.0
-9 error npm  v3.3.12
-10 error missing script: start
-11 error If you need help, you may report this error at:
-11 error     <https://github.com/npm/npm/issues>
-12 verbose exit [ 1, true ]
+4 info git [ 'status', '--porcelain' ]
+5 verbose stack Error: Git working directory not clean.
+5 verbose stack D npm-debug.log
+5 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\version.js:172:21
+5 verbose stack     at ChildProcess.exithandler (child_process.js:204:7)
+5 verbose stack     at emitTwo (events.js:87:13)
+5 verbose stack     at ChildProcess.emit (events.js:172:7)
+5 verbose stack     at maybeClose (internal/child_process.js:818:16)
+5 verbose stack     at Socket.<anonymous> (internal/child_process.js:319:11)
+5 verbose stack     at emitOne (events.js:77:13)
+5 verbose stack     at Socket.emit (events.js:169:7)
+5 verbose stack     at Pipe._onclose (net.js:469:12)
+6 verbose cwd C:\vicompany\development\ezpz-flexbox-grid
+7 error Windows_NT 10.0.10240
+8 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "version" "minor"
+9 error node v5.3.0
+10 error npm  v3.3.12
+11 error Git working directory not clean.
+11 error D npm-debug.log
+12 error If you need help, you may report this error at:
+12 error     <https://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]

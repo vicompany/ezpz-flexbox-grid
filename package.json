@@ -5,6 +5,9 @@
   "main": "_ezpz-flexbox-grid.scss",
   "author": "Sven Sigmond - VI Company",
   "license": "MIT",
+  "scripts": {
+    "postversion": "git push && git push --tags"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/vicompany/ezpz-flexbox-grid.git"
