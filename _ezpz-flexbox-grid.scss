@@ -102,40 +102,53 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Alignment of all cells within a grid section
 // ==========================================================================
-@if $ezpz-grid-align {
-	#{$ezpz-namespace}--align-start {
-		align-items: flex-start;
-	}
+@mixin grid-align-properties($breakpoint: null) {
+	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
 
-	#{$ezpz-namespace}--align-end {
-		align-items: flex-end;
-	}
+	@if $ezpz-grid-align {
+		&#{$breakpoint}align-start {
+			align-items: flex-start;
+		}
 
-	#{$ezpz-namespace}--align-center {
-		align-items: center;
-	}
+		&#{$breakpoint}align-end {
+			align-items: flex-end;
+		}
 
-	#{$ezpz-namespace}--align-stretch {
-		align-items: stretch;
+		&#{$breakpoint}align-center {
+			align-items: center;
+		}
+
+		&#{$breakpoint}align-stretch {
+			align-items: stretch;
+		}
 	}
 }
 
+
 // Grid section with automatically wrapping cells
 // ==========================================================================
-@if $ezpz-grid-wrap {
-	#{$ezpz-namespace}--wrap {
-		flex-wrap: wrap;
+@mixin grid-wrap-properties($breakpoint: null) {
+	@if $ezpz-grid-wrap {
+		@if $breakpoint {
+			&--#{$breakpoint}-nowrap {
+				flex-wrap: nowrap;
+			}
+		} @else {
+			&--wrap {
+				flex-wrap: wrap;
 
-		> .cell {
-			flex-basis: auto;
-		}
-	}
+				> .cell {
+					flex-basis: auto;
+				}
+			}
 
-	#{$ezpz-namespace}--wrap-reverse {
-		flex-wrap: wrap-reverse;
+			&--wrap-reverse {
+				flex-wrap: wrap-reverse;
 
-		> .cell {
-			flex-basis: auto;
+				> .cell {
+					flex-basis: auto;
+				}
+			}
 		}
 	}
 }
@@ -143,22 +156,26 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Cell order (order is 0 by default)
 // ==========================================================================
-@if $ezpz-cell-order {
-	#{$ezpz-namespace} {
-		// Useful for pulling a single column to the front of the row
-		> .cell--order-start {
-			order: -1;
-		}
+@mixin cell-order-properties($breakpoint: null) {
+	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
 
-		// Useful for pushing a single column to the end of the row
-		> .cell--order-end {
-			order: $total-cells;
-		}
+	@if $ezpz-cell-order {
+		& > .cell#{$breakpoint}order {
+			// Useful for pulling a single column to the front of the row
+			&-start {
+				order: -1;
+			}
 
-		// Create offset classes used to control cell order
-		@for $i from 1 through $total-cells {
-			> .cell--order-#{$i} {
-				order: $i - 1;
+			// Useful for pushing a single column to the end of the row
+			&-end {
+				order: $total-cells;
+			}
+
+			// Create offset classes used to control cell order
+			@for $i from 1 through $total-cells {
+				&-#{$i} {
+					order: $i - 1;
+				}
 			}
 		}
 	}
@@ -205,36 +222,58 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Alignment of individual cells
 // ==========================================================================
-@if $ezpz-cell-align {
-	#{$ezpz-namespace} {
-		> .cell--align-start {
-			align-self: flex-start;
-		}
+@mixin cell-align-properties($breakpoint: null) {
+	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
 
-		> .cell--align-end {
-			align-self: flex-end;
-		}
+	@if $ezpz-cell-align {
+		& > .cell#{$breakpoint}align {
+			&-start {
+				align-self: flex-start;
+			}
 
-		> .cell--align-center {
-			align-self: center;
+			&-end {
+				align-self: flex-end;
+			}
+
+			&-center {
+				align-self: center;
+			}
+
+			&-stretch {
+				align-self: stretch;
+			}
 		}
 	}
 }
 
 // Grid or cell without gutters
 // ==========================================================================
-@if $ezpz-gutter-collapse {
-	// Specific cell without gutters
-	#{$ezpz-namespace} {
-		> .cell--collapsed {
-			padding: 0;
-		}
-	}
+@mixin gutter-collapse-properties($breakpoint: null) {
+	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
 
-	// Grid where none of the cells have gutters
-	#{$ezpz-namespace}--collapsed {
-		> .cell {
-			padding: 0;
+	@if $ezpz-gutter-collapse {
+		// Specific cell without gutters
+		& > .cell {
+			&#{$breakpoint}collapsed {
+				padding: 0;
+			}
+
+			&#{$breakpoint}expanded {
+				padding: 0 ($ezpz-gutter / 2);
+			}
+		}
+
+		// Grid where none of the cells have gutters
+		&#{$breakpoint}collapsed {
+			> .cell {
+				padding: 0;
+			}
+		}
+
+		&#{$breakpoint}expanded {
+			> .cell {
+				padding: 0 ($ezpz-gutter / 2);
+			}
 		}
 	}
 }
@@ -264,49 +303,11 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 				}
 			}
 
-			@if $ezpz-grid-align {
-				&--#{$breakpoint} {
-					&-align-start {
-						align-items: flex-start;
-					}
+			@include grid-align-properties($breakpoint);
 
-					&-align-end {
-						align-items: flex-end;
-					}
+			@include grid-wrap-properties($breakpoint);
 
-					&-align-center {
-						align-items: center;
-					}
-
-					&-align-stretch {
-						align-items: stretch;
-					}
-				}
-			}
-
-			@if $ezpz-grid-wrap {
-				&--#{$breakpoint}-nowrap {
-					flex-wrap: nowrap;
-				}
-			}
-
-			@if $ezpz-cell-order {
-				& > .cell--#{$breakpoint}-order {
-					&-start {
-						order: -1;
-					}
-
-					&-end {
-						order: $total-cells;
-					}
-
-					@for $i from 1 through $total-cells {
-						&-#{$i} {
-							order: $i - 1;
-						}
-					}
-				}
-			}
+			@include cell-order-properties($breakpoint);
 
 			@if $ezpz-cell-offset {
 				@if($is-columns) {
@@ -344,51 +345,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 				}
 			}
 
-			@if $ezpz-gutter-collapse {
-				> .cell--#{$breakpoint} {
-					&-collapsed {
-						padding: 0;
-					}
-
-					&-expanded {
-						padding: 0 ($ezpz-gutter / 2);
-					}
-				}
-
-				&--#{$breakpoint} {
-					&-collapsed {
-						> .cell {
-							padding: 0;
-						}
-					}
-
-					&-expanded {
-						> .cell {
-							padding: 0 ($ezpz-gutter / 2);
-						}
-					}
-				}
-			}
-
-			@if $ezpz-cell-align {
-				> .cell--#{$breakpoint} {
-					&-align-start {
-						align-self: flex-start;
-					}
-
-					&-align-end {
-						align-self: flex-end;
-					}
-
-					&-align-center {
-						align-self: center;
-					}
-
-					&-align-stretch {
-						align-self: stretch;
-					}
-				}
-			}
+			@include gutter-collapse-properties($breakpoint);
+			@include cell-align-properties($breakpoint);
 		}
 	}
 }
@@ -439,5 +397,14 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 #{$ezpz-namespace} {
 	@include create-all-cells();
+
+	// Additional options
+	@include grid-align-properties();
+	@include grid-wrap-properties();
+	@include cell-order-properties();
+
+	@include gutter-collapse-properties();
+	@include cell-align-properties();
+
 	@include create-breakpoint-classes();
 }
