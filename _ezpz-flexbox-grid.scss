@@ -5,7 +5,7 @@
 // Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
 // ========================================================================== //
 $ezpz-namespace:				'.grid' !default;
-$ezpz-grid-type:				'fractions' !default;  // 'columns' or 'fractions'
+$ezpz-grid-type:				'columns' !default;  // 'columns' or 'fractions'
 $ezpz-gutter: 					1rem !default;
 
 // Only used when $ezpz-grid-type is set to 'columns'
@@ -184,25 +184,31 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Cell positioning through offset
 // ========================================================================== */
-@if $ezpz-cell-offset {
-	#{$ezpz-namespace} {
+@mixin cell-offset-properties($breakpoint: null) {
+	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+
+	@if $ezpz-cell-offset {
 		// Generate the offset classes for a column based grid
 		@if($is-columns) {
-			// Create basic offset classes
-			// Used to offset individual cells
-			@for $i from 1 through $ezpz-columns {
-				> .cell--offset-#{$i} {
-					margin-left: (100% / $ezpz-columns) * $i;
+			& > .cell#{$breakpoint}offset {
+				&-0 {
+					margin-left: 0;
+				}
+
+				@for $i from 1 through $ezpz-columns {
+					&-#{$i} {
+						margin-left: (100% / $ezpz-columns) * $i;
+					}
 				}
 			}
 		}
 		// Generate the offset classes for a fraction based grid
 		@else if($is-fractions) {
-			.cell--offset-0 {
+			.cell#{$breakpoint}offset-0 {
 				margin-left: 0;
 			}
 
-			.cell--offset-1 {
+			.cell#{$breakpoint}offset-1 {
 				margin-left: 100%;
 			}
 
@@ -210,7 +216,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 				@each $key, $val in $fraction {
 					$modifier: $key + '\\/' + $val;
 
-					> .cell--offset-#{$modifier} {
+					> .cell#{$breakpoint}offset-#{$modifier} {
 						margin-left: percentage($key / $val);
 					}
 				}
@@ -304,47 +310,9 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			}
 
 			@include grid-align-properties($breakpoint);
-
 			@include grid-wrap-properties($breakpoint);
-
 			@include cell-order-properties($breakpoint);
-
-			@if $ezpz-cell-offset {
-				@if($is-columns) {
-					& > .cell--#{$breakpoint}-offset {
-						&-0 {
-							margin-left: 0;
-						}
-
-						@for $i from 1 through $ezpz-columns {
-							&-#{$i} {
-								margin-left: (100% / $ezpz-columns) * $i;
-							}
-						}
-					}
-				} @else if ($is-fractions) {
-					& > .cell--#{$breakpoint}-offset {
-						&-0 {
-							margin-left: 0;
-						}
-
-						&-1 {
-							margin-left: 100%;
-						}
-
-						@each $fraction in $ezpz-fractions {
-							@each $key, $val in $fraction {
-								$modifier: $key + '\\/' + $val;
-
-								&-#{$modifier} {
-									margin-left: percentage($key / $val);
-								}
-							}
-						}
-					}
-				}
-			}
-
+			@include cell-offset-properties($breakpoint);
 			@include gutter-collapse-properties($breakpoint);
 			@include cell-align-properties($breakpoint);
 		}
@@ -402,7 +370,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	@include grid-align-properties();
 	@include grid-wrap-properties();
 	@include cell-order-properties();
-
+	@include cell-offset-properties();
 	@include gutter-collapse-properties();
 	@include cell-align-properties();
 
