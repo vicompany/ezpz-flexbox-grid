@@ -43,72 +43,6 @@ $is-columns: if($ezpz-grid-type == 'columns', true, false);
 $is-fractions: if($ezpz-grid-type == 'columns', true, false);
 
 
-/* Basic grid behaviour
-   ========================================================================== */
-
-#{$ezpz-namespace} {
-	@include create-cells-classes($ezpz-grid-type);
-
-	flex-direction: row;
-	box-sizing: border-box;
-	display: flex;
-
-	margin-right: -($ezpz-gutter / 2);
-	margin-left: -($ezpz-gutter / 2);
-
-	> .cell {
-		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
-		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
-		flex-basis: 0%;
-		flex-direction: column;
-		flex-grow: 1;
-		flex-shrink: 1;
-
-		box-sizing: border-box;
-
-		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
-		display: flex;
-
-		max-width: 100%;
-		padding: 0 ($ezpz-gutter / 2);
-
-		> * {
-			// All direct child elements within a cell try to use up the maximum (and same) amount of available space
-			flex-grow: 1;
-		}
-	}
-}
-
-// Cells are layed out vertically
-#{$ezpz-namespace}--vertical {
-	flex-direction: column;
-
-	// IE 10/11 Fix to prevent cells from not having a height in a vertical grid layout
-	> .cell {
-		flex-basis: auto;
-	}
-}
-
-
-// Create aditional classes for breakpoints
-// @each $breakpoint, $size in $ezpz-breakpoints {
-// 	@media (min-width: $size) {
-// 		#{$ezpz-namespace}--#{$breakpoint}-horizontal {
-// 			flex-direction: row;
-// 		}
-
-// 		#{$ezpz-namespace}--#{$breakpoint}-vertical {
-// 			flex-direction: column;
-
-// 			// IE Fix to prevent cells from not having a height in a vertical grid layout
-// 			> .cell {
-// 				flex-basis: auto;
-// 			}
-// 		}
-// 	}
-// }
-
-
 /* Alignment of all cells within a grid section
    ========================================================================== */
 // @if $ezpz-grid-align {
@@ -252,8 +186,8 @@ $is-fractions: if($ezpz-grid-type == 'columns', true, false);
 	}
 }
 
-@mixin create-cells($breakpoint) {
-	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+@mixin create-cells($breakpoint: null) {
+	$breakpoint: if($breakpoint, '--' + $breakpoint + '--', '--');
 
 	@if($is-columns) {
 		@for $i from 1 through $ezpz-columns {
@@ -471,3 +405,68 @@ $is-fractions: if($ezpz-grid-type == 'columns', true, false);
 		}
 	}
 }
+
+/* Basic grid behaviour
+   ========================================================================== */
+
+#{$ezpz-namespace} {
+	@include create-cells-classes($ezpz-grid-type);
+
+	flex-direction: row;
+	box-sizing: border-box;
+	display: flex;
+
+	margin-right: -($ezpz-gutter / 2);
+	margin-left: -($ezpz-gutter / 2);
+
+	> .cell {
+		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
+		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
+		flex-basis: 0%;
+		flex-direction: column;
+		flex-grow: 1;
+		flex-shrink: 1;
+
+		box-sizing: border-box;
+
+		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
+		display: flex;
+
+		max-width: 100%;
+		padding: 0 ($ezpz-gutter / 2);
+
+		> * {
+			// All direct child elements within a cell try to use up the maximum (and same) amount of available space
+			flex-grow: 1;
+		}
+	}
+}
+
+// Cells are layed out vertically
+#{$ezpz-namespace}--vertical {
+	flex-direction: column;
+
+	// IE 10/11 Fix to prevent cells from not having a height in a vertical grid layout
+	> .cell {
+		flex-basis: auto;
+	}
+}
+
+
+// Create aditional classes for breakpoints
+// @each $breakpoint, $size in $ezpz-breakpoints {
+// 	@media (min-width: $size) {
+// 		#{$ezpz-namespace}--#{$breakpoint}-horizontal {
+// 			flex-direction: row;
+// 		}
+
+// 		#{$ezpz-namespace}--#{$breakpoint}-vertical {
+// 			flex-direction: column;
+
+// 			// IE Fix to prevent cells from not having a height in a vertical grid layout
+// 			> .cell {
+// 				flex-basis: auto;
+// 			}
+// 		}
+// 	}
+// }
