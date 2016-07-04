@@ -49,18 +49,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin create-all-cells() {
 	@if($is-columns or $is-fractions) {
 		@include create-cells();
-
-		// Create aditional classes for breakpoints
-		@each $breakpoint, $size in $ezpz-breakpoints {
-			@media (min-width: $size) {
-				@include create-cells($breakpoint);
-			}
-		}
-	}
-
-	// Throw error when no, or an invalid grid type has been set.
-	@else {
-		@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
 	}
 }
 
@@ -69,12 +57,12 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 	@if($is-columns) {
 		@for $i from 1 through $ezpz-columns {
-			> .cell#{$breakpoint}#{$i} {
+			& > .cell#{$breakpoint}#{$i} {
 				@include create-cell($i);
 			}
 		}
 	} @else {
-		> .cell#{$breakpoint}1 {
+		& > .cell#{$breakpoint}1 {
 			@include create-cell(1);
 		}
 
@@ -82,7 +70,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			@each $key, $val in $fraction {
 				$modifier: $key + '\\/' + $val;
 
-				> .cell#{$breakpoint}#{$modifier} {
+				& > .cell#{$breakpoint}#{$modifier} {
 					@include create-cell($key / $val);
 				}
 			}
@@ -211,10 +199,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 				}
 			}
 		}
-		// Throw error when no, or an invalid grid type has been set.
-		@else {
-			@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
-		}
 	}
 }
 
@@ -261,6 +245,9 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin create-breakpoint-classes() {
 	@each $breakpoint, $size in $ezpz-breakpoints {
 		@media (min-width: $size) {
+
+			// Create aditional classes for breakpoints
+			@include create-cells($breakpoint);
 
 			&--#{$breakpoint} {
 				&-horizontal {
