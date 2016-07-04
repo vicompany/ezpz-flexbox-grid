@@ -39,10 +39,16 @@ $ezpz-gutter-collapse:			false !default;
 /* Grid generator - !!!DO NOT EDIT OR REMOVE ANTHING BELOW THIS LINE!!!
    ========================================================================== */
 
+$is-columns: if($ezpz-grid-type == 'columns', true, false);
+$is-fractions: if($ezpz-grid-type == 'columns', true, false);
+
+
 /* Basic grid behaviour
    ========================================================================== */
 
 #{$ezpz-namespace} {
+	@include create-cells-classes($ezpz-grid-type);
+
 	flex-direction: row;
 	box-sizing: border-box;
 	display: flex;
@@ -73,7 +79,6 @@ $ezpz-gutter-collapse:			false !default;
 	}
 }
 
-
 // Cells are layed out vertically
 #{$ezpz-namespace}--vertical {
 	flex-direction: column;
@@ -86,213 +91,204 @@ $ezpz-gutter-collapse:			false !default;
 
 
 // Create aditional classes for breakpoints
-@each $breakpoint, $size in $ezpz-breakpoints {
-	@media (min-width: $size) {
-		#{$ezpz-namespace}--#{$breakpoint}-horizontal {
-			flex-direction: row;
-		}
+// @each $breakpoint, $size in $ezpz-breakpoints {
+// 	@media (min-width: $size) {
+// 		#{$ezpz-namespace}--#{$breakpoint}-horizontal {
+// 			flex-direction: row;
+// 		}
 
-		#{$ezpz-namespace}--#{$breakpoint}-vertical {
-			flex-direction: column;
+// 		#{$ezpz-namespace}--#{$breakpoint}-vertical {
+// 			flex-direction: column;
 
-			// IE Fix to prevent cells from not having a height in a vertical grid layout
-			> .cell {
-				flex-basis: auto;
-			}
-		}
-	}
-}
+// 			// IE Fix to prevent cells from not having a height in a vertical grid layout
+// 			> .cell {
+// 				flex-basis: auto;
+// 			}
+// 		}
+// 	}
+// }
 
 
 /* Alignment of all cells within a grid section
    ========================================================================== */
-@if $ezpz-grid-align {
-	#{$ezpz-namespace}--align-start {
-		align-items: flex-start;
-	}
+// @if $ezpz-grid-align {
+// 	#{$ezpz-namespace}--align-start {
+// 		align-items: flex-start;
+// 	}
 
-	#{$ezpz-namespace}--align-end {
-		align-items: flex-end;
-	}
+// 	#{$ezpz-namespace}--align-end {
+// 		align-items: flex-end;
+// 	}
 
-	#{$ezpz-namespace}--align-center {
-		align-items: center;
-	}
+// 	#{$ezpz-namespace}--align-center {
+// 		align-items: center;
+// 	}
 
-	#{$ezpz-namespace}--align-stretch {
-		align-items: stretch;
-	}
+// 	#{$ezpz-namespace}--align-stretch {
+// 		align-items: stretch;
+// 	}
 
-	// Create aditional classes for breakpoints
-	@each $breakpoint, $size in $ezpz-breakpoints {
-		@media (min-width: $size) {
-			#{$ezpz-namespace}--#{$breakpoint}-align-start {
-				align-items: flex-start;
-			}
+// 	// Create aditional classes for breakpoints
+// 	@each $breakpoint, $size in $ezpz-breakpoints {
+// 		@media (min-width: $size) {
+// 			#{$ezpz-namespace}--#{$breakpoint}-align-start {
+// 				align-items: flex-start;
+// 			}
 
-			#{$ezpz-namespace}--#{$breakpoint}-align-end {
-				align-items: flex-end;
-			}
+// 			#{$ezpz-namespace}--#{$breakpoint}-align-end {
+// 				align-items: flex-end;
+// 			}
 
-			#{$ezpz-namespace}--#{$breakpoint}-align-center {
-				align-items: center;
-			}
+// 			#{$ezpz-namespace}--#{$breakpoint}-align-center {
+// 				align-items: center;
+// 			}
 
-			#{$ezpz-namespace}--#{$breakpoint}-align-stretch {
-				align-items: stretch;
-			}
-		}
-	}
-}
+// 			#{$ezpz-namespace}--#{$breakpoint}-align-stretch {
+// 				align-items: stretch;
+// 			}
+// 		}
+// 	}
+// }
 
 
 /* Grid where none of the cells have gutters
    ========================================================================== */
-@if $ezpz-gutter-collapse {
-	#{$ezpz-namespace}--collapsed {
-		> .cell {
-			padding: 0;
-		}
-	}
+// @if $ezpz-gutter-collapse {
+// 	#{$ezpz-namespace}--collapsed {
+// 		> .cell {
+// 			padding: 0;
+// 		}
+// 	}
 
-	@each $breakpoint, $size in $ezpz-breakpoints {
-		@media (min-width: $size) {
-			#{$ezpz-namespace}--#{$breakpoint}-collapsed {
-				> .cell {
-					padding: 0;
-				}
-			}
+// 	@each $breakpoint, $size in $ezpz-breakpoints {
+// 		@media (min-width: $size) {
+// 			#{$ezpz-namespace}--#{$breakpoint}-collapsed {
+// 				> .cell {
+// 					padding: 0;
+// 				}
+// 			}
 
-			#{$ezpz-namespace}--#{$breakpoint}-expanded {
-				> .cell {
-					padding: 0 ($ezpz-gutter / 2);
-				}
-			}
-		}
-	}
-}
+// 			#{$ezpz-namespace}--#{$breakpoint}-expanded {
+// 				> .cell {
+// 					padding: 0 ($ezpz-gutter / 2);
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
 
 /* Specific cell without gutters
    ========================================================================== */
-@if $ezpz-gutter-collapse {
-	#{$ezpz-namespace} {
-		> .cell--collapsed {
-			padding: 0;
-		}
+// @if $ezpz-gutter-collapse {
+// 	#{$ezpz-namespace} {
+// 		> .cell--collapsed {
+// 			padding: 0;
+// 		}
 
-		@each $breakpoint, $size in $ezpz-breakpoints {
-			@media (min-width: $size) {
-				> .cell--#{$breakpoint}-collapsed {
-					padding: 0;
-				}
+// 		@each $breakpoint, $size in $ezpz-breakpoints {
+// 			@media (min-width: $size) {
+// 				> .cell--#{$breakpoint}-collapsed {
+// 					padding: 0;
+// 				}
 
-				> .cell--#{$breakpoint}-expanded {
-					padding: 0 ($ezpz-gutter / 2);
-				}
-			}
-		}
-	}
-}
+// 				> .cell--#{$breakpoint}-expanded {
+// 					padding: 0 ($ezpz-gutter / 2);
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
 
 /* Grid section with automatically wrapping cells
    ========================================================================== */
-@if $ezpz-grid-wrap {
-	#{$ezpz-namespace}--wrap {
-		flex-wrap: wrap;
+// @if $ezpz-grid-wrap {
+// 	#{$ezpz-namespace}--wrap {
+// 		flex-wrap: wrap;
 
-		> .cell {
-			flex-basis: auto;
-		}
-	}
+// 		> .cell {
+// 			flex-basis: auto;
+// 		}
+// 	}
 
-	#{$ezpz-namespace}--wrap-reverse {
-		flex-wrap: wrap-reverse;
+// 	#{$ezpz-namespace}--wrap-reverse {
+// 		flex-wrap: wrap-reverse;
 
-		> .cell {
-			flex-basis: auto;
-		}
-	}
+// 		> .cell {
+// 			flex-basis: auto;
+// 		}
+// 	}
 
-	// Create aditional classes for breakpoints to disable wrapping
-	@each $breakpoint, $size in $ezpz-breakpoints {
-		@media (min-width: $size) {
-			#{$ezpz-namespace}--#{$breakpoint}-nowrap {
-				flex-wrap: nowrap;
-			}
-		}
-	}
-}
+// 	// Create aditional classes for breakpoints to disable wrapping
+// 	@each $breakpoint, $size in $ezpz-breakpoints {
+// 		@media (min-width: $size) {
+// 			#{$ezpz-namespace}--#{$breakpoint}-nowrap {
+// 				flex-wrap: nowrap;
+// 			}
+// 		}
+// 	}
+// }
 
 
 /* Cell sizing
    ========================================================================== */
-#{$ezpz-namespace} {
-	// Generate the cell size classes for a column based grid
-	@if($ezpz-grid-type == 'columns') {
-		@for $i from 1 through $ezpz-columns {
-			> .cell--#{$i} {
-				flex: 0 0 auto;
-				width: (100% / $ezpz-columns) * $i;
-			}
-		}
+
+@mixin create-cells-classes($type) {
+	@if($is-columns or $is-fractions) {
+		@include create-cells();
 
 		// Create aditional classes for breakpoints
 		@each $breakpoint, $size in $ezpz-breakpoints {
 			@media (min-width: $size) {
-				@for $i from 1 through $ezpz-columns {
-					> .cell--#{$breakpoint}-#{$i} {
-						flex: 0 0 auto;
-						width: (100% / $ezpz-columns) * $i;
-					}
-				}
+				@include create-cells($breakpoint);
 			}
 		}
 	}
-	// Generate the cell size classes for a fraction based grid
-	@else if($ezpz-grid-type == 'fractions') {
-		> .cell--1 {
-			flex: 0 0 auto;
-			width: 100%;
+
+	// Throw error when no, or an invalid grid type has been set.
+	@else {
+		@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
+	}
+}
+
+@mixin create-cells($breakpoint) {
+	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+
+	@if($is-columns) {
+		@for $i from 1 through $ezpz-columns {
+			> .cell#{$breakpoint}#{$i} {
+				@include create-cell($i);
+			}
+		}
+	} @else {
+		> .cell#{$breakpoint}#{$i} {
+			@include create-cell($i);
 		}
 
 		@each $fraction in $ezpz-fractions {
 			@each $key, $val in $fraction {
 				$modifier: $key + '\\/' + $val;
 
-				> .cell--#{$modifier} {
-					flex: 0 0 auto;
-					width: percentage($key / $val);
-				}
-			}
-		}
-
-		// Create aditional classes for breakpoints
-		@each $breakpoint, $size in $ezpz-breakpoints {
-			@media (min-width: $size) {
-
-				> .cell--#{$breakpoint}-1 {
-					flex: 0 0 auto;
-					width: 100%;
-				}
-
-				@each $fraction in $ezpz-fractions {
-					@each $key, $val in $fraction {
-						$modifier: $key + '\\/' + $val;
-
-						> .cell--#{$breakpoint}-#{$modifier} {
-							flex: 0 0 auto;
-							width: percentage($key / $val);
-						}
-					}
+				> .cell#{$breakpoint}#{$modifier} {
+					@include create-cell($key / $val);
 				}
 			}
 		}
 	}
-	// Throw error when no, or an invalid grid type has been set.
-	@else {
-		@error 'Make sure to set $ezpz-grid-type to "columns" or "fractions"';
+}
+
+@mixin create-cell($column) {
+	flex: 0 0 auto;
+
+	@if($is-columns) {
+		width: (100% / $ezpz-columns) * $column;
+	} @else {
+		@if($column) {
+			width: percentage($column);
+		} @else {
+			width: 100%;
+		}
 	}
 }
 
