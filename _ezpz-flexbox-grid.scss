@@ -36,6 +36,8 @@ $ezpz-cell-align:				false !default;
 $ezpz-gutter-collapse:			false !default;
 
 
+
+
 // Grid generator - !!!DO NOT EDIT OR REMOVE ANTHING BELOW THIS LINE!!!
 // ==========================================================================
 
@@ -43,9 +45,19 @@ $is-columns: if($ezpz-grid-type == 'columns', true, false);
 $is-fractions: if($ezpz-grid-type == 'fractions', true, false);
 $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fractions));
 
-/* Cells
-   ========================================================================== */
+// Utils
+// ==========================================================================
+@function format-breakpoint($breakpoint) {
+	@return if($breakpoint, '--' + $breakpoint + '-', '--');
+}
 
+@function format-modifier($key, $val) {
+	@return $key + '\\/' + $val;
+}
+
+
+// Cells
+// ==========================================================================
 @mixin create-all-cells() {
 	@if($is-columns or $is-fractions) {
 		@include create-cells();
@@ -53,7 +65,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 }
 
 @mixin create-cells($breakpoint: null) {
-	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+	$breakpoint: format-breakpoint($breakpoint);
 
 	@if($is-columns) {
 		@for $i from 1 through $ezpz-columns {
@@ -68,7 +80,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 		@each $fraction in $ezpz-fractions {
 			@each $key, $val in $fraction {
-				$modifier: $key + '\\/' + $val;
+				$modifier: format-modifier($key, $val);
 
 				& > .cell#{$breakpoint}#{$modifier} {
 					@include create-cell($key / $val);
@@ -77,6 +89,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		}
 	}
 }
+
 
 // Accepts number input
 //	- @include create-cell(3)
@@ -103,7 +116,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Alignment of all cells within a grid section
 // ==========================================================================
 @mixin grid-align-properties($breakpoint: null) {
-	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+	$breakpoint: format-breakpoint($breakpoint);
 
 	@if $ezpz-grid-align {
 		&#{$breakpoint}align-start {
@@ -128,6 +141,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Grid section with automatically wrapping cells
 // ==========================================================================
 @mixin grid-wrap-properties($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
+
 	@if $ezpz-grid-wrap {
 		@if $breakpoint {
 			&--#{$breakpoint}-nowrap {
@@ -157,7 +172,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Cell order (order is 0 by default)
 // ==========================================================================
 @mixin cell-order-properties($breakpoint: null) {
-	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+	$breakpoint: format-breakpoint($breakpoint);
 
 	@if $ezpz-cell-order {
 		& > .cell#{$breakpoint}order {
@@ -185,7 +200,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Cell positioning through offset
 // ========================================================================== */
 @mixin cell-offset-properties($breakpoint: null) {
-	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+	$breakpoint: format-breakpoint($breakpoint);
 
 	@if $ezpz-cell-offset {
 		// Generate the offset classes for a column based grid
@@ -214,7 +229,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 			@each $fraction in $ezpz-fractions {
 				@each $key, $val in $fraction {
-					$modifier: $key + '\\/' + $val;
+					$modifier: format-modifier($key, $val);
 
 					> .cell#{$breakpoint}offset-#{$modifier} {
 						margin-left: percentage($key / $val);
@@ -229,7 +244,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Alignment of individual cells
 // ==========================================================================
 @mixin cell-align-properties($breakpoint: null) {
-	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+	$breakpoint: format-breakpoint($breakpoint);
 
 	@if $ezpz-cell-align {
 		& > .cell#{$breakpoint}align {
@@ -252,10 +267,11 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
+
 // Grid or cell without gutters
 // ==========================================================================
 @mixin gutter-collapse-properties($breakpoint: null) {
-	$breakpoint: if($breakpoint, '--' + $breakpoint + '-', '--');
+	$breakpoint: format-breakpoint($breakpoint);
 
 	@if $ezpz-gutter-collapse {
 		// Specific cell without gutters
@@ -285,30 +301,16 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 }
 
 
-// Create breakpoint classes for all additional options
+// Create responsive classes for all additional options
 // ==========================================================================
-@mixin create-breakpoint-classes() {
+@mixin create-responsive-classes() {
 	@each $breakpoint, $size in $ezpz-breakpoints {
 		@media (min-width: $size) {
-
-			// Create aditional classes for breakpoints
+			// Base
 			@include create-cells($breakpoint);
+			@include grid-layout-properties($breakpoint);
 
-			&--#{$breakpoint} {
-				&-horizontal {
-					flex-direction: row;
-				}
-
-				&-vertical {
-					flex-direction: column;
-
-					// IE Fix to prevent cells from not having a height in a vertical grid layout
-					> .cell {
-						flex-basis: auto;
-					}
-				}
-			}
-
+			// Optional
 			@include grid-align-properties($breakpoint);
 			@include grid-wrap-properties($breakpoint);
 			@include cell-order-properties($breakpoint);
@@ -319,10 +321,10 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
-/* Basic grid behaviour
-   ========================================================================== */
 
-#{$ezpz-namespace} {
+// Base
+// ==========================================================================
+@mixin create-grid() {
 	flex-direction: row;
 	box-sizing: border-box;
 	display: flex;
@@ -353,20 +355,34 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
-// Cells are layed out vertically
-#{$ezpz-namespace}--vertical {
-	flex-direction: column;
+@mixin grid-layout-properties($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
 
-	// IE 10/11 Fix to prevent cells from not having a height in a vertical grid layout
-	> .cell {
-		flex-basis: auto;
+	&#{$breakpoint} {
+		&horizontal {
+			flex-direction: row;
+		}
+
+		&vertical {
+			flex-direction: column;
+
+			// IE Fix to prevent cells from not having a height in a vertical grid layout
+			> .cell {
+				flex-basis: auto;
+			}
+		}
 	}
 }
 
+
+// Generate all the things
+// ==========================================================================
 #{$ezpz-namespace} {
+	@include create-grid();
+	@include grid-layout-properties();
 	@include create-all-cells();
 
-	// Additional options
+	// Optional
 	@include grid-align-properties();
 	@include grid-wrap-properties();
 	@include cell-order-properties();
@@ -374,5 +390,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	@include gutter-collapse-properties();
 	@include cell-align-properties();
 
-	@include create-breakpoint-classes();
+	// Responsive classes
+	@include create-responsive-classes();
 }
