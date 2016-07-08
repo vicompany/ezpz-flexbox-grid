@@ -5,7 +5,6 @@
   "main": "src/_ezpz-flexbox-grid.scss",
   "dependencies": {
     "cssnano": "^3.7.1",
-    "npm-run-all": "^2.3.0",
     "postcss-cli": "^2.5.2"
   },
   "devDependencies": {
@@ -15,9 +14,11 @@
   },
   "scripts": {
     "postversion": "git push && git push --tags",
-    "sass": "node-sass --indent-type tab --source-map true --source-map-contents sass src/_ezpz-flexbox-grid.scss > dist/ezpz-flexbox-grid.css",
-    "postcss": "postcss --no-map.inline -u cssnano src/*.css dist/*.css --safe",
-    "start": "npm-run-all sass"
+    "sass": "node-sass src/_ezpz-flexbox-grid.scss dist/ezpz-flexbox-grid.css",
+    "postsass": "npm run postcss",
+    "postcss": "postcss --u cssnano --safe -o dist/ezpz-flexbox-grid.min.css dist/ezpz-flexbox-grid.css",
+    "build": "npm run sass",
+    "start": "npm run build"
   },
   "repository": {
     "type": "git",
