@@ -1,8 +1,7 @@
 {
-  "name": "ezpz-flexbox-grid",
+  "name": "ezpz-flexbox-grid-demo",
   "version": "1.0.0",
   "description": "A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation.",
-  "main": "_ezpz-flexbox-grid.scss",
   "scripts": {
     "postcss": "postcss -u autoprefixer --autoprefixer.browsers \"ie 10, last 2 versions\" -r dist/css/*.css",
     "sass:build": "node-sass src/scss/ -o dist/css/ --output-style uncompressed",
@@ -11,8 +10,6 @@
     "start": "parallelshell \"npm run sass:build\" \"npm run sass:watch\" \"npm run browsersync\"",
     "build": "npm run sass:build & npm run postcss"
   },
-  "author": "Sven Sigmond - VI Company",
-  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.2.3",
     "browser-sync": "^2.10.1",
@@ -20,5 +17,9 @@
     "parallelshell": "^2.0.0",
     "postcss-cli": "^2.3.3",
     "sass-lint": "^1.4.0"
-  }
+  },
+  "dependencies": {
+    "ezpz-grid": "*"
+  },
+  "private": true
 }
