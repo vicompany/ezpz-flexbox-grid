@@ -2,22 +2,41 @@
   "name": "ezpz-grid",
   "version": "1.1.1",
   "description": "A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation.",
-  "main": "_ezpz-flexbox-grid.scss",
-  "author": "Sven Sigmond - VI Company",
-  "license": "MIT",
+  "main": "src/_ezpz-flexbox-grid.scss",
+  "dependencies": {
+    "cssnano": "^3.7.1",
+    "postcss-cli": "^2.5.2"
+  },
+  "devDependencies": {
+    "cssnano": "^3.7.1",
+    "node-sass": "^3.8.0",
+    "postcss-cli": "^2.5.2"
+  },
   "scripts": {
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "sass": "node-sass src/_ezpz-flexbox-grid.scss dist/ezpz-flexbox-grid.css",
+    "postsass": "npm run postcss",
+    "postcss": "postcss --u cssnano --safe -o dist/ezpz-flexbox-grid.min.css dist/ezpz-flexbox-grid.css",
+    "build": "npm run sass",
+    "start": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/vicompany/ezpz-flexbox-grid.git"
   },
-  "homepage": "https://github.com/vicompany/ezpz-flexbox-grid",
   "keywords": [
     "ezpz",
     "flexbox",
     "grid",
     "vi-company",
     "sass"
-  ]
+  ],
+  "author": "Sven Sigmond - VI Company",
+  "contributors": [
+    "Edwin Kalkman (https://github.com/edw1n)",
+    "Sjors Spoorendonk (https://github.com/sjorsjes)"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/vicompany/ezpz-flexbox-grid/issues",
+  "homepage": "https://github.com/vicompany/ezpz-flexbox-grid#readme"
 }
