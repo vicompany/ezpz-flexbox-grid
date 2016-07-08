@@ -4,6 +4,9 @@
 
 // Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
 // ========================================================================== //
+
+$ezpz-auto-generate:			true !default;
+
 $ezpz-namespace:				'.grid' !default;
 $ezpz-grid-type:				'columns' !default;  // 'columns' or 'fractions'
 $ezpz-gutter: 					1rem !default;
@@ -44,6 +47,7 @@ $ezpz-gutter-collapse:			false !default;
 $is-columns: if($ezpz-grid-type == 'columns', true, false);
 $is-fractions: if($ezpz-grid-type == 'fractions', true, false);
 $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fractions));
+
 
 // Utils
 // ==========================================================================
@@ -331,27 +335,35 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 	margin-right: -($ezpz-gutter / 2);
 	margin-left: -($ezpz-gutter / 2);
+}
+
+@mixin create-grid-cell() {
+	// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
+	// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
+	flex-basis: 0%;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+
+	box-sizing: border-box;
+
+	// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
+	display: flex;
+
+	max-width: 100%;
+	padding: 0 ($ezpz-gutter / 2);
+
+	> * {
+		// All direct child elements within a cell try to use up the maximum (and same) amount of available space
+		flex-grow: 1;
+	}
+}
+
+@mixin create-full-grid() {
+	@include create-grid();
 
 	> .cell {
-		// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
-		// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
-		flex-basis: 0%;
-		flex-direction: column;
-		flex-grow: 1;
-		flex-shrink: 1;
-
-		box-sizing: border-box;
-
-		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
-		display: flex;
-
-		max-width: 100%;
-		padding: 0 ($ezpz-gutter / 2);
-
-		> * {
-			// All direct child elements within a cell try to use up the maximum (and same) amount of available space
-			flex-grow: 1;
-		}
+		@include create-grid-cell();
 	}
 }
 
@@ -377,19 +389,21 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Generate all the things
 // ==========================================================================
-#{$ezpz-namespace} {
-	@include create-grid();
-	@include grid-layout-properties();
-	@include create-all-cells();
+@if ($ezpz-auto-generate) {
+	#{$ezpz-namespace} {
+		@include create-full-grid();
+		@include grid-layout-properties();
+		@include create-all-cells();
 
-	// Optional
-	@include grid-align-properties();
-	@include grid-wrap-properties();
-	@include cell-order-properties();
-	@include cell-offset-properties();
-	@include gutter-collapse-properties();
-	@include cell-align-properties();
+		// Optional
+		@include grid-align-properties();
+		@include grid-wrap-properties();
+		@include cell-order-properties();
+		@include cell-offset-properties();
+		@include gutter-collapse-properties();
+		@include cell-align-properties();
 
-	// Responsive classes
-	@include create-responsive-classes();
+		// Responsive classes
+		@include create-responsive-classes();
+	}
 }
