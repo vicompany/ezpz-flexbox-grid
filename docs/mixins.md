@@ -1,3 +1,9 @@
+## Table of contents
+* [Getting started](getting-started.md)
+* [Settings](settings.md)
+* [Usage](usage.md)
+* [**Mixins**](mixins.md)
+
 # Mixins #
 The grid autogenerates the classes it needs to be functional. This can be turned off if you want to generate your own classes and be more flexible or it can be used next to eachother.
 

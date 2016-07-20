@@ -1,5 +1,11 @@
+## Table of contents
+* [Getting started](getting-started.md)
+* [**Settings**](settings.md)
+* [Usage](usage.md)
+* [Mixins](mixins.md)
+
 # Settings #
-These variables control the generation CSS for the EZPZ grid and can be set to your own preferred values.
+These variables control the generated CSS for the EZPZ grid and can be set to fit your own preferred values.
 
 ## Mandatory ##
 

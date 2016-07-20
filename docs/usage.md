@@ -1,3 +1,9 @@
+## Table of contents
+* [Getting started](getting-started.md)
+* [Settings](settings.md)
+* [**Usage**](usage.md)
+* [Mixins](mixins.md)
+
 # Usage #
 The grid is used by applying certain classes to HTML elements. These classes are generated based on the selected options. Most of these classes have been marked optional to reduce CSS file size, but can easily be enabled in the grid setup.
 
