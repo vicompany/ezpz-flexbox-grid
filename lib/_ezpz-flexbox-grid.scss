@@ -8,6 +8,7 @@
 $ezpz-auto-generate:			true !default;
 
 $ezpz-namespace:				'.grid' !default;
+$ezpz-cell-namespace:			'.cell' !default;
 $ezpz-grid-type:				'columns' !default;  // 'columns' or 'fractions'
 $ezpz-gutter: 					1rem !default;
 
@@ -73,12 +74,12 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 	@if($is-columns) {
 		@for $i from 1 through $ezpz-columns {
-			& > .cell#{$breakpoint}#{$i} {
+			& > #{$ezpz-cell-namespace}#{$breakpoint}#{$i} {
 				@include create-cell($i);
 			}
 		}
 	} @else {
-		& > .cell#{$breakpoint}1 {
+		& > #{$ezpz-cell-namespace}#{$breakpoint}1 {
 			@include create-cell(1);
 		}
 
@@ -86,7 +87,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			@each $key, $val in $fraction {
 				$modifier: format-modifier($key, $val);
 
-				& > .cell#{$breakpoint}#{$modifier} {
+				& > #{$ezpz-cell-namespace}#{$breakpoint}#{$modifier} {
 					@include create-cell($key / $val);
 				}
 			}
@@ -122,22 +123,20 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin grid-align-properties($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if $ezpz-grid-align {
-		&#{$breakpoint}align-start {
-			align-items: flex-start;
-		}
+	&#{$breakpoint}align-start {
+		align-items: flex-start;
+	}
 
-		&#{$breakpoint}align-end {
-			align-items: flex-end;
-		}
+	&#{$breakpoint}align-end {
+		align-items: flex-end;
+	}
 
-		&#{$breakpoint}align-center {
-			align-items: center;
-		}
+	&#{$breakpoint}align-center {
+		align-items: center;
+	}
 
-		&#{$breakpoint}align-stretch {
-			align-items: stretch;
-		}
+	&#{$breakpoint}align-stretch {
+		align-items: stretch;
 	}
 }
 
@@ -147,26 +146,24 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin grid-wrap-properties($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if $ezpz-grid-wrap {
-		@if $breakpoint {
-			&--#{$breakpoint}-nowrap {
-				flex-wrap: nowrap;
+	@if $breakpoint {
+		&--#{$breakpoint}-nowrap {
+			flex-wrap: nowrap;
+		}
+	} @else {
+		&--wrap {
+			flex-wrap: wrap;
+
+			> #{$ezpz-cell-namespace} {
+				flex-basis: auto;
 			}
-		} @else {
-			&--wrap {
-				flex-wrap: wrap;
+		}
 
-				> .cell {
-					flex-basis: auto;
-				}
-			}
+		&--wrap-reverse {
+			flex-wrap: wrap-reverse;
 
-			&--wrap-reverse {
-				flex-wrap: wrap-reverse;
-
-				> .cell {
-					flex-basis: auto;
-				}
+			> #{$ezpz-cell-namespace} {
+				flex-basis: auto;
 			}
 		}
 	}
@@ -178,23 +175,21 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin cell-order-properties($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if $ezpz-cell-order {
-		& > .cell#{$breakpoint}order {
-			// Useful for pulling a single column to the front of the row
-			&-start {
-				order: -1;
-			}
+	&#{$breakpoint}order {
+		// Useful for pulling a single column to the front of the row
+		&-start {
+			order: -1;
+		}
 
-			// Useful for pushing a single column to the end of the row
-			&-end {
-				order: $total-cells;
-			}
+		// Useful for pushing a single column to the end of the row
+		&-end {
+			order: $total-cells;
+		}
 
-			// Create offset classes used to control cell order
-			@for $i from 1 through $total-cells {
-				&-#{$i} {
-					order: $i - 1;
-				}
+		// Create offset classes used to control cell order
+		@for $i from 1 through $total-cells {
+			&-#{$i} {
+				order: $i - 1;
 			}
 		}
 	}
@@ -204,69 +199,75 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Cell positioning through offset
 // ========================================================================== */
 @mixin cell-offset-properties($breakpoint: null) {
+
+	// Generate the offset classes for a column based grid
+	@if($is-columns) {
+		@include cell-column-offset-properties($breakpoint);
+	}
+	// Generate the offset classes for a fraction based grid
+	@else if($is-fractions) {
+		@include cell-fraction-offset-properties($breakpoint);
+	}
+}
+
+@mixin cell-column-offset-properties($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if $ezpz-cell-offset {
-		// Generate the offset classes for a column based grid
-		@if($is-columns) {
-			& > .cell#{$breakpoint}offset {
-				&-0 {
-					margin-left: 0;
-				}
-
-				@for $i from 1 through $ezpz-columns {
-					&-#{$i} {
-						margin-left: (100% / $ezpz-columns) * $i;
-					}
-				}
-			}
+	&#{$breakpoint}offset {
+		&-0 {
+			margin-left: 0;
 		}
-		// Generate the offset classes for a fraction based grid
-		@else if($is-fractions) {
-			.cell#{$breakpoint}offset-0 {
-				margin-left: 0;
-			}
 
-			.cell#{$breakpoint}offset-1 {
-				margin-left: 100%;
-			}
-
-			@each $fraction in $ezpz-fractions {
-				@each $key, $val in $fraction {
-					$modifier: format-modifier($key, $val);
-
-					> .cell#{$breakpoint}offset-#{$modifier} {
-						margin-left: percentage($key / $val);
-					}
-				}
+		@for $i from 1 through $ezpz-columns {
+			&-#{$i} {
+				margin-left: (100% / $ezpz-columns) * $i;
 			}
 		}
 	}
 }
 
+@mixin cell-fraction-offset-properties($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
+
+	&#{$breakpoint}offset-0 {
+		margin-left: 0;
+	}
+
+	&#{$breakpoint}offset-1 {
+		margin-left: 100%;
+	}
+
+	@each $fraction in $ezpz-fractions {
+		@each $key, $val in $fraction {
+			$modifier: format-modifier($key, $val);
+
+			&#{$breakpoint}offset-#{$modifier} {
+				margin-left: percentage($key / $val);
+			}
+		}
+	}
+}
 
 // Alignment of individual cells
 // ==========================================================================
 @mixin cell-align-properties($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if $ezpz-cell-align {
-		& > .cell#{$breakpoint}align {
-			&-start {
-				align-self: flex-start;
-			}
+	&#{$breakpoint}align {
+		&-start {
+			align-self: flex-start;
+		}
 
-			&-end {
-				align-self: flex-end;
-			}
+		&-end {
+			align-self: flex-end;
+		}
 
-			&-center {
-				align-self: center;
-			}
+		&-center {
+			align-self: center;
+		}
 
-			&-stretch {
-				align-self: stretch;
-			}
+		&-stretch {
+			align-self: stretch;
 		}
 	}
 }
@@ -275,35 +276,39 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Grid or cell without gutters
 // ==========================================================================
 @mixin gutter-collapse-properties($breakpoint: null) {
+	@include grid-gutter-collapse-properties($breakpoint);
+	@include cell-gutter-collapse-properties($breakpoint);
+}
+
+// Grid where none of the cells have gutters
+@mixin grid-gutter-collapse-properties($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if $ezpz-gutter-collapse {
-		// Specific cell without gutters
-		& > .cell {
-			&#{$breakpoint}collapsed {
-				padding: 0;
-			}
-
-			&#{$breakpoint}expanded {
-				padding: 0 ($ezpz-gutter / 2);
-			}
+	&#{$breakpoint}collapsed {
+		> #{$ezpz-cell-namespace} {
+			padding: 0;
 		}
+	}
 
-		// Grid where none of the cells have gutters
-		&#{$breakpoint}collapsed {
-			> .cell {
-				padding: 0;
-			}
-		}
-
-		&#{$breakpoint}expanded {
-			> .cell {
-				padding: 0 ($ezpz-gutter / 2);
-			}
+	&#{$breakpoint}expanded {
+		> #{$ezpz-cell-namespace} {
+			padding: 0 ($ezpz-gutter / 2);
 		}
 	}
 }
 
+// Specific cell without gutters
+@mixin cell-gutter-collapse-properties($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
+
+	&#{$breakpoint}collapsed {
+		padding: 0;
+	}
+
+	&#{$breakpoint}expanded {
+		padding: 0 ($ezpz-gutter / 2);
+	}
+}
 
 // Create responsive classes for all additional options
 // ==========================================================================
@@ -315,12 +320,35 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			@include grid-layout-properties($breakpoint);
 
 			// Optional
-			@include grid-align-properties($breakpoint);
-			@include grid-wrap-properties($breakpoint);
-			@include cell-order-properties($breakpoint);
-			@include cell-offset-properties($breakpoint);
-			@include gutter-collapse-properties($breakpoint);
-			@include cell-align-properties($breakpoint);
+			@if $ezpz-grid-align {
+				@include grid-align-properties($breakpoint);
+			}
+
+			@if $ezpz-grid-wrap {
+				@include grid-wrap-properties($breakpoint);
+			}
+
+			@if $ezpz-cell-order {
+				& > #{$ezpz-cell-namespace} {
+					@include cell-order-properties($breakpoint);
+				}
+			}
+
+			@if $ezpz-cell-offset {
+				& > #{$ezpz-cell-namespace} {
+					@include cell-offset-properties($breakpoint);
+				}
+			}
+
+			@if $ezpz-gutter-collapse {
+				@include gutter-collapse-properties($breakpoint);
+			}
+
+			@if $ezpz-cell-align {
+				& > #{$ezpz-cell-namespace} {
+					@include cell-align-properties($breakpoint);
+				}
+			}
 		}
 	}
 }
@@ -362,7 +390,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin create-full-grid() {
 	@include create-grid();
 
-	> .cell {
+	> #{$ezpz-cell-namespace} {
 		@include create-grid-cell();
 	}
 }
@@ -379,7 +407,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			flex-direction: column;
 
 			// IE Fix to prevent cells from not having a height in a vertical grid layout
-			> .cell {
+			> #{$ezpz-cell-namespace} {
 				flex-basis: auto;
 			}
 		}
@@ -396,12 +424,33 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		@include create-all-cells();
 
 		// Optional
-		@include grid-align-properties();
-		@include grid-wrap-properties();
-		@include cell-order-properties();
-		@include cell-offset-properties();
-		@include gutter-collapse-properties();
-		@include cell-align-properties();
+		@if $ezpz-grid-align {
+			@include grid-align-properties();
+		}
+
+		@if $ezpz-grid-wrap {
+			@include grid-wrap-properties();
+		}
+
+		@if $ezpz-cell-order {
+			& > #{$ezpz-cell-namespace} {
+				@include cell-order-properties();
+			}
+		}
+
+		@if $ezpz-cell-offset {
+			@include cell-offset-properties();
+		}
+
+		@if $ezpz-cell-align {
+			& > #{$ezpz-cell-namespace} {
+				@include cell-align-properties();
+			}
+		}
+
+		@if $ezpz-gutter-collapse {
+			@include gutter-collapse-properties();
+		}
 
 		// Responsive classes
 		@include create-responsive-classes();
