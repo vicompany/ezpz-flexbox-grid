@@ -18,8 +18,5 @@
     "postcss-cli": "^2.3.3",
     "sass-lint": "^1.4.0"
   },
-  "dependencies": {
-    "ezpz-grid": "*"
-  },
   "private": true
 }

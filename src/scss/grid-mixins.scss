@@ -1,0 +1,108 @@
+@charset 'utf-8';
+
+$ezpz-auto-generate:			false;
+
+@import 'shared';
+@import '../ezpz-flexbox-grid';
+
+article {
+	@include create-grid();
+
+	&.horizontal {
+		@include grid-layout(horizontal);
+	}
+
+	&.vertical {
+		@include grid-layout(vertical);
+	}
+
+	&.align-start {
+		@include grid-align(start);
+	}
+
+	&.align-end {
+		@include grid-align(end);
+	}
+
+	&.align-center {
+		@include grid-align(center);
+	}
+
+	&.align-stretch {
+		@include grid-align(stretch);
+	}
+
+	&.wrap {
+		@include grid-wrap(wrap);
+	}
+
+	&.reverse-wrap {
+		@include grid-wrap(reverse);
+	}
+
+	&.nowrap {
+		@include grid-wrap();
+	}
+
+	> section {
+		@include create-grid-cell();
+
+		@extend %cell;
+
+		&.offset-1 {
+			@include cell-offset(1);
+		}
+
+		&.offset-3 {
+			@include cell-offset(3);
+		}
+
+		&.order-start {
+			@include cell-order(start);
+		}
+
+		&.order-1 {
+			@include cell-order(1);
+		}
+
+		&.order-4 {
+			@include cell-order(4);
+		}
+
+		&.order-2 {
+			@include cell-order(2);
+		}
+
+		&.align-start {
+			@include cell-align(start);
+		}
+
+		&.align-end {
+			@include cell-align(end);
+		}
+
+		&.align-center {
+			@include cell-align(center);
+		}
+
+		&.align-stretch {
+			@include cell-align(stretch);
+		}
+	}
+}
+
+.col-2 {
+	@include create-cell(2);
+}
+
+.col-3 {
+	@include create-cell(3);
+}
+
+.col-4 {
+	@include create-cell(4);
+}
+
+.col-5 {
+	@include create-cell(5);
+}
