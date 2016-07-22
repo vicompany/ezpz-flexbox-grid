@@ -72,7 +72,7 @@ Creates [grid wrap](usage.md#grid-wrap) classes.
 .your-cell-namespace {
     @include cell-order-properties();
 }
-```sass
+```
 Creates [cell order](usage.md#cell-order) classes.
 
 ```sass
