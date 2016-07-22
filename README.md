@@ -1,17 +1,8 @@
 # EZPZ Flexbox Grid #
+
 A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation. By [VI Company](http://www.vicompany.nl)
 
-## Documentation ##
-[Documentation can be found here](/docs/readme.md)
-
-## Demo ##
-* [Default features](http://vicompany.github.io/ezpz-flexbox-grid/)
-* [Optional features](http://vicompany.github.io/ezpz-flexbox-grid/optional-features.html)
-* [Responsive features](http://vicompany.github.io/ezpz-flexbox-grid/responsive-features.html)
-* [Using fractions](http://vicompany.github.io/ezpz-flexbox-grid/fractions.html)
-* [Using mixins](http://vicompany.github.io/ezpz-flexbox-grid/mixins.html)
-
-## Is this the grid for you? ##
+## Features ##
 * Easy peasy to setup and use
 * Works in all [modern browsers & IE11](http://caniuse.com/#search=flex)
 * IE10 when using [Autoprefixer](https://github.com/postcss/autoprefixer)
@@ -22,16 +13,31 @@ A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a
 * Create and name your own breakpoints
 * Custom namespacing
 
-## What about older browsers? ##
+# What about older browsers? #
 The aim of the EZPZ Flexbox Grid is to offer an easy to use grid system that takes abundant calculations and classes out of your workflow by leveraging flexbox' "awareness" of available space within a section.
 
 Unfortunately, legacy browsers like IE9 and below do not support the flexbox syntax and won't be able to use these properties. To maintain simplicity, reduce code bloat and in the light of [Microsoft's decision to stop support for IE10 and below](https://www.microsoft.com/en-us/WindowsForBusiness/End-of-IE-support), the decision has been made to not support older browsers.
 
-## Build ##
+## Demo ##
+* [Default features](http://vicompany.github.io/ezpz-flexbox-grid/)
+* [Optional features](http://vicompany.github.io/ezpz-flexbox-grid/optional-features.html)
+* [Responsive features](http://vicompany.github.io/ezpz-flexbox-grid/responsive-features.html)
+* [Using fractions](http://vicompany.github.io/ezpz-flexbox-grid/fractions.html)
+* [Using mixins](http://vicompany.github.io/ezpz-flexbox-grid/mixins.html)
+
+## Documentation ##
+[Documentation can be found here](/docs/readme.md)
+
+## Contributing ##
+### Build ###
 ```
 npm install
 npm run build
 ```
+
+## Get in touch
+- Bugs / Suggestions: [open an issue](https://github.com/vicompany/ezpz-flexbox-grid/issues)
+- Twitter: [@rison](https://twitter.com/vicompany)
 
 ## Credits ##
 * Variable namespacing and the .grid and .cell classes have been inspired by the
@@ -42,4 +48,4 @@ npm run build
 * The grid functionality in the example pages has been illustrated through the use of the [Ocean Five color pallete](http://www.colourlovers.com/palette/1473/Ocean_Five) by Designjunkee.
 
 ## License ##
-The EZPZ Flexbox Grid is licensed under the [MIT License](https://github.com/vicompany/ezpz-flexbox-grid/blob/master/LICENSE).
+The EZPZ Flexbox Grid is licensed under the [MIT License](LICENSE.md).
