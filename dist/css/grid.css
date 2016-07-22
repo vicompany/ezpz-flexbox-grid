@@ -8,175 +8,113 @@
 /* Basic grid behaviour
    ========================================================================== */
 .grid {
-  -ms-flex-direction: row;
-      flex-direction: row;
+  flex-direction: row;
   box-sizing: border-box;
-  display: -ms-flexbox;
   display: flex;
   margin-right: -0.5rem;
   margin-left: -0.5rem; }
   .grid > .cell {
-    -ms-flex-preferred-size: 0%;
-        flex-basis: 0%;
-    -ms-flex-direction: column;
-        flex-direction: column;
-    -ms-flex-positive: 1;
-        flex-grow: 1;
-    -ms-flex-negative: 1;
-        flex-shrink: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
     box-sizing: border-box;
-    display: -ms-flexbox;
     display: flex;
     max-width: 100%;
     padding: 0 0.5rem; }
     .grid > .cell > * {
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
+      flex-grow: 1; }
 
 .grid--vertical {
-  -ms-flex-direction: column;
-      flex-direction: column; }
+  flex-direction: column; }
   .grid--vertical > .cell {
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto; }
+    flex-basis: auto; }
 
 @media (min-width: 25rem) {
   .grid--tiny-horizontal {
-    -ms-flex-direction: row;
-        flex-direction: row; }
+    flex-direction: row; }
   .grid--tiny-vertical {
-    -ms-flex-direction: column;
-        flex-direction: column; }
+    flex-direction: column; }
     .grid--tiny-vertical > .cell {
-      -ms-flex-preferred-size: auto;
-          flex-basis: auto; } }
+      flex-basis: auto; } }
 
 @media (min-width: 37.5rem) {
   .grid--small-horizontal {
-    -ms-flex-direction: row;
-        flex-direction: row; }
+    flex-direction: row; }
   .grid--small-vertical {
-    -ms-flex-direction: column;
-        flex-direction: column; }
+    flex-direction: column; }
     .grid--small-vertical > .cell {
-      -ms-flex-preferred-size: auto;
-          flex-basis: auto; } }
+      flex-basis: auto; } }
 
 @media (min-width: 60rem) {
   .grid--medium-horizontal {
-    -ms-flex-direction: row;
-        flex-direction: row; }
+    flex-direction: row; }
   .grid--medium-vertical {
-    -ms-flex-direction: column;
-        flex-direction: column; }
+    flex-direction: column; }
     .grid--medium-vertical > .cell {
-      -ms-flex-preferred-size: auto;
-          flex-basis: auto; } }
+      flex-basis: auto; } }
 
 @media (min-width: 90rem) {
   .grid--large-horizontal {
-    -ms-flex-direction: row;
-        flex-direction: row; }
+    flex-direction: row; }
   .grid--large-vertical {
-    -ms-flex-direction: column;
-        flex-direction: column; }
+    flex-direction: column; }
     .grid--large-vertical > .cell {
-      -ms-flex-preferred-size: auto;
-          flex-basis: auto; } }
+      flex-basis: auto; } }
 
 /* Alignment of all cells within a grid section
    ========================================================================== */
 .grid--align-start {
-  -ms-flex-align: start;
-      -ms-grid-row-align: flex-start;
-      align-items: flex-start; }
+  align-items: flex-start; }
 
 .grid--align-end {
-  -ms-flex-align: end;
-      -ms-grid-row-align: flex-end;
-      align-items: flex-end; }
+  align-items: flex-end; }
 
 .grid--align-center {
-  -ms-flex-align: center;
-      -ms-grid-row-align: center;
-      align-items: center; }
+  align-items: center; }
 
 .grid--align-stretch {
-  -ms-flex-align: stretch;
-      -ms-grid-row-align: stretch;
-      align-items: stretch; }
+  align-items: stretch; }
 
 @media (min-width: 25rem) {
   .grid--tiny-align-start {
-    -ms-flex-align: start;
-        -ms-grid-row-align: flex-start;
-        align-items: flex-start; }
+    align-items: flex-start; }
   .grid--tiny-align-end {
-    -ms-flex-align: end;
-        -ms-grid-row-align: flex-end;
-        align-items: flex-end; }
+    align-items: flex-end; }
   .grid--tiny-align-center {
-    -ms-flex-align: center;
-        -ms-grid-row-align: center;
-        align-items: center; }
+    align-items: center; }
   .grid--tiny-align-stretch {
-    -ms-flex-align: stretch;
-        -ms-grid-row-align: stretch;
-        align-items: stretch; } }
+    align-items: stretch; } }
 
 @media (min-width: 37.5rem) {
   .grid--small-align-start {
-    -ms-flex-align: start;
-        -ms-grid-row-align: flex-start;
-        align-items: flex-start; }
+    align-items: flex-start; }
   .grid--small-align-end {
-    -ms-flex-align: end;
-        -ms-grid-row-align: flex-end;
-        align-items: flex-end; }
+    align-items: flex-end; }
   .grid--small-align-center {
-    -ms-flex-align: center;
-        -ms-grid-row-align: center;
-        align-items: center; }
+    align-items: center; }
   .grid--small-align-stretch {
-    -ms-flex-align: stretch;
-        -ms-grid-row-align: stretch;
-        align-items: stretch; } }
+    align-items: stretch; } }
 
 @media (min-width: 60rem) {
   .grid--medium-align-start {
-    -ms-flex-align: start;
-        -ms-grid-row-align: flex-start;
-        align-items: flex-start; }
+    align-items: flex-start; }
   .grid--medium-align-end {
-    -ms-flex-align: end;
-        -ms-grid-row-align: flex-end;
-        align-items: flex-end; }
+    align-items: flex-end; }
   .grid--medium-align-center {
-    -ms-flex-align: center;
-        -ms-grid-row-align: center;
-        align-items: center; }
+    align-items: center; }
   .grid--medium-align-stretch {
-    -ms-flex-align: stretch;
-        -ms-grid-row-align: stretch;
-        align-items: stretch; } }
+    align-items: stretch; } }
 
 @media (min-width: 90rem) {
   .grid--large-align-start {
-    -ms-flex-align: start;
-        -ms-grid-row-align: flex-start;
-        align-items: flex-start; }
+    align-items: flex-start; }
   .grid--large-align-end {
-    -ms-flex-align: end;
-        -ms-grid-row-align: flex-end;
-        align-items: flex-end; }
+    align-items: flex-end; }
   .grid--large-align-center {
-    -ms-flex-align: center;
-        -ms-grid-row-align: center;
-        align-items: center; }
+    align-items: center; }
   .grid--large-align-stretch {
-    -ms-flex-align: stretch;
-        -ms-grid-row-align: stretch;
-        align-items: stretch; } }
+    align-items: stretch; } }
 
 /* Grid where none of the cells have gutters
    ========================================================================== */
@@ -239,534 +177,396 @@
 /* Grid section with automatically wrapping cells
    ========================================================================== */
 .grid--wrap {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+  flex-wrap: wrap; }
   .grid--wrap > .cell {
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto; }
+    flex-basis: auto; }
 
 .grid--wrap-reverse {
-  -ms-flex-wrap: wrap-reverse;
-      flex-wrap: wrap-reverse; }
+  flex-wrap: wrap-reverse; }
   .grid--wrap-reverse > .cell {
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto; }
+    flex-basis: auto; }
 
 @media (min-width: 25rem) {
   .grid--tiny-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap; } }
+    flex-wrap: nowrap; } }
 
 @media (min-width: 37.5rem) {
   .grid--small-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap; } }
+    flex-wrap: nowrap; } }
 
 @media (min-width: 60rem) {
   .grid--medium-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap; } }
+    flex-wrap: nowrap; } }
 
 @media (min-width: 90rem) {
   .grid--large-nowrap {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap; } }
+    flex-wrap: nowrap; } }
 
 /* Cell sizing
    ========================================================================== */
 .grid > .cell--1 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 8.33333%; }
 
 .grid > .cell--2 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 16.66667%; }
 
 .grid > .cell--3 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 25%; }
 
 .grid > .cell--4 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 33.33333%; }
 
 .grid > .cell--5 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 41.66667%; }
 
 .grid > .cell--6 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 50%; }
 
 .grid > .cell--7 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 58.33333%; }
 
 .grid > .cell--8 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 66.66667%; }
 
 .grid > .cell--9 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 75%; }
 
 .grid > .cell--10 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 83.33333%; }
 
 .grid > .cell--11 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 91.66667%; }
 
 .grid > .cell--12 {
-  -ms-flex: 0 0 auto;
-      flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 100%; }
 
 @media (min-width: 25rem) {
   .grid > .cell--tiny-1 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 8.33333%; }
   .grid > .cell--tiny-2 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 16.66667%; }
   .grid > .cell--tiny-3 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 25%; }
   .grid > .cell--tiny-4 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 33.33333%; }
   .grid > .cell--tiny-5 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 41.66667%; }
   .grid > .cell--tiny-6 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 50%; }
   .grid > .cell--tiny-7 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 58.33333%; }
   .grid > .cell--tiny-8 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 66.66667%; }
   .grid > .cell--tiny-9 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 75%; }
   .grid > .cell--tiny-10 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 83.33333%; }
   .grid > .cell--tiny-11 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 91.66667%; }
   .grid > .cell--tiny-12 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 100%; } }
 
 @media (min-width: 37.5rem) {
   .grid > .cell--small-1 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 8.33333%; }
   .grid > .cell--small-2 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 16.66667%; }
   .grid > .cell--small-3 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 25%; }
   .grid > .cell--small-4 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 33.33333%; }
   .grid > .cell--small-5 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 41.66667%; }
   .grid > .cell--small-6 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 50%; }
   .grid > .cell--small-7 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 58.33333%; }
   .grid > .cell--small-8 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 66.66667%; }
   .grid > .cell--small-9 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 75%; }
   .grid > .cell--small-10 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 83.33333%; }
   .grid > .cell--small-11 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 91.66667%; }
   .grid > .cell--small-12 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 100%; } }
 
 @media (min-width: 60rem) {
   .grid > .cell--medium-1 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 8.33333%; }
   .grid > .cell--medium-2 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 16.66667%; }
   .grid > .cell--medium-3 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 25%; }
   .grid > .cell--medium-4 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 33.33333%; }
   .grid > .cell--medium-5 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 41.66667%; }
   .grid > .cell--medium-6 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 50%; }
   .grid > .cell--medium-7 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 58.33333%; }
   .grid > .cell--medium-8 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 66.66667%; }
   .grid > .cell--medium-9 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 75%; }
   .grid > .cell--medium-10 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 83.33333%; }
   .grid > .cell--medium-11 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 91.66667%; }
   .grid > .cell--medium-12 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 100%; } }
 
 @media (min-width: 90rem) {
   .grid > .cell--large-1 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 8.33333%; }
   .grid > .cell--large-2 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 16.66667%; }
   .grid > .cell--large-3 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 25%; }
   .grid > .cell--large-4 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 33.33333%; }
   .grid > .cell--large-5 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 41.66667%; }
   .grid > .cell--large-6 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 50%; }
   .grid > .cell--large-7 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 58.33333%; }
   .grid > .cell--large-8 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 66.66667%; }
   .grid > .cell--large-9 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 75%; }
   .grid > .cell--large-10 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 83.33333%; }
   .grid > .cell--large-11 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 91.66667%; }
   .grid > .cell--large-12 {
-    -ms-flex: 0 0 auto;
-        flex: 0 0 auto;
+    flex: 0 0 auto;
     width: 100%; } }
 
 /* Cell order (order is 0 by default)
    ========================================================================== */
 .grid > .cell--order-start {
-  -ms-flex-order: -1;
-      order: -1; }
+  order: -1; }
 
 .grid > .cell--order-end {
-  -ms-flex-order: 12;
-      order: 12; }
+  order: 12; }
 
 .grid > .cell--order-1 {
-  -ms-flex-order: 0;
-      order: 0; }
+  order: 0; }
 
 .grid > .cell--order-2 {
-  -ms-flex-order: 1;
-      order: 1; }
+  order: 1; }
 
 .grid > .cell--order-3 {
-  -ms-flex-order: 2;
-      order: 2; }
+  order: 2; }
 
 .grid > .cell--order-4 {
-  -ms-flex-order: 3;
-      order: 3; }
+  order: 3; }
 
 .grid > .cell--order-5 {
-  -ms-flex-order: 4;
-      order: 4; }
+  order: 4; }
 
 .grid > .cell--order-6 {
-  -ms-flex-order: 5;
-      order: 5; }
+  order: 5; }
 
 .grid > .cell--order-7 {
-  -ms-flex-order: 6;
-      order: 6; }
+  order: 6; }
 
 .grid > .cell--order-8 {
-  -ms-flex-order: 7;
-      order: 7; }
+  order: 7; }
 
 .grid > .cell--order-9 {
-  -ms-flex-order: 8;
-      order: 8; }
+  order: 8; }
 
 .grid > .cell--order-10 {
-  -ms-flex-order: 9;
-      order: 9; }
+  order: 9; }
 
 .grid > .cell--order-11 {
-  -ms-flex-order: 10;
-      order: 10; }
+  order: 10; }
 
 .grid > .cell--order-12 {
-  -ms-flex-order: 11;
-      order: 11; }
+  order: 11; }
 
 @media (min-width: 25rem) {
   .grid > .cell--tiny-order-start {
-    -ms-flex-order: -1;
-        order: -1; }
+    order: -1; }
   .grid > .cell--tiny-order-end {
-    -ms-flex-order: 12;
-        order: 12; }
+    order: 12; }
   .grid > .cell--tiny-order-1 {
-    -ms-flex-order: 0;
-        order: 0; }
+    order: 0; }
   .grid > .cell--tiny-order-2 {
-    -ms-flex-order: 1;
-        order: 1; }
+    order: 1; }
   .grid > .cell--tiny-order-3 {
-    -ms-flex-order: 2;
-        order: 2; }
+    order: 2; }
   .grid > .cell--tiny-order-4 {
-    -ms-flex-order: 3;
-        order: 3; }
+    order: 3; }
   .grid > .cell--tiny-order-5 {
-    -ms-flex-order: 4;
-        order: 4; }
+    order: 4; }
   .grid > .cell--tiny-order-6 {
-    -ms-flex-order: 5;
-        order: 5; }
+    order: 5; }
   .grid > .cell--tiny-order-7 {
-    -ms-flex-order: 6;
-        order: 6; }
+    order: 6; }
   .grid > .cell--tiny-order-8 {
-    -ms-flex-order: 7;
-        order: 7; }
+    order: 7; }
   .grid > .cell--tiny-order-9 {
-    -ms-flex-order: 8;
-        order: 8; }
+    order: 8; }
   .grid > .cell--tiny-order-10 {
-    -ms-flex-order: 9;
-        order: 9; }
+    order: 9; }
   .grid > .cell--tiny-order-11 {
-    -ms-flex-order: 10;
-        order: 10; }
+    order: 10; }
   .grid > .cell--tiny-order-12 {
-    -ms-flex-order: 11;
-        order: 11; } }
+    order: 11; } }
 
 @media (min-width: 37.5rem) {
   .grid > .cell--small-order-start {
-    -ms-flex-order: -1;
-        order: -1; }
+    order: -1; }
   .grid > .cell--small-order-end {
-    -ms-flex-order: 12;
-        order: 12; }
+    order: 12; }
   .grid > .cell--small-order-1 {
-    -ms-flex-order: 0;
-        order: 0; }
+    order: 0; }
   .grid > .cell--small-order-2 {
-    -ms-flex-order: 1;
-        order: 1; }
+    order: 1; }
   .grid > .cell--small-order-3 {
-    -ms-flex-order: 2;
-        order: 2; }
+    order: 2; }
   .grid > .cell--small-order-4 {
-    -ms-flex-order: 3;
-        order: 3; }
+    order: 3; }
   .grid > .cell--small-order-5 {
-    -ms-flex-order: 4;
-        order: 4; }
+    order: 4; }
   .grid > .cell--small-order-6 {
-    -ms-flex-order: 5;
-        order: 5; }
+    order: 5; }
   .grid > .cell--small-order-7 {
-    -ms-flex-order: 6;
-        order: 6; }
+    order: 6; }
   .grid > .cell--small-order-8 {
-    -ms-flex-order: 7;
-        order: 7; }
+    order: 7; }
   .grid > .cell--small-order-9 {
-    -ms-flex-order: 8;
-        order: 8; }
+    order: 8; }
   .grid > .cell--small-order-10 {
-    -ms-flex-order: 9;
-        order: 9; }
+    order: 9; }
   .grid > .cell--small-order-11 {
-    -ms-flex-order: 10;
-        order: 10; }
+    order: 10; }
   .grid > .cell--small-order-12 {
-    -ms-flex-order: 11;
-        order: 11; } }
+    order: 11; } }
 
 @media (min-width: 60rem) {
   .grid > .cell--medium-order-start {
-    -ms-flex-order: -1;
-        order: -1; }
+    order: -1; }
   .grid > .cell--medium-order-end {
-    -ms-flex-order: 12;
-        order: 12; }
+    order: 12; }
   .grid > .cell--medium-order-1 {
-    -ms-flex-order: 0;
-        order: 0; }
+    order: 0; }
   .grid > .cell--medium-order-2 {
-    -ms-flex-order: 1;
-        order: 1; }
+    order: 1; }
   .grid > .cell--medium-order-3 {
-    -ms-flex-order: 2;
-        order: 2; }
+    order: 2; }
   .grid > .cell--medium-order-4 {
-    -ms-flex-order: 3;
-        order: 3; }
+    order: 3; }
   .grid > .cell--medium-order-5 {
-    -ms-flex-order: 4;
-        order: 4; }
+    order: 4; }
   .grid > .cell--medium-order-6 {
-    -ms-flex-order: 5;
-        order: 5; }
+    order: 5; }
   .grid > .cell--medium-order-7 {
-    -ms-flex-order: 6;
-        order: 6; }
+    order: 6; }
   .grid > .cell--medium-order-8 {
-    -ms-flex-order: 7;
-        order: 7; }
+    order: 7; }
   .grid > .cell--medium-order-9 {
-    -ms-flex-order: 8;
-        order: 8; }
+    order: 8; }
   .grid > .cell--medium-order-10 {
-    -ms-flex-order: 9;
-        order: 9; }
+    order: 9; }
   .grid > .cell--medium-order-11 {
-    -ms-flex-order: 10;
-        order: 10; }
+    order: 10; }
   .grid > .cell--medium-order-12 {
-    -ms-flex-order: 11;
-        order: 11; } }
+    order: 11; } }
 
 @media (min-width: 90rem) {
   .grid > .cell--large-order-start {
-    -ms-flex-order: -1;
-        order: -1; }
+    order: -1; }
   .grid > .cell--large-order-end {
-    -ms-flex-order: 12;
-        order: 12; }
+    order: 12; }
   .grid > .cell--large-order-1 {
-    -ms-flex-order: 0;
-        order: 0; }
+    order: 0; }
   .grid > .cell--large-order-2 {
-    -ms-flex-order: 1;
-        order: 1; }
+    order: 1; }
   .grid > .cell--large-order-3 {
-    -ms-flex-order: 2;
-        order: 2; }
+    order: 2; }
   .grid > .cell--large-order-4 {
-    -ms-flex-order: 3;
-        order: 3; }
+    order: 3; }
   .grid > .cell--large-order-5 {
-    -ms-flex-order: 4;
-        order: 4; }
+    order: 4; }
   .grid > .cell--large-order-6 {
-    -ms-flex-order: 5;
-        order: 5; }
+    order: 5; }
   .grid > .cell--large-order-7 {
-    -ms-flex-order: 6;
-        order: 6; }
+    order: 6; }
   .grid > .cell--large-order-8 {
-    -ms-flex-order: 7;
-        order: 7; }
+    order: 7; }
   .grid > .cell--large-order-9 {
-    -ms-flex-order: 8;
-        order: 8; }
+    order: 8; }
   .grid > .cell--large-order-10 {
-    -ms-flex-order: 9;
-        order: 9; }
+    order: 9; }
   .grid > .cell--large-order-11 {
-    -ms-flex-order: 10;
-        order: 10; }
+    order: 10; }
   .grid > .cell--large-order-12 {
-    -ms-flex-order: 11;
-        order: 11; } }
+    order: 11; } }
 
 /* Cell positioning through offset
    ========================================================================== */
@@ -921,69 +721,50 @@
 /* Alignment of individual cells
    ========================================================================== */
 .grid > .cell--align-start {
-  -ms-flex-item-align: start;
-      align-self: flex-start; }
+  align-self: flex-start; }
 
 .grid > .cell--align-end {
-  -ms-flex-item-align: end;
-      align-self: flex-end; }
+  align-self: flex-end; }
 
 .grid > .cell--align-center {
-  -ms-flex-item-align: center;
-      align-self: center; }
+  align-self: center; }
 
 @media (min-width: 25rem) {
   .grid > .cell--tiny-align-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start; }
+    align-self: flex-start; }
   .grid > .cell--tiny-align-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end; }
+    align-self: flex-end; }
   .grid > .cell--tiny-align-center {
-    -ms-flex-item-align: center;
-        align-self: center; }
+    align-self: center; }
   .grid > .cell--tiny-align-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch; } }
+    align-self: stretch; } }
 
 @media (min-width: 37.5rem) {
   .grid > .cell--small-align-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start; }
+    align-self: flex-start; }
   .grid > .cell--small-align-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end; }
+    align-self: flex-end; }
   .grid > .cell--small-align-center {
-    -ms-flex-item-align: center;
-        align-self: center; }
+    align-self: center; }
   .grid > .cell--small-align-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch; } }
+    align-self: stretch; } }
 
 @media (min-width: 60rem) {
   .grid > .cell--medium-align-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start; }
+    align-self: flex-start; }
   .grid > .cell--medium-align-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end; }
+    align-self: flex-end; }
   .grid > .cell--medium-align-center {
-    -ms-flex-item-align: center;
-        align-self: center; }
+    align-self: center; }
   .grid > .cell--medium-align-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch; } }
+    align-self: stretch; } }
 
 @media (min-width: 90rem) {
   .grid > .cell--large-align-start {
-    -ms-flex-item-align: start;
-        align-self: flex-start; }
+    align-self: flex-start; }
   .grid > .cell--large-align-end {
-    -ms-flex-item-align: end;
-        align-self: flex-end; }
+    align-self: flex-end; }
   .grid > .cell--large-align-center {
-    -ms-flex-item-align: center;
-        align-self: center; }
+    align-self: center; }
   .grid > .cell--large-align-stretch {
-    -ms-flex-item-align: stretch;
-        align-self: stretch; } }
+    align-self: stretch; } }
