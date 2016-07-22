@@ -26,7 +26,10 @@ Unfortunately, legacy browsers like IE9 and below do not support the flexbox syn
 * [Using mixins](http://vicompany.github.io/ezpz-flexbox-grid/mixins.html)
 
 ## Documentation ##
-[Documentation can be found here](/docs/readme.md)
+- [Installation](docs/installation.md)
+- [Settings](docs/settings.md)
+- [CSS usage](docs/css-usage.md)
+- [Mixins usage](docs/mixins-usage.md)
 
 ## Contributing ##
 ### Build ###
@@ -37,7 +40,7 @@ npm run build
 
 ## Get in touch
 - Bugs / Suggestions: [open an issue](https://github.com/vicompany/ezpz-flexbox-grid/issues)
-- Twitter: [@rison](https://twitter.com/vicompany)
+- Twitter: [@vicompany](https://twitter.com/vicompany)
 
 ## Credits ##
 * Variable namespacing and the .grid and .cell classes have been inspired by the
