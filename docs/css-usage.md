@@ -1,16 +1,14 @@
-## Table of contents
-* [Getting started](getting-started.md)
-* [Settings](settings.md)
-* [**Usage**](usage.md)
-* [Mixins](mixins.md)
+# EZPZ Flexbox grid Documentation
 
-# Usage #
+[Documentation](docs.md) > Usage
+
+## Usage
 The grid is used by applying certain classes to HTML elements. These classes are generated based on the selected options. Most of these classes have been marked optional to reduce CSS file size, but can easily be enabled in the grid setup.
 
-## Grid classes #
+### Grid classes
 All cells within the grid have to be wrapped by an element with a **.grid class** which acts as a container. Different behaviour can be assigned to this section through the use of the classes below.
 
-### Default ###
+#### Default
 
 ```css
 .grid
@@ -87,7 +85,7 @@ Turns an element into a cell within a grid section. Cell elements have to be dir
 ```
 Controls the amount of horizontal space a cell should occupy in a grid section. This modifier uses either numbers or fractions, based on the selected grid type. These classes are automatically generated based on the amount of grid columns or selected fractions.
 
-### Optional ###
+#### Optional
 
 <a id="cell-order"></a>
 ```css
@@ -138,8 +136,7 @@ Removes the gutters on a specific cell. Only works in combination with a cell--{
 ```
 A previously collapsed cells will have a gutter from this breakpoint and up.
 
-
-## Responsive classes ##
+### Responsive classes
 In many cases the desired behavior of a grid depends on the available space on a device. The EZPZ Flexbox Grid adheres to a mobile first strategy, and enables you to add breakpoints that generate breakpoint classes that offer more control over the layout on multiple screen sizes. The classes that are generated are based on the selected breakpoints in the $ezpz-breakpoints variable.
 
 The following classes can be altered by adding a breakpoint at the specified position:
@@ -186,5 +183,5 @@ In this example the grid will start out in a vertical layout but will change to 
 
 The cells within the grid will both start out taking up half of the available space in the grid section. As soon as the 'small' breakpoint is reached they will take up 4 and 8 columns. When the 'medium' breakpoint is reached they will be divided in a 10 and 2 column fashion.
 
-## Optional step ##
+## Optional
 * [Use the grid with mixins](mixins.md)

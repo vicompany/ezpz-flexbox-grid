@@ -1,13 +1,11 @@
-## Table of contents
-* [Getting started](getting-started.md)
-* [**Settings**](settings.md)
-* [Usage](usage.md)
-* [Mixins](mixins.md)
+# EZPZ Flexbox grid Documentation
 
-# Settings #
+[Documentation](docs.md) > Settings
+
+## Settings
 These variables control the generated CSS for the EZPZ grid and can be set to fit your own preferred values.
 
-## Mandatory ##
+### Mandatory
 
 ```sass
 $ezpz-auto-generate
@@ -65,7 +63,7 @@ The breakpoint names and sizes that will be used to generate responsive classes 
 
 Default: **'tiny': 25rem, 'small': 37.5rem, 'medium': 60rem, 'large': 90rem**
 
-## Optional ##
+### Optional
 These optional settings add more functionality to the EZPZ grid, but are disabled by default to reduce CSS file size. Simply set any of these variables to **true** to add the feature(s) to the grid. Keep in mind that enabling these settings might significantly increase the size of your CSS file. These settings are only used if ```$ezpz-auto-generate``` is set to true.
 
 ```sass
@@ -110,5 +108,5 @@ Set to true to enable collapsable gutters for grid sections and cells.
 
 Default: **false**
 
-## Next step ##
+## Next
 * [Usage](usage.md)
