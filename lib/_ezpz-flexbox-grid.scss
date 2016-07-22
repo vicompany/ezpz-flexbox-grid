@@ -63,7 +63,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Cells
 // ==========================================================================
-@mixin create-all-cells() {
+@mixin generate-all-cells() {
 	@if($is-columns or $is-fractions) {
 		@include create-cells();
 	}
@@ -103,14 +103,14 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	flex: 0 0 auto;
 
 	@if (type-of($column) != number) {
-		@error 'Please define a number variable.';
+		@error 'create-cell: Please define a number variable.';
 	}
 
 	@if($is-columns) {
 		width: (100% / $ezpz-columns) * $column;
 	} @else if ($is-fractions) {
 		@if ($column > 1) {
-			@error 'Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
+			@error 'create-cell: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
 		} @else {
 			width: percentage($column);
 		}
@@ -120,39 +120,68 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Alignment of all cells within a grid section
 // ==========================================================================
-@mixin grid-align-properties($breakpoint: null) {
+@mixin grid-align($value: 'stretch') {
+	$values: (
+		start: 'flex-start',
+		end: 'flex-end',
+		center: 'center',
+		stretch: 'stretch'
+	);
+
+	 @if map-has-key($values, $value) {
+		 align-items: #{map-get($values, $value)};
+	 } @else {
+		 @error 'grid-align: Please enter a valid property; "flex-start", "flex-end", "center" or "stretch"';
+	 }
+}
+
+@mixin generate-grid-align($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
+	&#{$breakpoint}align-stretch {
+		@include grid-align();
+	}
+
 	&#{$breakpoint}align-start {
-		align-items: flex-start;
+		@include grid-align('start');
 	}
 
 	&#{$breakpoint}align-end {
-		align-items: flex-end;
+		@include grid-align('end');
 	}
 
 	&#{$breakpoint}align-center {
-		align-items: center;
-	}
-
-	&#{$breakpoint}align-stretch {
-		align-items: stretch;
+		@include grid-align('center');
 	}
 }
 
 
 // Grid section with automatically wrapping cells
 // ==========================================================================
-@mixin grid-wrap-properties($breakpoint: null) {
+@mixin grid-wrap($value: 'nowrap') {
+	$values: (
+		wrap: 'wrap',
+		reverse: 'wrap-reverse',
+		nowrap: 'nowrap'
+	);
+
+	 @if map-has-key($values, $value) {
+		 flex-wrap: #{map-get($values, $value)};
+	 } @else {
+		 @error 'grid-wrap: Please enter a valid property; "wrap", "wrap-reverse", "nowrap"';
+	 }
+}
+
+@mixin generate-grid-wrap($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	@if $breakpoint {
 		&--#{$breakpoint}-nowrap {
-			flex-wrap: nowrap;
+			@include grid-wrap('nowrap');
 		}
 	} @else {
 		&--wrap {
-			flex-wrap: wrap;
+			@include grid-wrap();
 
 			> #{$ezpz-cell-namespace} {
 				flex-basis: auto;
@@ -160,7 +189,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		}
 
 		&--wrap-reverse {
-			flex-wrap: wrap-reverse;
+			@include grid-wrap('reverse');
 
 			> #{$ezpz-cell-namespace} {
 				flex-basis: auto;
@@ -169,27 +198,41 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
-
 // Cell order (order is 0 by default)
 // ==========================================================================
-@mixin cell-order-properties($breakpoint: null) {
+@mixin cell-order($value: 'start') {
+	@if ($value == 'start') {
+		order: -1;
+	} @else if ($value == 'end') {
+		order: $total-cells;
+	} @else {
+
+		@if (type-of($value) != number) {
+			@error 'cell-order: Please enter a valid property; "start", "end" or a number';
+		}
+
+		order: $value;
+	}
+}
+
+@mixin generate-cell-order($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}order {
 		// Useful for pulling a single column to the front of the row
 		&-start {
-			order: -1;
+			@include cell-order(start);
 		}
 
 		// Useful for pushing a single column to the end of the row
 		&-end {
-			order: $total-cells;
+			@include cell-order(end);
 		}
 
 		// Create offset classes used to control cell order
 		@for $i from 1 through $total-cells {
 			&-#{$i} {
-				order: $i - 1;
+				@include cell-order($i - 1);
 			}
 		}
 	}
@@ -198,19 +241,19 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Cell positioning through offset
 // ========================================================================== */
-@mixin cell-offset-properties($breakpoint: null) {
+@mixin generate-cell-offset($breakpoint: null) {
 
 	// Generate the offset classes for a column based grid
 	@if($is-columns) {
-		@include cell-column-offset-properties($breakpoint);
+		@include cell-column-offset($breakpoint);
 	}
 	// Generate the offset classes for a fraction based grid
 	@else if($is-fractions) {
-		@include cell-fraction-offset-properties($breakpoint);
+		@include cell-fraction-offset($breakpoint);
 	}
 }
 
-@mixin cell-column-offset-properties($breakpoint: null) {
+@mixin cell-column-offset($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}offset {
@@ -220,13 +263,13 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 		@for $i from 1 through $ezpz-columns {
 			&-#{$i} {
-				margin-left: (100% / $ezpz-columns) * $i;
+				@include cell-offset($i);
 			}
 		}
 	}
 }
 
-@mixin cell-fraction-offset-properties($breakpoint: null) {
+@mixin cell-fraction-offset($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}offset-0 {
@@ -242,32 +285,64 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			$modifier: format-modifier($key, $val);
 
 			&#{$breakpoint}offset-#{$modifier} {
-				margin-left: percentage($key / $val);
+				@include cell-offset($key / $val);
 			}
 		}
 	}
 }
 
+@mixin cell-offset($value: 1) {
+	@if (type-of($value) != number) {
+		@error 'Please define a number variable.';
+	}
+
+	@if($is-columns) {
+		margin-left: (100% / $ezpz-columns) * $value;
+	} @else if ($is-fractions) {
+		@if ($value > 1) {
+			@error 'create-offset: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
+		} @else {
+			margin-left: percentage($value);
+		}
+	}
+}
+
+
 // Alignment of individual cells
 // ==========================================================================
-@mixin cell-align-properties($breakpoint: null) {
+@mixin cell-align($value: 'stretch') {
+	$values: (
+		start: 'flex-start',
+		end: 'flex-end',
+		center: 'center',
+		stretch: 'stretch'
+	);
+
+	 @if map-has-key($values, $value) {
+		 align-self: #{map-get($values, $value)};
+	 } @else {
+		 @error 'cell-align: Please enter a valid property; "flex-start", "flex-end", "center" or "stretch"';
+	 }
+}
+
+@mixin generate-cell-align($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}align {
 		&-start {
-			align-self: flex-start;
+			@include cell-align(start);
 		}
 
 		&-end {
-			align-self: flex-end;
+			@include cell-align(end);
 		}
 
 		&-center {
-			align-self: center;
+			@include cell-align(center);
 		}
 
 		&-stretch {
-			align-self: stretch;
+			@include cell-align(stretch);
 		}
 	}
 }
@@ -317,26 +392,26 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		@media (min-width: $size) {
 			// Base
 			@include create-cells($breakpoint);
-			@include grid-layout-properties($breakpoint);
+			@include generate-grid-layout($breakpoint);
 
 			// Optional
 			@if $ezpz-grid-align {
-				@include grid-align-properties($breakpoint);
+				@include generate-grid-align($breakpoint);
 			}
 
 			@if $ezpz-grid-wrap {
-				@include grid-wrap-properties($breakpoint);
+				@include generate-grid-wrap($breakpoint);
 			}
 
 			@if $ezpz-cell-order {
 				& > #{$ezpz-cell-namespace} {
-					@include cell-order-properties($breakpoint);
+					@include generate-cell-order($breakpoint);
 				}
 			}
 
 			@if $ezpz-cell-offset {
 				& > #{$ezpz-cell-namespace} {
-					@include cell-offset-properties($breakpoint);
+					@include generate-cell-offset($breakpoint);
 				}
 			}
 
@@ -346,7 +421,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 			@if $ezpz-cell-align {
 				& > #{$ezpz-cell-namespace} {
-					@include cell-align-properties($breakpoint);
+					@include generate-cell-align($breakpoint);
 				}
 			}
 		}
@@ -387,7 +462,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
-@mixin create-full-grid() {
+@mixin generate-full-grid() {
 	@include create-grid();
 
 	> #{$ezpz-cell-namespace} {
@@ -395,16 +470,16 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
-@mixin grid-layout-properties($breakpoint: null) {
+@mixin generate-grid-layout($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint} {
 		&horizontal {
-			flex-direction: row;
+			@include grid-layout(horizontal);
 		}
 
 		&vertical {
-			flex-direction: column;
+			@include grid-layout(vertical);
 
 			// IE Fix to prevent cells from not having a height in a vertical grid layout
 			> #{$ezpz-cell-namespace} {
@@ -414,37 +489,50 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
+@mixin grid-layout($value: 'horizontal') {
+	$values: (
+		horizontal: 'row',
+		vertical: 'column'
+	);
+
+	 @if map-has-key($values, $value) {
+		 flex-direction: #{map-get($values, $value)};
+	 } @else {
+		 @error 'grid-layout allowed properties: "horizontal" and "vertical"';
+	 }
+}
+
 
 // Generate all the things
 // ==========================================================================
 @if ($ezpz-auto-generate) {
 	#{$ezpz-namespace} {
-		@include create-full-grid();
-		@include grid-layout-properties();
-		@include create-all-cells();
+		@include generate-full-grid();
+		@include generate-grid-layout();
+		@include generate-all-cells();
 
 		// Optional
 		@if $ezpz-grid-align {
-			@include grid-align-properties();
+			@include generate-grid-align();
 		}
 
 		@if $ezpz-grid-wrap {
-			@include grid-wrap-properties();
+			@include generate-grid-wrap();
 		}
 
 		@if $ezpz-cell-order {
 			& > #{$ezpz-cell-namespace} {
-				@include cell-order-properties();
+				@include generate-cell-order();
 			}
 		}
 
 		@if $ezpz-cell-offset {
-			@include cell-offset-properties();
+			@include generate-cell-offset();
 		}
 
 		@if $ezpz-cell-align {
 			& > #{$ezpz-cell-namespace} {
-				@include cell-align-properties();
+				@include generate-cell-align();
 			}
 		}
 
