@@ -175,26 +175,24 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin generate-grid-wrap($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if $breakpoint {
-		&--#{$breakpoint}-nowrap {
-			@include grid-wrap('nowrap');
-		}
-	} @else {
-		&--wrap {
-			@include grid-wrap();
+	&#{$breakpoint}wrap {
+		@include grid-wrap('wrap');
 
-			> #{$ezpz-cell-namespace} {
-				flex-basis: auto;
-			}
+		> #{$ezpz-cell-namespace} {
+			flex-basis: auto;
 		}
+	}
 
-		&--wrap-reverse {
-			@include grid-wrap('reverse');
+	&#{$breakpoint}wrap-reverse {
+		@include grid-wrap('reverse');
 
-			> #{$ezpz-cell-namespace} {
-				flex-basis: auto;
-			}
+		> #{$ezpz-cell-namespace} {
+			flex-basis: auto;
 		}
+	}
+
+	&#{$breakpoint}nowrap {
+		@include grid-wrap();
 	}
 }
 
