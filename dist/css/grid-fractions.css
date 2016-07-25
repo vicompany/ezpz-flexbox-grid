@@ -47,7 +47,15 @@
     align-items: flex-end; }
   .grid--align-center {
     align-items: center; }
-  .grid-----nowrap {
+  .grid--wrap {
+    flex-wrap: wrap; }
+    .grid--wrap > .cell {
+      flex-basis: auto; }
+  .grid--wrap-reverse {
+    flex-wrap: wrap-reverse; }
+    .grid--wrap-reverse > .cell {
+      flex-basis: auto; }
+  .grid--nowrap {
     flex-wrap: nowrap; }
   .grid > .cell--order-start {
     order: -1; }
@@ -126,7 +134,15 @@
       align-items: flex-end; }
     .grid--tiny-align-center {
       align-items: center; }
-    .grid----tiny--nowrap {
+    .grid--tiny-wrap {
+      flex-wrap: wrap; }
+      .grid--tiny-wrap > .cell {
+        flex-basis: auto; }
+    .grid--tiny-wrap-reverse {
+      flex-wrap: wrap-reverse; }
+      .grid--tiny-wrap-reverse > .cell {
+        flex-basis: auto; }
+    .grid--tiny-nowrap {
       flex-wrap: nowrap; }
     .grid > .cell--tiny-order-start {
       order: -1; }
@@ -205,7 +221,15 @@
       align-items: flex-end; }
     .grid--small-align-center {
       align-items: center; }
-    .grid----small--nowrap {
+    .grid--small-wrap {
+      flex-wrap: wrap; }
+      .grid--small-wrap > .cell {
+        flex-basis: auto; }
+    .grid--small-wrap-reverse {
+      flex-wrap: wrap-reverse; }
+      .grid--small-wrap-reverse > .cell {
+        flex-basis: auto; }
+    .grid--small-nowrap {
       flex-wrap: nowrap; }
     .grid > .cell--small-order-start {
       order: -1; }
@@ -284,7 +308,15 @@
       align-items: flex-end; }
     .grid--medium-align-center {
       align-items: center; }
-    .grid----medium--nowrap {
+    .grid--medium-wrap {
+      flex-wrap: wrap; }
+      .grid--medium-wrap > .cell {
+        flex-basis: auto; }
+    .grid--medium-wrap-reverse {
+      flex-wrap: wrap-reverse; }
+      .grid--medium-wrap-reverse > .cell {
+        flex-basis: auto; }
+    .grid--medium-nowrap {
       flex-wrap: nowrap; }
     .grid > .cell--medium-order-start {
       order: -1; }
@@ -363,7 +395,15 @@
       align-items: flex-end; }
     .grid--large-align-center {
       align-items: center; }
-    .grid----large--nowrap {
+    .grid--large-wrap {
+      flex-wrap: wrap; }
+      .grid--large-wrap > .cell {
+        flex-basis: auto; }
+    .grid--large-wrap-reverse {
+      flex-wrap: wrap-reverse; }
+      .grid--large-wrap-reverse > .cell {
+        flex-basis: auto; }
+    .grid--large-nowrap {
       flex-wrap: nowrap; }
     .grid > .cell--large-order-start {
       order: -1; }
