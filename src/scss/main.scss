@@ -1,28 +1,9 @@
 @charset 'utf-8';
 
-$gutter: 1rem;
-$breakpoints: 	(
-					'tiny':		25rem,
-					'small':	37.5rem,
-					'medium':	60rem,
-					'large':	90rem
-				) !default;
+@import 'shared';
 
-/* Example colors - Only used to highlight columns, do not use in production
-   ========================================================================== */
-$black:								#232323;
-$white:								#fff;
-$gray:								Gainsboro;
-$example-color-1:					#00A0B0;
-$example-color-2:					#CC333F;
-$example-color-3:					#EB6841;
-$example-color-4:					#EDC951;
-$example-color-5:					#6A4A3C;
-
-
-/* ==========================================================================
-   Base
-   ========================================================================== */
+// Base
+// ========================================================================== //
 
 *,
 *:after,
@@ -51,8 +32,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-/* Typography
-   ========================================================================== */
+// Typography
+// ========================================================================== //
 
 body {
 	font-family: Helvetica, Arial, Sans-Serif;
@@ -185,65 +166,7 @@ h3,
 	}
 
 	.cell {
-		position: relative;
-		text-align: center;
-
-		font-weight: 500;;
-		font-size: 2rem;
-
-		color: $white;
-		text-shadow: 1px 1px 0 rgba($black, 0.33);
-
-		&:nth-child(1),
-		&:nth-child(5),
-		&:nth-child(9) {
-			background-color: $example-color-1;
-		}
-
-		&:nth-child(2),
-		&:nth-child(6),
-		&:nth-child(10) {
-			background-color: $example-color-2;
-		}
-
-		&:nth-child(3),
-		&:nth-child(7),
-		&:nth-child(11) {
-			background-color: $example-color-3;
-		}
-
-		&:nth-child(4),
-		&:nth-child(8),
-		&:nth-child(12) {
-			background-color: $example-color-4;
-		}
-
-		// pseudo elements to illustrate gutters
-		&:before {
-			content: '';
-			width: ($gutter / 2);
-			height: 100%;
-			display: block;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-
-			background-color: rgba($white, 0.4);
-		}
-
-		&:after {
-			content: '';
-			width: ($gutter / 2);
-			height: 100%;
-			display: block;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-
-			background-color: rgba($white, 0.4);
-		}
+		@extend %cell;
 
 		// Colors for nested grid sections
 		> .grid {
@@ -290,8 +213,10 @@ h3,
 	}
 
 	// Remove gutter indications from cells in collapsed grid
-	.grid--collapsed {
-		.cell {
+	.grid--collapsed,
+	.is-collapsed {
+		.cell,
+		section {
 			&:before,
 			&:after {
 				display: none;
@@ -299,52 +224,33 @@ h3,
 		}
 	}
 
-	// Create aditional classes for breakpoints
-	@each $breakpoint, $size in $breakpoints {
-		@media (min-width: $size) {
-			.grid--#{$breakpoint}-collapsed {
-				.cell {
-					&:before,
-					&:after {
-						display: none;
-					}
-				}
-			}
-
-			.grid--#{$breakpoint}-expanded {
-				.cell {
-					&:before,
-					&:after {
-						display: block;
-					}
-				}
-			}
-		}
-	}
-
 	// Remove gutter indications from specific cells
+	.is-collapsed,
 	.cell--collapsed {
 		&:before,
 		&:after {
 			display: none;
 		}
 	}
+}
 
-	@each $breakpoint, $size in $breakpoints {
-		@media (min-width: $size) {
-			.cell--#{$breakpoint}-collapsed {
-				&:before,
-				&:after {
-					display: none;
-				}
-			}
+// PrismJS
+pre[class*="language-"] {
+	margin-top: 0 !important;
+	box-shadow: none  !important;
+	// border-left: none  !important;
+	border: 1px solid $gray !important;
 
-			.cell--#{$breakpoint}-expanded {
-				&:before,
-				&:after {
-					display: block;
-				}
-			}
-		}
+	&:before,
+	&:after {
+		display: none !important;
 	}
+}
+
+pre.line-numbers[class*="language-"] code {
+	padding-left: 2.8em !important;
+}
+
+.line-numbers .line-numbers-rows {
+	width: 2em !important;
 }
