@@ -1,4 +1,4 @@
-## 1.2.0 (2016-07-20)
+## 2.0.0 (2016-07-25)
 - Changed: Rewrote entire file to make use of the power of mixins
 - Added: Possibility to use the grid with mixins only
 - Added: Documentation can be found in the docs directory
