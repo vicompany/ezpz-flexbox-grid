@@ -1,0 +1,16 @@
+@charset 'utf-8';
+
+$ezpz-auto-generate:			false;
+
+@import 'shared';
+@import '../../lib/ezpz-flexbox-grid';
+
+article {
+	@include create-grid();
+
+	> section {
+		@include create-grid-cell();
+
+		@extend %cell;
+	}
+}

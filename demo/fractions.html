@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>EZPZ Flexbox Grid Demo - Default features (fractions)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/grid-fractions.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div>
+                <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
+
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="./index.html">Default features</a></li>
+                        <li class="nav__item"><a href="./optional-features.html">Optional features</a></li>
+                        <li class="nav__item"><a href="./responsive-features.html">Responsive features</a></li>
+                        <li class="nav__item is-active"><a href="./fractions.html">Using fractions</a></li>
+                        <li class="nav__item"><a href="./mixins.html">Using mixins</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <article class="example-flex-grid">
+            <h1>Using fractions</h1>
+            <p>While the grid type is set to 'columns' by default, it's possible to change this to <span class="bold">'fractions'</span>. This will enable you to think about the amount of space a cell should take within a grid section instead of constantly calculating the amount of columns you are working with.</p>
+
+            <p>Nearly all of a fraction based grid is identical to a column based grid, except for a few classes which are described below.</p>
+
+            <div class="toc">
+                <ul class="toc__list">
+                    <li class="toc__item">1: <a href="#horizontal-layout">Cells with specific sizes</a></li>
+                    <li class="toc__item">2: <a href="#vertical-layout">Horizontal cell offset</a></li>
+                </ul>
+            </div>
+
+            <section class="chapter" id="horizontal-layout">
+                <h1 class="h2">1: Cells with specific sizes</h1>
+                <p>A <span class="mono">.cell--2/3</span> class means that the element will take up two-thirds of the available space in the grid section. An element with the <span class="mono">.cell--1/2</span> class will take up one-half of the grid section, etc.</p>
+
+                <div class="grid">
+                    <div class="cell cell--2/3">&frac23;</div>
+                    <div class="cell cell--1/3">&frac13;</div>
+                </div>
+
+                <p>By only applying a <span class="mono">.cell--{fraction}</span> to specific cells, a width can be set for these cells. The remaining cells will equaly divide the remaining space within the grid section automatically.</p>
+
+                <div class="grid">
+                    <div class="cell cell--1/2">&frac12;</div>
+                    <div class="cell">25%</div>
+                    <div class="cell">25%</div>
+                </div>
+            </section>
+
+            <section class="chapter" id="horizontal-layout">
+                <h1 class="h2">2: Horizontal cell offset</h1>
+                <p>When using a fraction based grid type, cells can be offset by adding a <span class="mono">.cell--offset-{fraction}</span> class to a <span class="mono">.cell</span> element. The second cell in the example has been offset by one-quarter.</p>
+
+                <p>Please note that cell offsetting is disabled by default and has to be enabled by setting the <span class="mono">$ezpz-cell-offset</span> variable to <span class="mono">true</span>.</p>
+
+                <div class="grid">
+                    <div class="cell">&frac14;</div>
+                    <div class="cell cell--offset-1/4">&frac14;</div>
+                    <div class="cell">&frac14;</div>
+                </div>
+            </section>
+
+        </article>
+    </body>
+</html>
