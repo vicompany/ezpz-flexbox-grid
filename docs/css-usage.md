@@ -187,4 +187,4 @@ The cells within the grid will both start out taking up half of the available sp
 For a more in-depth explanation with examples please visit [the demo](http://vicompany.github.io/ezpz-flexbox-grid/index.html).
 
 ## Optional
-* [Use the grid with mixins](mixins.md)
+* [Use the grid with mixins](mixins-usage.md)
