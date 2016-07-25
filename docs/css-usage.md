@@ -183,5 +183,8 @@ In this example the grid will start out in a vertical layout but will change to 
 
 The cells within the grid will both start out taking up half of the available space in the grid section. As soon as the 'small' breakpoint is reached they will take up 4 and 8 columns. When the 'medium' breakpoint is reached they will be divided in a 10 and 2 column fashion.
 
+## Demo
+For a more in-depth explanation with examples please visit [the demo](http://vicompany.github.io/ezpz-flexbox-grid/index.html).
+
 ## Optional
 * [Use the grid with mixins](mixins.md)
