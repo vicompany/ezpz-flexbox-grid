@@ -36,6 +36,13 @@ The grid can be used as a column or fraction based system. This variable can be 
 Default: **'columns'**
 
 ```sass
+$ezpz-grid-default-wrap
+```
+The default wrap type for the grid. This variable can be set to 'nowrap', 'wrap' or 'reverse'.
+
+Default: **'nowrap'**
+
+```sass
 $ezpz-gutter
 ```
 The amount of horizontal space the gutter between 2 cells will occupy. Changing this variable will change the amount of space a gutter occupies.

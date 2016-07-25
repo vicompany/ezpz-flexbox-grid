@@ -9,8 +9,10 @@ $ezpz-auto-generate:			true !default;
 
 $ezpz-namespace:				'.grid' !default;
 $ezpz-cell-namespace:			'.cell' !default;
-$ezpz-grid-type:				'columns' !default;  // 'columns' or 'fractions'
+$ezpz-grid-type:				'columns' !default;	// 'columns' or 'fractions'
+$ezpz-grid-default-wrap:		'nowrap' !default;	// 'nowrap', 'wrap' or 'reverse'
 $ezpz-gutter: 					1rem !default;
+
 
 // Only used when $ezpz-grid-type is set to 'columns'
 $ezpz-columns: 					12 !default;
@@ -158,18 +160,18 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Grid section with automatically wrapping cells
 // ==========================================================================
-@mixin grid-wrap($value: 'nowrap') {
+@mixin grid-wrap($value: $ezpz-grid-default-wrap) {
 	$values: (
 		wrap: 'wrap',
 		reverse: 'wrap-reverse',
 		nowrap: 'nowrap'
 	);
 
-	 @if map-has-key($values, $value) {
-		 flex-wrap: #{map-get($values, $value)};
-	 } @else {
-		 @error 'grid-wrap: Please enter a valid property; "wrap", "wrap-reverse", "nowrap"';
-	 }
+	@if map-has-key($values, $value) {
+		flex-wrap: #{map-get($values, $value)};
+	} @else {
+		@error "grid-wrap: Please enter a valid property; 'nowrap', 'wrap' or 'reverse'";
+	}
 }
 
 @mixin generate-grid-wrap($breakpoint: null) {
@@ -192,7 +194,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 
 	&#{$breakpoint}nowrap {
-		@include grid-wrap();
+		@include grid-wrap('nowrap');
 	}
 }
 
@@ -453,6 +455,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	flex-direction: row;
 	box-sizing: border-box;
 	display: flex;
+	@include grid-wrap($ezpz-grid-default-wrap);
 
 	margin-right: -($ezpz-gutter / 2);
 	margin-left: -($ezpz-gutter / 2);
