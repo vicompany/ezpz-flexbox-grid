@@ -109,4 +109,4 @@ Set to true to enable collapsable gutters for grid sections and cells.
 Default: **false**
 
 ## Next
-* [Usage](usage.md)
+* [CSS usage](css-usage.md)
