@@ -58,6 +58,8 @@ article {
     flex-wrap: wrap-reverse; }
   article.nowrap {
     flex-wrap: nowrap; }
+  article.is-collapsed > section {
+    padding: 0; }
   article > section {
     flex-basis: 0%;
     flex-direction: column;
@@ -89,6 +91,8 @@ article {
       align-self: center; }
     article > section.align-stretch {
       align-self: stretch; }
+    article > section.is-collapsed {
+      padding: 0; }
 
 .col-2 {
   flex: 0 0 auto;

@@ -2,9 +2,8 @@
 
 @import 'shared';
 
-/* ==========================================================================
-   Base
-   ========================================================================== */
+// Base
+// ========================================================================== //
 
 *,
 *:after,
@@ -33,8 +32,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-/* Typography
-   ========================================================================== */
+// Typography
+// ========================================================================== //
 
 body {
 	font-family: Helvetica, Arial, Sans-Serif;
@@ -214,8 +213,10 @@ h3,
 	}
 
 	// Remove gutter indications from cells in collapsed grid
-	.grid--collapsed {
-		.cell {
+	.grid--collapsed,
+	.is-collapsed {
+		.cell,
+		section {
 			&:before,
 			&:after {
 				display: none;
@@ -224,10 +225,32 @@ h3,
 	}
 
 	// Remove gutter indications from specific cells
+	.is-collapsed,
 	.cell--collapsed {
 		&:before,
 		&:after {
 			display: none;
 		}
 	}
+}
+
+// PrismJS
+pre[class*="language-"] {
+	margin-top: 0 !important;
+	box-shadow: none  !important;
+	// border-left: none  !important;
+	border: 1px solid $gray !important;
+
+	&:before,
+	&:after {
+		display: none !important;
+	}
+}
+
+pre.line-numbers[class*="language-"] code {
+	padding-left: 2.8em !important;
+}
+
+.line-numbers .line-numbers-rows {
+	width: 2em !important;
 }

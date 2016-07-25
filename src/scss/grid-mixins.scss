@@ -44,6 +44,12 @@ article {
 		@include grid-wrap();
 	}
 
+	&.is-collapsed {
+		> section {
+			@include gutter-collapsed();
+		}
+	}
+
 	> section {
 		@include create-grid-cell();
 
@@ -87,6 +93,10 @@ article {
 
 		&.align-stretch {
 			@include cell-align(stretch);
+		}
+
+		&.is-collapsed {
+			@include gutter-collapsed();
 		}
 	}
 }

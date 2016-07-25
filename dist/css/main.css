@@ -34,9 +34,6 @@
     right: 0;
     background-color: rgba(255, 255, 255, 0.4); }
 
-/* ==========================================================================
-   Base
-   ========================================================================== */
 *,
 *:after,
 *:before {
@@ -56,8 +53,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
 
-/* Typography
-   ========================================================================== */
 body {
   font-family: Helvetica, Arial, Sans-Serif;
   line-height: 1.675; }
@@ -158,7 +153,28 @@ h3,
     background: #CC333F; }
   .example-flex-grid .cell + .cell > .grid > .cell:nth-child(4) {
     background: #EB6841; }
-  .example-flex-grid .grid--collapsed .cell:before, .example-flex-grid .grid--collapsed .cell:after {
+  .example-flex-grid .grid--collapsed .cell:before, .example-flex-grid .grid--collapsed .cell:after,
+  .example-flex-grid .grid--collapsed section:before,
+  .example-flex-grid .grid--collapsed section:after,
+  .example-flex-grid .is-collapsed .cell:before,
+  .example-flex-grid .is-collapsed .cell:after,
+  .example-flex-grid .is-collapsed section:before,
+  .example-flex-grid .is-collapsed section:after {
     display: none; }
-  .example-flex-grid .cell--collapsed:before, .example-flex-grid .cell--collapsed:after {
+  .example-flex-grid .is-collapsed:before, .example-flex-grid .is-collapsed:after,
+  .example-flex-grid .cell--collapsed:before,
+  .example-flex-grid .cell--collapsed:after {
     display: none; }
+
+pre[class*="language-"] {
+  margin-top: 0 !important;
+  box-shadow: none  !important;
+  border: 1px solid Gainsboro !important; }
+  pre[class*="language-"]:before, pre[class*="language-"]:after {
+    display: none !important; }
+
+pre.line-numbers[class*="language-"] code {
+  padding-left: 2.8em !important; }
+
+.line-numbers .line-numbers-rows {
+  width: 2em !important; }

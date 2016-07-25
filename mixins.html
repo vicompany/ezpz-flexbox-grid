@@ -5,11 +5,16 @@
         <title>EZPZ Flexbox Grid Demo - Mixins</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+
         <link rel="stylesheet" href="/dist/css/main.css" />
         <link rel="stylesheet" href="/dist/css/grid-mixins.css" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-coy.min.css" />
+	    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.css" />
     </head>
-    <body>
+    <body class="language-scss">
         <header class="header">
             <div>
                 <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
@@ -53,7 +58,7 @@
                             <li>3.4: <a href="#grid-align-center">Align center</a></li>
                         </ul>
                     </li>
-                    <li class="toc__item">4: <a href="#grid-wrap">Grid wrap</a>
+                    <li class="toc__item">4: <a href="#grid-wrap">Wrapping of cells within a grid section</a>
                         <ul>
                             <li>4.1: <a href="#grid-wrap-nowrap">No wrap (default)</a></li>
                             <li>4.2: <a href="#grid-wrap-wrap">Wrap</a></li>
@@ -61,40 +66,47 @@
                         </ul>
                     </li>
                     <li class="toc__item">5: <a href="#cell-align">Alignment of individual cells</a></li>
+                    <li class="toc__item">6: <a href="#collapsed-gutters">Collapsed gutters</a>
+                    <ul>
+                        <li>6.1: <a href="#grid-collapsed-gutters">For all cells</a></li>
+                        <li>6.2: <a href="#cell-collapsed-gutter">For a specific cells</a></li>
+                    </ul>
+                    </li>
                 </ul>
             </div>
 
             <div class="chapter" id="grid">
                 <h1 class="h2">1: Grid and cells</h1>
 
-                <span class="toc">
-                    article { <br />
-                    <span style="padding-left: 1rem;">@include create-grid();</span><br /><br />
-                    <span style="padding-left: 1rem;">> section {</span><br />
-                    <span style="padding-left: 2rem;">@include create-grid-cell();</span><br />
-                    <span style="padding-left: 1rem;">}</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include create-grid();
+
+    > section {
+        @include create-grid-cell();
+    }
+}
+</code></pre>
 
                 <article>
                     <section>
-                        a1
+                        1
                     </section>
 
                     <section>
-                        b2
+                        2
                         <article>
                             <section>
-                                c1
+                                2.1
                             </section>
                             <section>
-                                c2
+                                2.2
                             </section>
                             <section>
-                                c3
+                                2.3
                             </section>
                             <section>
-                                c4
+                                2.4
                             </section>
                         </article>
                     </section>
@@ -102,49 +114,49 @@
 
                 <h2 class="h3" id="grid-cell">1.1: Cell</h1>
 
-                <span class="toc">
-                    .col-{number} { <br />
-                        <span style="padding-left: 1rem;">@include create-cell({number});</span> <br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>.col-{number} {
+    @include create-cell({number});
+}
+</code></pre>
 
                 <article>
-                    <section class="col-3">3</section>
-                    <section class="col-5">5</section>
-                    <section class="col-4">4</section>
+                    <section class="col-3">1</section>
+                    <section class="col-5">2</section>
+                    <section class="col-4">3</section>
                 </article>
 
                 <h2 class="h3" id="grid-cell-order">1.2: Cell order</h1>
 
-                <span class="toc">
-                    .section { <br />
-                        <span style="padding-left: 1rem;">@include cell-order(start);</span> <br />
-                        <span style="padding-left: 1rem;">// or</span> <br />
-                        <span style="padding-left: 1rem;">@include cell-order(end);</span> <br />
-                        <span style="padding-left: 1rem;">// or</span> <br />
-                        <span style="padding-left: 1rem;">@include cell-order({number});</span> <br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>section {
+    @include cell-order(start);
+    // or
+    @include cell-order(end);
+    // or
+    @include cell-order({number});
+}
+</code></pre>
 
                 <article>
-                    <section class="order-4">a</section>
-                    <section class="order-1">b</section>
-                    <section class="order-start">c</section>
-                    <section class="order-2">d</section>
+                    <section class="order-4">1</section>
+                    <section class="order-1">2</section>
+                    <section class="order-start">3</section>
+                    <section class="order-2">4</section>
                 </article>
 
                 <h2 class="h3" id="grid-cell-offset">1.3: Cell offset</h1>
 
-                <span class="toc">
-                    section <br />
-                        <span style="padding-left: 1rem;">@include cell-offset({number});</span> <br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>section {
+    @include cell-offset({number});
+}
+</code></pre>
 
                 <article>
-                    <section class="col">3</section>
-                    <section class="col offset-1">5</section>
-                    <section class="col offset-3">4</section>
+                    <section class="col">1</section>
+                    <section class="col offset-1">2</section>
+                    <section class="col offset-3">3</section>
                 </article>
             </div>
 
@@ -152,29 +164,29 @@
                 <h1 class="h2">2: Direction of all cells within a grid section</h1>
 
                 <h2 class="h3" id="grid-direction-horizontal">2.1: Horizontal (default)</h2>
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-layout(horizontal);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-layout(horizontal);
+}
+</code></pre>
 
                 <article class="horizontal">
-                    <section class="col-4">a1</section>
-                    <section class="col-4">a2</section>
-                    <section class="col-4">a3</section>
+                    <section>1</section>
+                    <section>2</section>
+                    <section>3</section>
                 </article>
 
                 <h2 class="h3" id="grid-direction-vertical">2.1: Vertical</h2>
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-layout(vertical);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-layout(vertical);
+}
+</code></pre>
 
                 <article class="vertical">
-                    <section class="col-4">a1</section>
-                    <section class="col-4">a2</section>
-                    <section class="col-4">a3</section>
+                    <section>1</section>
+                    <section>2</section>
+                    <section>3</section>
                 </article>
             </div>
 
@@ -183,201 +195,196 @@
 
                 <h2 class="h3" id="grid-align-stretch">3.1: Align stretch (default)</h2>
 
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-align(stretch);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-align(stretch);
+}
+</code></pre>
 
                 <article class="align-stretch">
-                    <section>
-                        a1 <br>
-                        a2 <br>
-                        a3 <br>
-                    </section>
-                    <section>
-                        b1
-                    </section>
-                    <section>
-                        c1 <br>
-                        c2 <br>
-                    </section>
+                    <section style="min-height: 12rem;">1</section>
+                    <section>2</section>
+                    <section style="min-height: 6rem;">3</section>
                 </article>
 
                 <h2 class="h3" id="grid-align-start">3.2: Align start</h2>
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-align(start);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-align(start);
+}
+</code></pre>
 
                 <article class="align-start">
-                    <section>
-                        a1 <br>
-                        a2 <br>
-                        a3 <br>
-                    </section>
-                    <section>
-                        b1
-                    </section>
-                    <section>
-                        c1 <br>
-                        c2 <br>
-                    </section>
+                    <section style="min-height: 12rem;">1</section>
+                    <section>2</section>
+                    <section style="min-height: 6rem;">3</section>
                 </article>
 
                 <h2 class="h3" id="grid-align-end">3.3: Align end</h2>
 
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-align(end);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-align(end);
+}
+</code></pre>
 
                 <article class="align-end">
-                    <section>
-                        a1 <br>
-                        a2 <br>
-                        a3 <br>
-                    </section>
-                    <section>
-                        b1
-                    </section>
-                    <section>
-                        c1 <br>
-                        c2 <br>
-                    </section>
+                    <section style="min-height: 12rem;">1</section>
+                    <section>2</section>
+                    <section style="min-height: 6rem;">3</section>
                 </article>
 
                 <h2 class="h3" id="grid-align-center">3.4: Align center</h2>
 
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-align(center);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-align(center);
+}
+</code></pre>
 
                 <article class="align-center">
-                    <section>
-                        a1 <br>
-                        a2 <br>
-                        a3 <br>
-                    </section>
-                    <section>
-                        b1
-                    </section>
-                    <section>
-                        c1 <br>
-                        c2 <br>
-                    </section>
+                    <section style="min-height: 12rem;">1</section>
+                    <section>2</section>
+                    <section style="min-height: 6rem;">3</section>
                 </article>
             </div>
 
             <div class="chapter" id="grid-wrap">
-                <h1 class="h2">4: Grid wrap</h1>
+                <h1 class="h2">4: Wrapping of cells within a grid section</h1>
 
                 <h2 class="h3" id="grid-wrap-nowrap">4.1: No wrap (default)</h2>
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-wrap(nowrap);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-wrap(nowrap);
+}
+</code></pre>
 
                 <article class="no-wrap">
-                    <section class="col-2">a1</section>
-                    <section class="col-2">a2</section>
-                    <section class="col-2">a3</section>
-                    <section class="col-2">a4</section>
-                    <section class="col-2">a5</section>
-                    <section class="col-2">a6</section>
-                    <section class="col-2">a7</section>
-                    <section class="col-2">a8</section>
-                    <section class="col-2">a9</section>
-                    <section class="col-2">a10</section>
-                    <section class="col-2">a11</section>
-                    <section class="col-2">a12</section>
+                    <section class="col-2">1</section>
+                    <section class="col-2">2</section>
+                    <section class="col-2">3</section>
+                    <section class="col-2">4</section>
+                    <section class="col-2">5</section>
+                    <section class="col-2">6</section>
+                    <section class="col-2">7</section>
+                    <section class="col-2">8</section>
+                    <section class="col-2">9</section>
+                    <section class="col-2">10</section>
+                    <section class="col-2">11</section>
+                    <section class="col-2">12</section>
                 </article>
 
                 <h2 class="h3" id="grid-wrap-wrap">4.2: Wrap</h2>
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-wrap(wrap);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-wrap(wrap);
+}
+</code></pre>
 
                 <article class="wrap">
-                    <section class="col-2">a1</section>
-                    <section class="col-2">a2</section>
-                    <section class="col-2">a3</section>
-                    <section class="col-2">a4</section>
-                    <section class="col-2">a5</section>
-                    <section class="col-2">a6</section>
-                    <section class="col-2">a7</section>
-                    <section class="col-2">a8</section>
-                    <section class="col-2">a9</section>
-                    <section class="col-2">a10</section>
-                    <section class="col-2">a11</section>
-                    <section class="col-2">a12</section>
+                    <section class="col-2">1</section>
+                    <section class="col-2">2</section>
+                    <section class="col-2">3</section>
+                    <section class="col-2">4</section>
+                    <section class="col-2">5</section>
+                    <section class="col-2">6</section>
+                    <section class="col-2">7</section>
+                    <section class="col-2">8</section>
+                    <section class="col-2">9</section>
+                    <section class="col-2">10</section>
+                    <section class="col-2">11</section>
+                    <section class="col-2">12</section>
                 </article>
 
                 <h2 class="h3" id="grid-wrap-reversed">4.3: Reversed wrap</h2>
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include grid-wrap(reverse);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>article {
+    @include grid-wrap(reverse);
+}
+</code></pre>
 
                 <article class="reverse-wrap">
-                    <section class="col-2">a1</section>
-                    <section class="col-2">a2</section>
-                    <section class="col-2">a3</section>
-                    <section class="col-2">a4</section>
-                    <section class="col-2">a5</section>
-                    <section class="col-2">a6</section>
-                    <section class="col-2">a7</section>
-                    <section class="col-2">a8</section>
-                    <section class="col-2">a9</section>
-                    <section class="col-2">a10</section>
-                    <section class="col-2">a11</section>
-                    <section class="col-2">a12</section>
+                    <section class="col-2">1</section>
+                    <section class="col-2">2</section>
+                    <section class="col-2">3</section>
+                    <section class="col-2">4</section>
+                    <section class="col-2">5</section>
+                    <section class="col-2">6</section>
+                    <section class="col-2">7</section>
+                    <section class="col-2">8</section>
+                    <section class="col-2">9</section>
+                    <section class="col-2">10</section>
+                    <section class="col-2">11</section>
+                    <section class="col-2">12</section>
                 </article>
             </div>
 
             <div class="chapter" id="cell-align">
                 <h1 class="h2">5: Alignment of individual cells</h1>
 
-                <span class="toc">
-                    article {<br />
-                    <span style="padding-left: 1rem;">@include cell-align(stretch); // default</span><br />
-                    <span style="padding-left: 1rem;">@include cell-align(start);</span><br />
-                    <span style="padding-left: 1rem;">@include cell-align(end);</span><br />
-                    <span style="padding-left: 1rem;">@include cell-align(center);</span><br />
-                    }
-                </span>
+<pre class="line-numbers">
+<code>section {
+    @include cell-align(stretch); // default
+    // or
+    @include cell-align(start);
+    // or
+    @include cell-align(end);
+    // or
+    @include cell-align(center);
+}
+</code></pre>
 
                 <article>
-                    <section>
-                        a1 <br>
-                        a2 <br>
-                        a3 <br>
-                        a4
-                    </section>
-                    <section class="align-end">
-                        b1
-                    </section>
-                    <section class="align-start">
-                        c1
-                    </section>
-                    <section class="align-center">
-                        d1 <br>
-                        d2
-                    </section>
+                    <section style="min-height: 12rem;">1</section>
+                    <section class="align-end">2</section>
+                    <section class="align-start">3</section>
+                    <section class="align-center">4</section>
                 </article>
             </div>
 
+            <div class="chapter" id="collapsed-gutters">
+                <h1 class="h2">6: Collapsed gutters</h1>
 
+                <h2 class="h3" id="grid-collapsed-gutters">6.1: For all cells</h2>
 
+<pre class="line-numbers">
+<code>article {
+    > section {
+        @include gutter-collapsed();
+    }
+}
+</code></pre>
+
+                <article class="is-collapsed">
+                    <section>1</section>
+                    <section>2</section>
+                    <section>3</section>
+                    <section>4</section>
+                </article>
+
+                <h2 class="h3" id="cell-collapsed-gutter">6.2: For a specific cell</h2>
+
+<pre class="line-numbers">
+<code>section {
+    &.is-collapsed {
+        @include gutter-collapsed();
+    }
+}
+</code></pre>
+
+                    <article>
+                        <section>1</section>
+                        <section class="is-collapsed">2</section>
+                        <section class="is-collapsed">3</section>
+                        <section>4</section>
+                    </article>
+            </div>
 
         </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-scss.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.js"></script>
     </body>
 </html>

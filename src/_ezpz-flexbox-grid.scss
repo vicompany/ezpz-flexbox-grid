@@ -350,39 +350,59 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Grid or cell without gutters
 // ==========================================================================
-@mixin gutter-collapse-properties($breakpoint: null) {
-	@include grid-gutter-collapse-properties($breakpoint);
-	@include cell-gutter-collapse-properties($breakpoint);
+@mixin generate-gutter-collapse($breakpoint: null) {
+	@include grid-gutter-collapsed($breakpoint);
+	@include grid-gutter-expanded($breakpoint);
+
+	@include cell-gutter-collapsed($breakpoint);
+	@include cell-gutter-expanded($breakpoint);
 }
 
 // Grid where none of the cells have gutters
-@mixin grid-gutter-collapse-properties($breakpoint: null) {
+@mixin grid-gutter-collapsed($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}collapsed {
 		> #{$ezpz-cell-namespace} {
-			padding: 0;
+			@include gutter-collapsed();
 		}
 	}
+}
 
-	&#{$breakpoint}expanded {
+@mixin grid-gutter-expanded($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
+
+	&#{$breakpoint}collapsed {
 		> #{$ezpz-cell-namespace} {
-			padding: 0 ($ezpz-gutter / 2);
+			@include gutter-expanded();
 		}
 	}
 }
 
 // Specific cell without gutters
-@mixin cell-gutter-collapse-properties($breakpoint: null) {
+@mixin cell-gutter-collapsed($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}collapsed {
-		padding: 0;
+		@include gutter-collapsed();
 	}
+}
+
+// Specific cell without gutters
+@mixin cell-gutter-expanded($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}expanded {
-		padding: 0 ($ezpz-gutter / 2);
+		@include gutter-expanded();
 	}
+}
+
+@mixin gutter-collapsed() {
+	padding: 0;
+}
+
+@mixin gutter-expanded() {
+	padding: 0 ($ezpz-gutter / 2);
 }
 
 // Create responsive classes for all additional options
@@ -416,7 +436,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			}
 
 			@if $ezpz-gutter-collapse {
-				@include gutter-collapse-properties($breakpoint);
+				@include generate-gutter-collapse($breakpoint);
 			}
 
 			@if $ezpz-cell-align {
@@ -537,7 +557,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		}
 
 		@if $ezpz-gutter-collapse {
-			@include gutter-collapse-properties();
+			@include generate-gutter-collapse();
 		}
 
 		// Responsive classes
