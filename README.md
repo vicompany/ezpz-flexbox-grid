@@ -1,5 +1,3 @@
-https://api.travis-ci.org/vicompany/ezpz-flexbox-grid.svg?branch=master
-
 [![Build Status](https://api.travis-ci.org/vicompany/ezpz-flexbox-grid.svg?branch=master)](https://travis-ci.org/vicompany/ezpz-flexbox-grid)
 
 # EZPZ Flexbox Grid
