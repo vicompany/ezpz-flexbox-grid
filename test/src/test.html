@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>EZPZ Flexbox Grid test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/grid.css" />
+
+        <style>
+            body {
+                background-color: #FFF;
+            }
+
+            /*@media (min-width: 25rem) {
+                body {
+                    background-color: green;
+                }
+            }
+
+            @media (min-width: 37.5rem) {
+                body {
+                    background-color: hotpink;
+                }
+            }
+
+            @media (min-width: 60rem) {
+                body {
+                    background-color: yellow;
+                }
+            }
+
+            @media (min-width: 90rem) {
+                body {
+                    background-color: blue;
+                }
+            }*/
+        </style>
+    </head>
+    <body>
+        <article class="example-flex-grid">
+            <section class="chapter" id="cell-order">
+                <h1 class="h2">1: Cell order</h1>
+
+                <div class="grid">
+                    <div class="cell cell--order-4">1</div>
+                    <div class="cell cell--order-1">2</div>
+                    <div class="cell cell--order-start">3</div>
+                    <div class="cell cell--order-2">4</div>
+                </div>
+            </section>
+
+            <section class="chapter" id="horizontal-cell-offset">
+                <h1 class="h2">2: Horizontal cell offset</h1>
+
+                <div class="grid">
+                    <div class="cell">25%</div>
+                    <div class="cell cell--offset-3">25%</div>
+                    <div class="cell">25%</div>
+                </div>
+            </section>
+
+            <section class="chapter" id="grid-cells-align">
+                <h1 class="h2">3: Alignment of all cells within a grid section</h1>
+
+                <section id="grid-cells-align-start">
+                    <h1 class="h3">3.1: Align start</h1>
+
+                    <div class="grid grid--align-start">
+                        <div class="cell" style="min-height: 12rem;">1</div>
+                        <div class="cell">2</div>
+                        <div class="cell" style="min-height: 6rem;">3</div>
+                    </div>
+                </section>
+
+                <section id="grid-cells-align-end">
+                    <h1 class="h3">3.2: Align end</h1>
+
+                    <div class="grid grid--align-end">
+                        <div class="cell" style="min-height: 12rem;">1</div>
+                        <div class="cell">2</div>
+                        <div class="cell" style="min-height: 6rem;">3</div>
+                    </div>
+                </section>
+
+                <section id="grid-cells-align-center">
+                    <h1 class="h3">3.3: Align center</h1>
+
+                    <div class="grid grid--align-center">
+                        <div class="cell" style="min-height: 12rem;">1</div>
+                        <div class="cell">2</div>
+                        <div class="cell" style="min-height: 6rem;">3</div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="chapter" id="cell-align">
+                <h1 class="h2">4: Alignment of individual cells</h1>
+
+                <div class="grid">
+                    <div class="cell" style="min-height: 12rem;">1</div>
+                    <div class="cell cell--align-end">2</div>
+                    <div class="cell" style="min-height: 6rem;">3</div>
+                    <div class="cell cell--align-center">4</div>
+                </div>
+            </section>
+
+            <section class="chapter" id="collapsed-gutters">
+                <h1 class="h2">5: Collapsed gutters</h1>
+
+                <section id="collapsed-gutters-all-cells">
+                    <h1 class="h3">5.1: For all cells within a grid section</h1>
+
+                    <div class="grid grid--collapsed">
+                        <div class="cell">25%</div>
+                        <div class="cell">25%</div>
+                        <div class="cell">25%</div>
+                        <div class="cell">25%</div>
+                    </div>
+                </section>
+
+                <section id="collapsed-gutters-specific-cells">
+                    <h1 class="h3">5.2: For specific cells</h1>
+
+                    <div class="grid">
+                        <div class="cell">25%</div>
+                        <div class="cell cell--3 cell--collapsed">25%</div>
+                        <div class="cell cell--3 cell--collapsed">25%</div>
+                        <div class="cell">25%</div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="chapter" id="wrapping-cells">
+                <h1 class="h2">6: Wrapping cells</h1>
+
+                <section id="wrapping-cells-default">
+                    <h1 class="h3">6.1: Default wrapping</h1>
+
+                    <div class="grid grid--wrap">
+                        <div class="cell">1</div>
+                        <div class="cell">2</div>
+                        <div class="cell">3</div>
+                        <div class="cell">4</div>
+                        <div class="cell">5</div>
+                        <div class="cell">6</div>
+                        <div class="cell">7</div>
+                        <div class="cell">8</div>
+                        <div class="cell">9</div>
+                        <div class="cell">10</div>
+                        <div class="cell">11</div>
+                        <div class="cell">12</div>
+                    </div>
+                </section>
+
+                <section id="wrapping-cells-reversed">
+                    <h1 class="h3">6.2: Reversed wrapping</h1>
+
+                    <div class="grid grid--wrap-reverse">
+                        <div class="cell">1</div>
+                        <div class="cell">2</div>
+                        <div class="cell">3</div>
+                        <div class="cell">4</div>
+                        <div class="cell">5</div>
+                        <div class="cell">6</div>
+                        <div class="cell">7</div>
+                        <div class="cell">8</div>
+                        <div class="cell">9</div>
+                        <div class="cell">10</div>
+                        <div class="cell">11</div>
+                        <div class="cell">12</div>
+                    </div>
+                </section>
+            </section>
+        </article>
+    </body>
+</html>
