@@ -7,7 +7,7 @@
     "postcss": "postcss -u autoprefixer --autoprefixer.browsers \"ie 10, safari >= 4, last 2 versions\" -r test/src/css/*.css",
     "sass": "node-sass test/src/scss -o test/src/css --output-style uncompressed",
     "clean": "rimraf test/backstop_data/bitmaps_test",
-    "backstop": "cd ./node_modules/backstopjs && npm run test -- --configPath=../../test/backstop.json",
+    "backstop": "cd ./node_modules/backstopjs && npm run reference -- --configPath=../../test/backstop.json && npm run test -- --configPath=../../test/backstop.json",
     "pretest": "npm run clean & npm run sass & npm run postcss",
     "test": "npm run backstop",
     "preversion": "npm test",
