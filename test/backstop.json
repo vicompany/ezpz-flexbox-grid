@@ -24,7 +24,7 @@
   "scenarios": [
     {
       "label": "EZPZ Flexbox Grid",
-      "url": "../../test/src/test.html",
+      "url": "https://cdn.rawgit.com/vicompany/ezpz-flexbox-grid/%239-CSS-Unit-tests/test/src/test.html",
       "hideSelectors": [],
       "removeSelectors": [],
       "selectors": [
