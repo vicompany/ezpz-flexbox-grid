@@ -36,7 +36,7 @@
         ".chapter:nth-of-type(6)"
       ],
       "readyEvent": null,
-      "delay": 1000,
+      "delay": 500,
       "misMatchThreshold" : 0.1,
       "onBeforeScript": "",
       "onReadyScript": ""
@@ -50,6 +50,6 @@
   "engine": "phantomjs",
   "report": ["CLI", "CI"],
   "casperFlags": [],
-  "debug": false,
+  "debug": true,
   "port": 3001
 }
