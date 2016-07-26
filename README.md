@@ -1,3 +1,7 @@
+https://api.travis-ci.org/vicompany/ezpz-flexbox-grid.svg?branch=master
+
+[![Build Status](https://api.travis-ci.org/vicompany/ezpz-flexbox-grid.svg?branch=master)](https://travis-ci.org/vicompany/ezpz-flexbox-grid)
+
 # EZPZ Flexbox Grid
 
 A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation. By [VI Company](http://www.vicompany.nl)
