@@ -23,8 +23,8 @@
   ],
   "scenarios": [
     {
-      "label": "EZPZ Flexbox Grid",
-      "url": "../../test/src/test.html",
+      "label": "EZPZ-grid",
+      "url": "../../test/test.html",
       "hideSelectors": [],
       "removeSelectors": [],
       "selectors": [
@@ -43,13 +43,13 @@
     }
   ],
   "paths": {
-    "bitmaps_reference": "../../test/backstop_data/bitmaps_reference",
-    "bitmaps_test": "../../test/backstop_data/bitmaps_test",
-    "compare_data": "../../test/backstop_data/bitmaps_test/compare.json"
+    "bitmaps_reference": "../../backstop_data/bitmaps_reference",
+    "bitmaps_test": "../../backstop_data/bitmaps_test",
+    "compare_data": "../../backstop_data/bitmaps_test/compare.json"
   },
   "engine": "phantomjs",
   "report": ["CLI", "CI"],
   "casperFlags": [],
-  "debug": true,
+  "debug": false,
   "port": 3001
 }
