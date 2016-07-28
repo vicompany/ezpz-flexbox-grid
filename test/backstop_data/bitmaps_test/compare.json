@@ -4,7 +4,7 @@
     "testPairs": [
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_0_chapternth-of-type1_0_tiny.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_0_chapternth-of-type1_0_tiny.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_0_chapternth-of-type1_0_tiny.png",
         "selector": ".chapter:nth-of-type(1)",
         "fileName": "0_0_chapternth-of-type1_0_tiny.png",
         "label": "EZPZ Flexbox Grid",
@@ -12,7 +12,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_1_chapternth-of-type2_0_tiny.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_1_chapternth-of-type2_0_tiny.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_1_chapternth-of-type2_0_tiny.png",
         "selector": ".chapter:nth-of-type(2)",
         "fileName": "0_1_chapternth-of-type2_0_tiny.png",
         "label": "EZPZ Flexbox Grid",
@@ -20,7 +20,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_2_chapternth-of-type3_0_tiny.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_2_chapternth-of-type3_0_tiny.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_2_chapternth-of-type3_0_tiny.png",
         "selector": ".chapter:nth-of-type(3)",
         "fileName": "0_2_chapternth-of-type3_0_tiny.png",
         "label": "EZPZ Flexbox Grid",
@@ -28,7 +28,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_3_chapternth-of-type4_0_tiny.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_3_chapternth-of-type4_0_tiny.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_3_chapternth-of-type4_0_tiny.png",
         "selector": ".chapter:nth-of-type(4)",
         "fileName": "0_3_chapternth-of-type4_0_tiny.png",
         "label": "EZPZ Flexbox Grid",
@@ -36,7 +36,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_4_chapternth-of-type5_0_tiny.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_4_chapternth-of-type5_0_tiny.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_4_chapternth-of-type5_0_tiny.png",
         "selector": ".chapter:nth-of-type(5)",
         "fileName": "0_4_chapternth-of-type5_0_tiny.png",
         "label": "EZPZ Flexbox Grid",
@@ -44,7 +44,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_5_chapternth-of-type6_0_tiny.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_5_chapternth-of-type6_0_tiny.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_5_chapternth-of-type6_0_tiny.png",
         "selector": ".chapter:nth-of-type(6)",
         "fileName": "0_5_chapternth-of-type6_0_tiny.png",
         "label": "EZPZ Flexbox Grid",
@@ -52,7 +52,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_0_chapternth-of-type1_1_small.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_0_chapternth-of-type1_1_small.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_0_chapternth-of-type1_1_small.png",
         "selector": ".chapter:nth-of-type(1)",
         "fileName": "0_0_chapternth-of-type1_1_small.png",
         "label": "EZPZ Flexbox Grid",
@@ -60,7 +60,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_1_chapternth-of-type2_1_small.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_1_chapternth-of-type2_1_small.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_1_chapternth-of-type2_1_small.png",
         "selector": ".chapter:nth-of-type(2)",
         "fileName": "0_1_chapternth-of-type2_1_small.png",
         "label": "EZPZ Flexbox Grid",
@@ -68,7 +68,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_2_chapternth-of-type3_1_small.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_2_chapternth-of-type3_1_small.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_2_chapternth-of-type3_1_small.png",
         "selector": ".chapter:nth-of-type(3)",
         "fileName": "0_2_chapternth-of-type3_1_small.png",
         "label": "EZPZ Flexbox Grid",
@@ -76,7 +76,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_3_chapternth-of-type4_1_small.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_3_chapternth-of-type4_1_small.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_3_chapternth-of-type4_1_small.png",
         "selector": ".chapter:nth-of-type(4)",
         "fileName": "0_3_chapternth-of-type4_1_small.png",
         "label": "EZPZ Flexbox Grid",
@@ -84,7 +84,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_4_chapternth-of-type5_1_small.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_4_chapternth-of-type5_1_small.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_4_chapternth-of-type5_1_small.png",
         "selector": ".chapter:nth-of-type(5)",
         "fileName": "0_4_chapternth-of-type5_1_small.png",
         "label": "EZPZ Flexbox Grid",
@@ -92,7 +92,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_5_chapternth-of-type6_1_small.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_5_chapternth-of-type6_1_small.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_5_chapternth-of-type6_1_small.png",
         "selector": ".chapter:nth-of-type(6)",
         "fileName": "0_5_chapternth-of-type6_1_small.png",
         "label": "EZPZ Flexbox Grid",
@@ -100,7 +100,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_0_chapternth-of-type1_2_medium.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_0_chapternth-of-type1_2_medium.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_0_chapternth-of-type1_2_medium.png",
         "selector": ".chapter:nth-of-type(1)",
         "fileName": "0_0_chapternth-of-type1_2_medium.png",
         "label": "EZPZ Flexbox Grid",
@@ -108,7 +108,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_1_chapternth-of-type2_2_medium.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_1_chapternth-of-type2_2_medium.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_1_chapternth-of-type2_2_medium.png",
         "selector": ".chapter:nth-of-type(2)",
         "fileName": "0_1_chapternth-of-type2_2_medium.png",
         "label": "EZPZ Flexbox Grid",
@@ -116,7 +116,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_2_chapternth-of-type3_2_medium.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_2_chapternth-of-type3_2_medium.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_2_chapternth-of-type3_2_medium.png",
         "selector": ".chapter:nth-of-type(3)",
         "fileName": "0_2_chapternth-of-type3_2_medium.png",
         "label": "EZPZ Flexbox Grid",
@@ -124,7 +124,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_3_chapternth-of-type4_2_medium.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_3_chapternth-of-type4_2_medium.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_3_chapternth-of-type4_2_medium.png",
         "selector": ".chapter:nth-of-type(4)",
         "fileName": "0_3_chapternth-of-type4_2_medium.png",
         "label": "EZPZ Flexbox Grid",
@@ -132,7 +132,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_4_chapternth-of-type5_2_medium.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_4_chapternth-of-type5_2_medium.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_4_chapternth-of-type5_2_medium.png",
         "selector": ".chapter:nth-of-type(5)",
         "fileName": "0_4_chapternth-of-type5_2_medium.png",
         "label": "EZPZ Flexbox Grid",
@@ -140,7 +140,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_5_chapternth-of-type6_2_medium.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_5_chapternth-of-type6_2_medium.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_5_chapternth-of-type6_2_medium.png",
         "selector": ".chapter:nth-of-type(6)",
         "fileName": "0_5_chapternth-of-type6_2_medium.png",
         "label": "EZPZ Flexbox Grid",
@@ -148,7 +148,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_0_chapternth-of-type1_3_large.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_0_chapternth-of-type1_3_large.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_0_chapternth-of-type1_3_large.png",
         "selector": ".chapter:nth-of-type(1)",
         "fileName": "0_0_chapternth-of-type1_3_large.png",
         "label": "EZPZ Flexbox Grid",
@@ -156,7 +156,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_1_chapternth-of-type2_3_large.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_1_chapternth-of-type2_3_large.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_1_chapternth-of-type2_3_large.png",
         "selector": ".chapter:nth-of-type(2)",
         "fileName": "0_1_chapternth-of-type2_3_large.png",
         "label": "EZPZ Flexbox Grid",
@@ -164,7 +164,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_2_chapternth-of-type3_3_large.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_2_chapternth-of-type3_3_large.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_2_chapternth-of-type3_3_large.png",
         "selector": ".chapter:nth-of-type(3)",
         "fileName": "0_2_chapternth-of-type3_3_large.png",
         "label": "EZPZ Flexbox Grid",
@@ -172,7 +172,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_3_chapternth-of-type4_3_large.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_3_chapternth-of-type4_3_large.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_3_chapternth-of-type4_3_large.png",
         "selector": ".chapter:nth-of-type(4)",
         "fileName": "0_3_chapternth-of-type4_3_large.png",
         "label": "EZPZ Flexbox Grid",
@@ -180,7 +180,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_4_chapternth-of-type5_3_large.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_4_chapternth-of-type5_3_large.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_4_chapternth-of-type5_3_large.png",
         "selector": ".chapter:nth-of-type(5)",
         "fileName": "0_4_chapternth-of-type5_3_large.png",
         "label": "EZPZ Flexbox Grid",
@@ -188,7 +188,7 @@
       },
       {
         "reference": "../../test/backstop_data/bitmaps_reference/0_5_chapternth-of-type6_3_large.png",
-        "test": "../../test/backstop_data/bitmaps_test/20160728-081403/0_5_chapternth-of-type6_3_large.png",
+        "test": "../../test/backstop_data/bitmaps_test/20160728-081522/0_5_chapternth-of-type6_3_large.png",
         "selector": ".chapter:nth-of-type(6)",
         "fileName": "0_5_chapternth-of-type6_3_large.png",
         "label": "EZPZ Flexbox Grid",
