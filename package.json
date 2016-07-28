@@ -6,6 +6,7 @@
   "scripts": {
     "postcss": "postcss -u autoprefixer --autoprefixer.browsers \"ie 10, safari >= 4, last 2 versions\" -r test/css/*.css",
     "sass": "node-sass test/scss -o test/css --output-style uncompressed",
+    "prebackstop": "cd ./node_modules/backstopjs && npm run bless",
     "backstop": "cd ./node_modules/backstopjs && npm run test",
     "pretest": "npm run sass && npm run postcss",
     "test": "npm run backstop",
