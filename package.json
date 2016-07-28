@@ -8,7 +8,7 @@
     "sass": "node-sass test/src/scss -o test/src/css --output-style uncompressed",
     "clean": "rimraf test/backstop_data/bitmaps_test",
     "backstop": "cd ./node_modules/backstopjs && npm run test -- --configPath=../../test/backstop.json",
-    "pretest": "npm run clean & npm run sass & npm run postcss",
+    "pretest": "npm run sass && npm run postcss",
     "test": "npm run backstop",
     "preversion": "npm test",
     "postversion": "git push && git push --tags"
