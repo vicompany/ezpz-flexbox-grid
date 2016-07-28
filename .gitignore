@@ -1,4 +1,2 @@
 node_modules/
 *.log
-test/backstop_data/bitmaps_test/
-test/backstop_data/bitmaps_test/compare.json
