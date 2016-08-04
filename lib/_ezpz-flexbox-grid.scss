@@ -549,7 +549,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 		@if $ezpz-cell-offset {
 			& > #{$ezpz-cell-namespace} {
-				@include generate-cell-offset($breakpoint);
+				@include generate-cell-offset();
 			}
 		}
 
