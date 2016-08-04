@@ -548,17 +548,19 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		}
 
 		@if $ezpz-cell-offset {
-			@include generate-cell-offset();
+			& > #{$ezpz-cell-namespace} {
+				@include generate-cell-offset($breakpoint);
+			}
+		}
+
+		@if $ezpz-gutter-collapse {
+			@include generate-gutter-collapse();
 		}
 
 		@if $ezpz-cell-align {
 			& > #{$ezpz-cell-namespace} {
 				@include generate-cell-align();
 			}
-		}
-
-		@if $ezpz-gutter-collapse {
-			@include generate-gutter-collapse();
 		}
 
 		// Responsive classes
