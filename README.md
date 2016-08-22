@@ -1,4 +1,5 @@
 # EZPZ Flexbox Grid
+![dependencies](https://david-dm.org/vicompany/ezpz-flexbox-grid.svg)
 
 A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation. By [VI Company](http://www.vicompany.nl)
 
