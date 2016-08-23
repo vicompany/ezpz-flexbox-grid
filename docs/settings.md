@@ -77,7 +77,7 @@ Default: **12**
 $ezpz-columns: 12;
 ```
 
-### $ezpz-fractions: number;
+### $ezpz-fractions: (numerator:denominator);
 
 When $ezpz-grid-type is set to 'fractions' this variable controls the amount of space that a cell will horizontally occupy in a grid section. Changing this variable will automatically generate the proper .cell--{fraction} classes.
 
