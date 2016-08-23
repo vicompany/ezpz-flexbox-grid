@@ -13,5 +13,14 @@ The EZPZ Flexbox Grid can be installed by importing the ```_ezpz-flexbox-grid.sc
 @import 'node_modules/ezpz-grid/lib/ezpz-flexbox-grid';
 ```
 
+#### Overwriting the default variables
+The default variables used within the grid are set with a !default flag. Please note that the !default flag will set a variable if it is unset *or* if its current value is null. So remember to include your own variables before importing the grid:
+
+```scss
+@import 'my-variables.scss';
+
+@import 'node_modules/ezpz-grid/lib/ezpz-flexbox-grid';
+```
+
 ## Next
 * [Settings](settings.md)
