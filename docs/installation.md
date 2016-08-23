@@ -6,9 +6,7 @@
 The EZPZ Flexbox Grid can be installed by importing the ```_ezpz-flexbox-grid.scss``` file to your project and compiling your CSS. This can be achieved by manually downloading it from Github or using NPM to install the grid.
 
 ### NPM Install
-```
-npm install ezpz-grid
-```
+[![NPM](https://nodei.co/npm/ezpz-grid.png?compact=true)](https://npmjs.org/package/ezpz-grid)
 
 ### Import into your project
 ```scss
