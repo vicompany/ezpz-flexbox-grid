@@ -1,5 +1,5 @@
 // ========================================================================== //
-// EZPZ FLEXBOX GRID by Sven Sigmond - (VI Company) http://vicompany.nl
+// EZPZ FLEXBOX GRID - (VI Company) http://vicompany.nl
 // ========================================================================== //
 
 // Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
@@ -39,7 +39,7 @@ $ezpz-grid-wrap:				false !default;
 $ezpz-cell-order:				false !default;
 $ezpz-cell-offset:				false !default;
 $ezpz-cell-align:				false !default;
-$ezpz-gutter-collapse:			false !default;
+$ezpz-gutter-collapse:			true !default;
 
 
 
@@ -96,7 +96,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		}
 	}
 }
-
 
 // Accepts number input
 //	- @include create-cell(3)
@@ -350,20 +349,12 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Grid or cell without gutters
 // ==========================================================================
-@mixin generate-gutter-collapse($breakpoint: null) {
-	@include grid-gutter-collapsed($breakpoint);
-	@include grid-gutter-expanded($breakpoint);
 
-	@include cell-gutter-collapsed($breakpoint);
-	@include cell-gutter-expanded($breakpoint);
-}
-
-// Grid where none of the cells have gutters
 @mixin grid-gutter-collapsed($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}collapsed {
-		> #{$ezpz-cell-namespace} {
+		& > #{$ezpz-cell-namespace} {
 			@include gutter-collapsed();
 		}
 	}
@@ -373,13 +364,12 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}collapsed {
-		> #{$ezpz-cell-namespace} {
+		& > #{$ezpz-cell-namespace} {
 			@include gutter-expanded();
 		}
 	}
 }
 
-// Specific cell without gutters
 @mixin cell-gutter-collapsed($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
@@ -388,7 +378,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
-// Specific cell without gutters
 @mixin cell-gutter-expanded($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
@@ -404,6 +393,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin gutter-expanded() {
 	padding: 0 ($ezpz-gutter / 2);
 }
+
 
 // Create responsive classes for all additional options
 // ==========================================================================
@@ -436,7 +426,13 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			}
 
 			@if $ezpz-gutter-collapse {
-				@include generate-gutter-collapse($breakpoint);
+				@include grid-gutter-collapsed($breakpoint);
+				@include grid-gutter-expanded($breakpoint);
+
+				& > #{$ezpz-cell-namespace} {
+					@include cell-gutter-collapsed($breakpoint);
+					@include cell-gutter-expanded($breakpoint);
+				}
 			}
 
 			@if $ezpz-cell-align {
@@ -526,7 +522,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 // Generate all the things
 // ==========================================================================
-@if ($ezpz-auto-generate) {
+@mixin base() {
 	#{$ezpz-namespace} {
 		@include generate-full-grid();
 		@include generate-grid-layout();
@@ -554,7 +550,13 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		}
 
 		@if $ezpz-gutter-collapse {
-			@include generate-gutter-collapse();
+			@include grid-gutter-collapsed();
+			@include grid-gutter-expanded();
+
+			& > #{$ezpz-cell-namespace} {
+				@include cell-gutter-collapsed();
+				@include cell-gutter-expanded();
+			}
 		}
 
 		@if $ezpz-cell-align {
@@ -566,4 +568,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		// Responsive classes
 		@include create-responsive-classes();
 	}
+}
+
+@if ($ezpz-auto-generate) {
+	@include base();
 }
