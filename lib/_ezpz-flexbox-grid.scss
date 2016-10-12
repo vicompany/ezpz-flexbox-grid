@@ -363,7 +363,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin grid-gutter-expanded($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	&#{$breakpoint}collapsed {
+	&#{$breakpoint}expanded {
 		& > #{$ezpz-cell-namespace} {
 			@include gutter-expanded();
 		}
