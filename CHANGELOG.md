@@ -1,3 +1,6 @@
+## 2.0.6 (2016-10-14)
+- Fixed: Bug with IE grid wrapping
+
 ## 2.0.5 (2016-10-13)
 - Fixed: Gutter collapse.
 
