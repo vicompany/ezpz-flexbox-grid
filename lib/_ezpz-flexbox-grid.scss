@@ -101,6 +101,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 //	- @include create-cell(3)
 //	- @include create-cell(1/4)
 @mixin create-cell($column: 1) {
+	flex: 0 0 auto;
+
 	@if (type-of($column) != number) {
 		@error 'create-cell: Please define a number variable.';
 	}
@@ -468,7 +470,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
 	display: flex;
 
-	width: 100%;
+	max-width: 100%;
 	padding: 0 ($ezpz-gutter / 2);
 
 	> * {
