@@ -1,5 +1,8 @@
+## 2.0.7 (2016-10-14)
+- Fixed: Revert `width: 100%;` on grid cells.
+
 ## 2.0.6 (2016-10-14)
-- Fixed: Bug with IE grid wrapping
+- Fixed: Bug with IE grid wrapping.
 
 ## 2.0.5 (2016-10-13)
 - Fixed: Gutter collapse.
