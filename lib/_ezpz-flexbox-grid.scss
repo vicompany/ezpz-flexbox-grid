@@ -101,8 +101,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 //	- @include create-cell(3)
 //	- @include create-cell(1/4)
 @mixin create-cell($column: 1) {
-	flex: 0 0 auto;
-
 	@if (type-of($column) != number) {
 		@error 'create-cell: Please define a number variable.';
 	}
@@ -460,7 +458,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin create-grid-cell() {
 	// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
 	// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
-	flex-basis: 0%;
+	flex-basis: auto;
 	flex-direction: column;
 	flex-grow: 1;
 	flex-shrink: 1;
@@ -470,7 +468,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
 	display: flex;
 
-	max-width: 100%;
+	width: 100%;
 	padding: 0 ($ezpz-gutter / 2);
 
 	> * {
