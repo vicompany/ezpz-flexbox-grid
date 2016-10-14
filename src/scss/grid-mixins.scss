@@ -3,7 +3,7 @@
 $ezpz-auto-generate:			false;
 
 @import 'shared';
-@import '../ezpz-flexbox-grid';
+@import './node_modules/ezpz-grid/lib/ezpz-flexbox-grid';
 
 article {
 	@include create-grid();
