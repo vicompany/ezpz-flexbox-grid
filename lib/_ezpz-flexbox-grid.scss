@@ -460,7 +460,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin create-grid-cell() {
 	// Not using flex shorthand because IE 10/11 ignore shorthand declarations with a unitless flex-basis value
 	// https://github.com/philipwalton/flexbugs#4-flex-shorthand-declarations-with-unitless-flex-basis-values-are-ignored
-	flex-basis: auto;
+	flex-basis: 0%;
 	flex-direction: column;
 	flex-grow: 1;
 	flex-shrink: 1;
