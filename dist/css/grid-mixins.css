@@ -74,8 +74,8 @@ article {
   article.is-collapsed > section {
     padding: 0; }
   article > section {
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto;
+    -ms-flex-preferred-size: 0%;
+        flex-basis: 0%;
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-positive: 1;

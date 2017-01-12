@@ -9,8 +9,8 @@
   margin-right: -0.5rem;
   margin-left: -0.5rem; }
   .grid > .cell {
-    -ms-flex-preferred-size: auto;
-        flex-basis: auto;
+    -ms-flex-preferred-size: 0%;
+        flex-basis: 0%;
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-positive: 1;
