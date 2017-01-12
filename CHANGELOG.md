@@ -1,3 +1,7 @@
+## 2.0.9 (2016-01-12)
+- Fixed: Cells now correctly wrap to a new line in IE11 and below, instead of overflowing the grid element on the right side when there is insufficient space to house them all on a single row.
+- Fixed: Cells without a specific width now maintain the same width as other cells within the same grid element, instead of changing in size depending on content length.
+
 ## 2.0.8 (2016-01-12)
 - Fixed: Changed optional gutter-collapse value from `true` to `false`.
 
