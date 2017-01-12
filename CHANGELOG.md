@@ -1,3 +1,6 @@
+## 2.0.8 (2016-01-12)
+- Fixed: Changed optional gutter-collapse value from `true` to `false`.
+
 ## 2.0.7 (2016-10-14)
 - Fixed: Revert `width: 100%;` on grid cells.
 
