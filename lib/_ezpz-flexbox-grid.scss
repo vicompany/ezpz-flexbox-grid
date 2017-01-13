@@ -11,6 +11,7 @@ $ezpz-namespace:				'.grid' !default;
 $ezpz-cell-namespace:			'.cell' !default;
 $ezpz-grid-type:				'columns' !default;	// 'columns' or 'fractions'
 $ezpz-grid-default-wrap:		'nowrap' !default;	// 'nowrap', 'wrap' or 'reverse'
+$ezpz-grid-default-align:		'stretch' !default; // 'stretch', 'start', 'center' or 'end'
 $ezpz-gutter: 					1rem !default;
 
 
@@ -123,17 +124,17 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // ==========================================================================
 @mixin grid-align($value: 'stretch') {
 	$values: (
+		stretch: 'stretch',
 		start: 'flex-start',
-		end: 'flex-end',
 		center: 'center',
-		stretch: 'stretch'
+		end: 'flex-end'
 	);
 
-	 @if map-has-key($values, $value) {
-		 align-items: #{map-get($values, $value)};
-	 } @else {
-		 @error 'grid-align: Please enter a valid property; "flex-start", "flex-end", "center" or "stretch"';
-	 }
+	@if map-has-key($values, $value) {
+		align-items: #{map-get($values, $value)};
+	} @else {
+		@error 'grid-align: Please enter a valid property; "flex-start", "flex-end", "center" or "stretch"';
+	}
 }
 
 @mixin generate-grid-align($breakpoint: null) {
@@ -452,6 +453,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	box-sizing: border-box;
 	display: flex;
 	@include grid-wrap($ezpz-grid-default-wrap);
+	@include grid-align($ezpz-grid-default-align);
 
 	margin-right: -($ezpz-gutter / 2);
 	margin-left: -($ezpz-gutter / 2);
@@ -497,6 +499,9 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 		&vertical {
 			@include grid-layout(vertical);
+
+			// Maintain cells as full width rows even if the default grid alignment is set to 'start', 'center' or 'end'
+			align-items: stretch;
 
 			// IE Fix to prevent cells from not having a height in a vertical grid layout
 			> #{$ezpz-cell-namespace} {
