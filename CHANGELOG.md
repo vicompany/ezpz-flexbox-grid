@@ -1,3 +1,6 @@
+## 2.1.0 (2016-01-13)
+- Added: Change the default alignment behaviour of cells in a grid section with the new `$ezpz-grid-default-align` setting. The default setting is `stretch`, the alternative options are: `start`, `center` and `end`.
+
 ## 2.0.9 (2016-01-12)
 - Fixed: Cells now correctly wrap to a new line in IE11 and below, instead of overflowing the grid element on the right side when there is insufficient space to house them all on a single row.
 - Fixed: Cells without a specific width now maintain the same width as other cells within the same grid element, instead of changing in size depending on content length.
