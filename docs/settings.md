@@ -58,7 +58,7 @@ Default: **'nowrap'**
 $ezpz-grid-default-wrap: 'nowrap';
 ```
 
-### $ezpz-grid-default-align: (stretch);
+### $ezpz-grid-default-align: (string);
 
 The default alignment behaviour of the grid. This variable can be set to **'stretch'**, **'start'**, **'center'** or **'end'**. Changing this variable will change the way cells are aligned within a grid section, overwriting the default stretching behaviour.
 
