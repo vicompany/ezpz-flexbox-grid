@@ -6,10 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+
         <link rel="stylesheet" href="./dist/css/main.css" />
         <link rel="stylesheet" href="./dist/css/grid.css" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-coy.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.css" />
     </head>
-    <body>
+    <body class="language-html">
         <header class="header">
             <div>
                 <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
@@ -75,7 +80,15 @@
                     <div class="cell cell--order-start">3</div>
                     <div class="cell cell--order-2">4</div>
                 </div>
-            </section>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell cell--order-4">1</div>
+    <div class="cell cell--order-1">2</div>
+    <div class="cell cell--order-start">3</div>
+    <div class="cell cell--order-2">4</div>
+</div></script></code></pre>
+
+             </section>
 
             <section class="chapter" id="horizontal-cell-offset">
                 <h1 class="h2">2: Horizontal cell offset</h1>
@@ -88,6 +101,13 @@
                     <div class="cell cell--offset-3">2</div>
                     <div class="cell">3</div>
                 </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">1</div>
+    <div class="cell cell--offset-3">2</div>
+    <div class="cell">3</div>
+</div></script></code></pre>
+
             </section>
 
             <section class="chapter" id="grid-cells-align">
@@ -102,16 +122,30 @@
 
                     <div class="grid grid--align-start">
                         <div class="cell">
-                            1a <br>
-                            1b <br>
+                            1a<br>
+                            1b<br>
                             1c
                         </div>
                         <div class="cell">2a</div>
                         <div class="cell">
-                            3a <br>
-                            3b <br>
+                            3a<br>
+                            3b<br>
                         </div>
                     </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-start">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b<br>
+    </div>
+</div></script></code></pre>
+
                 </section>
 
                 <section id="grid-cells-align-end">
@@ -121,16 +155,30 @@
 
                     <div class="grid grid--align-end">
                         <div class="cell">
-                            1a <br>
-                            1b <br>
+                            1a<br>
+                            1b<br>
                             1c
                         </div>
                         <div class="cell">2a</div>
                         <div class="cell">
-                            3a <br>
-                            3b <br>
+                            3a<br>
+                            3b
                         </div>
                     </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-end">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b
+    </div>
+</div></script></code></pre>
+
                 </section>
 
                 <section id="grid-cells-align-center">
@@ -140,16 +188,30 @@
 
                     <div class="grid grid--align-center">
                         <div class="cell">
-                            1a <br>
-                            1b <br />
+                            1a<br>
+                            1b<br>
                             1c
                         </div>
                         <div class="cell">2a</div>
                         <div class="cell">
-                            3a <br>
-                            3b <br>
+                            3a<br>
+                            3b<br>
                         </div>
                     </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-center">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b<br>
+    </div>
+</div></script></code></pre>
+
                 </section>
 
                 <section id="grid-cells-align-stretch">
@@ -167,19 +229,32 @@
 
                 <div class="grid">
                     <div class="cell">
-                        1a <br>
-                        1b <br>
+                        1a<br>
+                        1b<br>
                         1c
                     </div>
                     <div class="cell cell--align-end">2a</div>
                     <div class="cell">
-                        3a <br>
-                        3b <br>
+                        3a<br>
+                        3b
                     </div>
-                    <div class="cell cell--align-center">
-                        4a
-                    </div>
+                    <div class="cell cell--align-center">4a</div>
                 </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell cell--align-end">2a</div>
+    <div class="cell">
+        3a<br>
+        3b
+    </div>
+    <div class="cell cell--align-center">4a</div>
+</div></script></code></pre>
+
             </section>
 
             <section class="chapter" id="collapsed-gutters">
@@ -197,6 +272,15 @@
                         <div class="cell">3</div>
                         <div class="cell">4</div>
                     </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--collapsed">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div>
+</script></code></pre>
+
                 </section>
 
                 <section id="collapsed-gutters-specific-cells">
@@ -212,6 +296,15 @@
                         <div class="cell">4</div>
                     </div>
                 </section>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">1</div>
+    <div class="cell cell--3 cell--collapsed">2</div>
+    <div class="cell cell--3 cell--collapsed">3</div>
+    <div class="cell">4</div>
+</div>
+</script></code></pre>
+
             </section>
 
             <section class="chapter" id="wrapping-cells">
@@ -239,6 +332,23 @@
                         <div class="cell">11</div>
                         <div class="cell">12</div>
                     </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--wrap">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+    <div class="cell">7</div>
+    <div class="cell">8</div>
+    <div class="cell">9</div>
+    <div class="cell">10</div>
+    <div class="cell">11</div>
+    <div class="cell">12</div>
+</div>
+</script></code></pre>
+
                 </section>
 
                 <section id="wrapping-cells-reversed">
@@ -262,7 +372,28 @@
                         <div class="cell">12</div>
                     </div>
                 </section>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--wrap-reverse">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+    <div class="cell">7</div>
+    <div class="cell">8</div>
+    <div class="cell">9</div>
+    <div class="cell">10</div>
+    <div class="cell">11</div>
+    <div class="cell">12</div>
+</div>
+</script></code></pre>
+
             </section>
         </article>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.js"></script>
     </body>
 </html>

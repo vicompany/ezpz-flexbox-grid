@@ -79,16 +79,6 @@
             <div class="chapter" id="grid">
                 <h1 class="h2">1: Grid and cells</h1>
 
-<pre class="line-numbers">
-<code>article {
-    @include create-grid();
-
-    > section {
-        @include create-grid-cell();
-    }
-}
-</code></pre>
-
                 <article>
                     <section>
                         1
@@ -113,13 +103,16 @@
                     </section>
                 </article>
 
-                <h2 class="h3" id="grid-cell">1.1: Cell</h1>
+<pre class="line-numbers"><code>article {
+    @include create-grid();
 
-<pre class="line-numbers">
-<code>.col-{number} {
-    @include create-cell({number});
+    > section {
+        @include create-grid-cell();
+    }
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-cell">1.1: Cell</h2>
 
                 <article>
                     <section class="col-3">1</section>
@@ -127,17 +120,12 @@
                     <section class="col-4">3</section>
                 </article>
 
-                <h2 class="h3" id="grid-cell-order">1.2: Cell order</h1>
-
-<pre class="line-numbers">
-<code>section {
-    @include cell-order(start);
-    // or
-    @include cell-order(end);
-    // or
-    @include cell-order({number});
+<pre class="line-numbers"><code>.col-{number} {
+    @include create-cell({number});
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-cell-order">1.2: Cell order</h2>
 
                 <article>
                     <section class="order-4">1</section>
@@ -146,30 +134,32 @@
                     <section class="order-2">4</section>
                 </article>
 
-                <h2 class="h3" id="grid-cell-offset">1.3: Cell offset</h1>
-
-<pre class="line-numbers">
-<code>section {
-    @include cell-offset({number});
+<pre class="line-numbers"><code>section {
+    @include cell-order(start);
+    // or
+    @include cell-order(end);
+    // or
+    @include cell-order({number});
 }
 </code></pre>
 
+                <h2 class="h3" id="grid-cell-offset">1.3: Cell offset</h2>
                 <article>
                     <section class="col">1</section>
                     <section class="col offset-1">2</section>
                     <section class="col offset-3">3</section>
                 </article>
+
+<pre class="line-numbers"><code>section {
+    @include cell-offset({number});
+}
+</code></pre>
             </div>
 
             <div class="chapter" id="grid-direction">
                 <h1 class="h2">2: Direction of all cells within a grid section</h1>
 
                 <h2 class="h3" id="grid-direction-horizontal">2.1: Horizontal (default)</h2>
-<pre class="line-numbers">
-<code>article {
-    @include grid-layout(horizontal);
-}
-</code></pre>
 
                 <article class="horizontal">
                     <section>1</section>
@@ -177,18 +167,24 @@
                     <section>3</section>
                 </article>
 
-                <h2 class="h3" id="grid-direction-vertical">2.1: Vertical</h2>
-<pre class="line-numbers">
-<code>article {
-    @include grid-layout(vertical);
+<pre class="line-numbers"><code>article {
+    @include grid-layout(horizontal);
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-direction-vertical">2.1: Vertical</h2>
 
                 <article class="vertical">
                     <section>1</section>
                     <section>2</section>
                     <section>3</section>
                 </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-layout(vertical);
+}
+</code></pre>
+
             </div>
 
             <div class="chapter" id="grid-align">
@@ -196,24 +192,18 @@
 
                 <h2 class="h3" id="grid-align-stretch">3.1: Align stretch (default)</h2>
 
-<pre class="line-numbers">
-<code>article {
-    @include grid-align(stretch);
-}
-</code></pre>
-
                 <article class="align-stretch">
                     <section style="min-height: 12rem;">1</section>
                     <section>2</section>
                     <section style="min-height: 6rem;">3</section>
                 </article>
 
-                <h2 class="h3" id="grid-align-start">3.2: Align start</h2>
-<pre class="line-numbers">
-<code>article {
-    @include grid-align(start);
+<pre class="line-numbers"><code>article {
+    @include grid-align(stretch);
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-align-start">3.2: Align start</h2>
 
                 <article class="align-start">
                     <section style="min-height: 12rem;">1</section>
@@ -221,13 +211,12 @@
                     <section style="min-height: 6rem;">3</section>
                 </article>
 
-                <h2 class="h3" id="grid-align-end">3.3: Align end</h2>
-
-<pre class="line-numbers">
-<code>article {
-    @include grid-align(end);
+<pre class="line-numbers"><code>article {
+    @include grid-align(start);
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-align-end">3.3: Align end</h2>
 
                 <article class="align-end">
                     <section style="min-height: 12rem;">1</section>
@@ -235,30 +224,30 @@
                     <section style="min-height: 6rem;">3</section>
                 </article>
 
-                <h2 class="h3" id="grid-align-center">3.4: Align center</h2>
-
-<pre class="line-numbers">
-<code>article {
-    @include grid-align(center);
+<pre class="line-numbers"><code>article {
+    @include grid-align(end);
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-align-center">3.4: Align center</h2>
 
                 <article class="align-center">
                     <section style="min-height: 12rem;">1</section>
                     <section>2</section>
                     <section style="min-height: 6rem;">3</section>
                 </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-align(center);
+}
+</code></pre>
+
             </div>
 
             <div class="chapter" id="grid-wrap">
                 <h1 class="h2">4: Wrapping of cells within a grid section</h1>
 
                 <h2 class="h3" id="grid-wrap-nowrap">4.1: No wrap (default)</h2>
-<pre class="line-numbers">
-<code>article {
-    @include grid-wrap(nowrap);
-}
-</code></pre>
 
                 <article class="no-wrap">
                     <section class="col-2">1</section>
@@ -275,12 +264,12 @@
                     <section class="col-2">12</section>
                 </article>
 
-                <h2 class="h3" id="grid-wrap-wrap">4.2: Wrap</h2>
-<pre class="line-numbers">
-<code>article {
-    @include grid-wrap(wrap);
+<pre class="line-numbers"><code>article {
+    @include grid-wrap(nowrap);
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-wrap-wrap">4.2: Wrap</h2>
 
                 <article class="wrap">
                     <section class="col-2">1</section>
@@ -297,12 +286,12 @@
                     <section class="col-2">12</section>
                 </article>
 
-                <h2 class="h3" id="grid-wrap-reversed">4.3: Reversed wrap</h2>
-<pre class="line-numbers">
-<code>article {
-    @include grid-wrap(reverse);
+<pre class="line-numbers"><code>article {
+    @include grid-wrap(wrap);
 }
 </code></pre>
+
+                <h2 class="h3" id="grid-wrap-reversed">4.3: Reversed wrap</h2>
 
                 <article class="reverse-wrap">
                     <section class="col-2">1</section>
@@ -318,13 +307,25 @@
                     <section class="col-2">11</section>
                     <section class="col-2">12</section>
                 </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-wrap(reverse);
+}
+</code></pre>
+
             </div>
 
             <div class="chapter" id="cell-align">
                 <h1 class="h2">5: Alignment of individual cells</h1>
 
-<pre class="line-numbers">
-<code>section {
+                <article>
+                    <section style="min-height: 12rem;">1</section>
+                    <section class="align-end">2</section>
+                    <section class="align-start">3</section>
+                    <section class="align-center">4</section>
+                </article>
+
+<pre class="line-numbers"><code>section {
     @include cell-align(stretch); // default
     // or
     @include cell-align(start);
@@ -335,26 +336,12 @@
 }
 </code></pre>
 
-                <article>
-                    <section style="min-height: 12rem;">1</section>
-                    <section class="align-end">2</section>
-                    <section class="align-start">3</section>
-                    <section class="align-center">4</section>
-                </article>
             </div>
 
             <div class="chapter" id="collapsed-gutters">
                 <h1 class="h2">6: Collapsed gutters</h1>
 
                 <h2 class="h3" id="grid-collapsed-gutters">6.1: For all cells</h2>
-
-<pre class="line-numbers">
-<code>article {
-    > section {
-        @include gutter-collapsed();
-    }
-}
-</code></pre>
 
                 <article class="is-collapsed">
                     <section>1</section>
@@ -363,22 +350,29 @@
                     <section>4</section>
                 </article>
 
+<pre class="line-numbers"><code>article {
+    > section {
+        @include gutter-collapsed();
+    }
+}
+</code></pre>
+
                 <h2 class="h3" id="cell-collapsed-gutter">6.2: For a specific cell</h2>
 
-<pre class="line-numbers">
-<code>section {
+                <article>
+                    <section>1</section>
+                    <section class="is-collapsed">2</section>
+                    <section class="is-collapsed">3</section>
+                    <section>4</section>
+                </article>
+
+<pre class="line-numbers"><code>section {
     &.is-collapsed {
         @include gutter-collapsed();
     }
 }
 </code></pre>
 
-                    <article>
-                        <section>1</section>
-                        <section class="is-collapsed">2</section>
-                        <section class="is-collapsed">3</section>
-                        <section>4</section>
-                    </article>
             </div>
 
         </div>

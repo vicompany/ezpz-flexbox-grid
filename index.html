@@ -6,10 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+
         <link rel="stylesheet" href="./dist/css/main.css" />
         <link rel="stylesheet" href="./dist/css/grid.css" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-coy.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.css" />
     </head>
-    <body>
+    <body class="language-html">
         <header class="header">
             <div>
                 <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
@@ -64,17 +69,32 @@
 
                 <div class="grid">
                     <div class="cell">
-                        1a <br />
-                        1b <br />
+                        1a <br>
+                        1b <br>
                         1c
                     </div>
                     <div class="cell">2a</div>
                     <div class="cell">
-                        3a <br />
+                        3a <br>
                         3b
                     </div>
                     <div class="cell">4a</div>
                 </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1a <br>
+        1b <br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a <br>
+        3b
+    </div>
+    <div class="cell">4a</div>
+</div></script></code></pre>
+
             </section>
 
             <section class="chapter" id="vertical-layout">
@@ -89,6 +109,14 @@
                     <div class="cell">3</div>
                     <div class="cell">4</div>
                 </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--vertical">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
             </section>
 
             <section class="chapter" id="nested-grid-sections">
@@ -105,7 +133,7 @@
                             <div class="cell">1.2</div>
                         </div>
                     </div>
-                    <div class="cell col-pos-start">
+                    <div class="cell">
                         2
 
                         <div class="grid">
@@ -114,6 +142,26 @@
                         </div>
                     </div>
                 </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1
+
+        <div class="grid">
+            <div class="cell">1.1</div>
+            <div class="cell">1.2</div>
+        </div>
+    </div>
+    <div class="cell">
+        2
+
+        <div class="grid">
+            <div class="cell">2.1</div>
+            <div class="cell">2.2</div>
+        </div>
+    </div>
+</div></script></code></pre>
+
             </section>
 
             <section class="chapter" id="cell-sizes">
@@ -128,6 +176,13 @@
                     <div class="cell cell--1">4</div>
                 </div>
 
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell cell--4">1</div>
+    <div class="cell cell--2">2</div>
+    <div class="cell cell--5">3</div>
+    <div class="cell cell--1">4</div>
+</div></script></code></pre>
+
                 <p>By only applying a <span class="mono">.cell-#</span> to specific cells, a width can be set for these cells. The remaining cells will equaly divide the remaining space within the grid section automatically.</p>
 
                 <div class="grid">
@@ -135,7 +190,18 @@
                     <div class="cell">2</div>
                     <div class="cell">3</div>
                 </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell cell--6">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+</div></script></code></pre>
+
             </section>
         </article>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.js"></script>
     </body>
 </html>

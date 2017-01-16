@@ -170,7 +170,6 @@ h3,
     display: none; }
 
 pre[class*="language-"] {
-  margin-top: 0 !important;
   box-shadow: none  !important;
   border: 1px solid Gainsboro !important; }
   pre[class*="language-"]:before, pre[class*="language-"]:after {
@@ -181,3 +180,6 @@ pre.line-numbers[class*="language-"] code {
 
 .line-numbers .line-numbers-rows {
   width: 2em !important; }
+
+.prism-show-language-label {
+  margin-top: 0.5rem !important; }
