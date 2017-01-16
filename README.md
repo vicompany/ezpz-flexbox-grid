@@ -1,7 +1,9 @@
 # EZPZ Flexbox Grid
 ![dependencies](https://david-dm.org/vicompany/ezpz-flexbox-grid.svg) [![npm](https://img.shields.io/npm/v/ezpz-grid.svg?style=flat-square)](https://www.npmjs.com/package/ezpz-grid)
 
-A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation. By [VI Company](http://www.vicompany.nl)
+A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation, by [VI Company](http://www.vicompany.nl).
+
+Want to see how it works? Check out the [demo pages](http://vicompany.github.io/ezpz-flexbox-grid/) and [settings](docs/settings.md).
 
 ## Features
 * Easy peasy to setup and use
