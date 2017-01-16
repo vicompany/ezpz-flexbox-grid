@@ -7,7 +7,7 @@ These variables control the generated CSS for the EZPZ grid and can be set to fi
 
 ## Mandatory
 
-### $ezpz-auto-generate: [bool]
+### $ezpz-auto-generate: (bool);
 
 Set to false if you want to prevent the grid to autogenerate grid classes. Usefull if you want to generate your own grid classes with help of [the grid mixins](mixins.md).
 
@@ -17,7 +17,7 @@ Default: **true**
 $ezpz-auto-generate: true;
 ```
 
-### $ezpz-namespace: '.string';
+### $ezpz-namespace: (string);
 
 The namespace for the grid sections of the ezpz grid. Changing this variable will automatically change all the grid classes to the new namespace.
 
@@ -27,7 +27,7 @@ Default: **'.grid'**
 $ezpz-namespace: '.grid';
 ```
 
-### $ezpz-cell-namespace: '.string';
+### $ezpz-cell-namespace: (string);
 
 The namespace for the grid cell sections of the ezpz grid. Changing this variable will automatically change all the grid cell classes to the new namespace.
 
@@ -37,9 +37,9 @@ Default: **'.cell'**
 $ezpz-cell-namespace: '.cell';
 ```
 
-### $ezpz-grid-type: 'string';
+### $ezpz-grid-type: (string);
 
-The grid can be used as a column or fraction based system. This variable can be set to *'columns'* or *'fractions'*.
+The grid can be used as a column or fraction based system. This variable can be set to **'columns'** or **'fractions'**.
 
 Default: **'columns'**
 
@@ -47,9 +47,10 @@ Default: **'columns'**
 $ezpz-grid-type: 'columns';
 ```
 
-### $ezpz-grid-default-wrap: 'string';
+### $ezpz-grid-default-wrap: (string);
 
-The default wrap type for the grid. This variable can be set to 'nowrap', 'wrap' or 'reverse'.
+The default wrap type for the grid. This variable can be set to **'nowrap'**, **'wrap'** or **'reverse'**. Changing this variable will change the way cells wrap within a grid section on smaller screensizes, overwriting the default non wrapping behaviour.
+
 
 Default: **'nowrap'**
 
@@ -57,21 +58,32 @@ Default: **'nowrap'**
 $ezpz-grid-default-wrap: 'nowrap';
 ```
 
-### $ezpz-gutter: 'string';
+### $ezpz-grid-default-align: (stretch);
+
+The default alignment behaviour of the grid. This variable can be set to **'stretch'**, **'start'**, **'center'** or **'end'**. Changing this variable will change the way cells are aligned within a grid section, overwriting the default stretching behaviour.
+
+
+Default: **'stretch'**
+
+```sass
+$ezpz-grid-default-wrap: 'nowrap';
+```
+
+### $ezpz-gutter: (string);
 
 The amount of horizontal space the gutter between 2 cells will occupy. Changing this variable will change the amount of space a gutter occupies.
 
-Default: **1rem**.
+Default: **'1rem'**
 
 ```sass
-$ezpz-gutter: '1rem';
+$ezpz-gutter: 1rem;
 ```
 
-### $ezpz-columns: number;
+### $ezpz-columns: (string);
 
 When $ezpz-grid-type is set to 'grid' this variable controls the amount of cells that will horizontally occupy a grid section. Changing this variable will automatically generate the proper .cell--{#} classes.
 
-Default: **12**
+Default: **'12'**
 
 ```sass
 $ezpz-columns: 12;
@@ -105,7 +117,7 @@ $ezpz-breakpoints: (
 ## Optional
 These optional settings add more functionality to the EZPZ grid, but are disabled by default to reduce CSS file size. Simply set any of these variables to **true** to add the feature(s) to the grid. Keep in mind that enabling these settings might significantly increase the size of your CSS file. These settings are only used if ```$ezpz-auto-generate``` is set to true.
 
-### $ezpz-grid-align: bool;
+### $ezpz-grid-align: (bool);
 
 Set to true to enable alignment functionality for grid sections.
 
@@ -115,7 +127,7 @@ Default: **false**
 $ezpz-grid-align: false;
 ```
 
-### $ezpz-grid-wrap: bool;
+### $ezpz-grid-wrap: (bool);
 
 Set to true to enable wrapping functionality for grid sections.
 
@@ -125,7 +137,7 @@ Default: **false**
 $ezpz-grid-wrap: false;
 ```
 
-### $ezpz-cell-order: bool;
+### $ezpz-cell-order: (bool);
 
 Set to true to enable order functionality for cells.
 
@@ -135,7 +147,7 @@ Default: **false**
 $ezpz-cell-order: false;
 ```
 
-### $ezpz-cell-offset: bool;
+### $ezpz-cell-offset: (bool);
 
 Set to true to enable offset functionality for cells.
 
@@ -145,7 +157,7 @@ Default: **false**
 $ezpz-cell-offset: false;
 ```
 
-### $ezpz-cell-align: bool;
+### $ezpz-cell-align: (bool);
 
 Set to true to enable alignment functionality for cells.
 
@@ -155,7 +167,7 @@ Default: **false**
 $ezpz-cell-align: false;
 ```
 
-### $ezpz-gutter-collapse: bool;
+### $ezpz-gutter-collapse: (bool);
 
 Set to true to enable collapsable gutters for grid sections and cells.
 
