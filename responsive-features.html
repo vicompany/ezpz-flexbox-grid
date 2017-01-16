@@ -21,6 +21,7 @@
                         <li class="nav__item is-active"><a href="./responsive-features.html">Responsive features</a></li>
                         <li class="nav__item"><a href="./fractions.html">Using fractions</a></li>
                         <li class="nav__item"><a href="./mixins.html">Using mixins</a></li>
+                        <li class="nav__item"><a href="https://github.com/vicompany/ezpz-flexbox-grid/tree/master/docs">Documentation</a></li>
                     </ul>
                 </nav>
             </div>
@@ -57,10 +58,10 @@
                 <p>The orientation of the grid can be changed by adding <span class="mono">.grid--{breakpoint}-vertical</span> and <span class="mono">.grid--{breakpoint}-horizontal</span> classes to the <span class="mono">.grid</span> element.</p>
 
                 <div class="grid grid--small-vertical grid--medium-horizontal">
-                    <div class="cell">a</div>
-                    <div class="cell">b</div>
-                    <div class="cell">c</div>
-                    <div class="cell">d</div>
+                    <div class="cell">1</div>
+                    <div class="cell">2</div>
+                    <div class="cell">3</div>
+                    <div class="cell">4</div>
                 </div>
             </section>
 
@@ -71,8 +72,8 @@
                 <p>The size of specific cells can be altered from certain breakpoints and up by adding the <span class="mono">.cell--{breakpoint}-{#}</span> or <span class="mono">.cell--{breakpoint}-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
 
                 <div class="grid">
-                    <div class="cell cell--small-4 cell--medium-8">a</div>
-                    <div class="cell cell--small-8 cell--medium-4">b</div>
+                    <div class="cell cell--small-4 cell--medium-8">1</div>
+                    <div class="cell cell--small-8 cell--medium-4">2</div>
                 </div>
             </section>
 
@@ -83,10 +84,10 @@
                 <p>The amount of numerical order classes will match the amount of columns or fractions depending on the chosen grid type.</p>
 
                 <div class="grid">
-                    <div class="cell cell--medium-order-2">a</div>
-                    <div class="cell cell--tiny-order-end cell--small-order-start">b</div>
-                    <div class="cell">c</div>
-                    <div class="cell">d</div>
+                    <div class="cell cell--medium-order-2">1</div>
+                    <div class="cell cell--tiny-order-end cell--small-order-start">2</div>
+                    <div class="cell">3</div>
+                    <div class="cell">4</div>
                 </div>
             </section>
 
@@ -97,9 +98,9 @@
                 <p>A cell can be offset by adding a <span class="mono">.cell--{breakpoint}-offset-{#}</span> or <span class="mono">.cell--{breakpoint}-offset-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
 
                 <div class="grid">
-                    <div class="cell">a</div>
-                    <div class="cell cell--small-offset-3 cell--medium-offset-6">b</div>
-                    <div class="cell">c</div>
+                    <div class="cell">1</div>
+                    <div class="cell cell--small-offset-3 cell--medium-offset-6">2</div>
+                    <div class="cell">3</div>
                 </div>
             </section>
 
@@ -113,16 +114,16 @@
 
                     <div class="grid grid--tiny-align-start grid--small-align-center grid--medium-align-end grid--large-align-stretch">
                         <div class="cell">
-                            a1 <br>
-                            a2 <br>
-                            a3 <br>
+                            1a <br>
+                            2a <br>
+                            3a
                         </div>
                         <div class="cell">
-                            b1
+                            2a
                         </div>
                         <div class="cell">
-                            c1 <br>
-                            c2 <br>
+                            3a <br>
+                            3b
                         </div>
                     </div>
                 </section>
@@ -133,16 +134,16 @@
 
                     <div class="grid">
                         <div class="cell">
-                            a1 <br>
-                            a2 <br>
-                            a3 <br>
+                            1a <br>
+                            1b <br>
+                            1c <br>
                         </div>
                         <div class="cell cell--tiny-align-start cell--small-align-center cell--medium-align-end cell--large-align-stretch">
-                            b1
+                            2a
                         </div>
                         <div class="cell">
-                            c1 <br>
-                            c2 <br>
+                            3a <br>
+                            3b
                         </div>
                     </div>
                 </section>
@@ -157,10 +158,10 @@
                     <p>Gutters for all cells within a grid section can be collapsed or expanded by adding the <span class="mono">.grid--{breakpoint]-collapsed</span> and <span class="mono">.grid--{breakpoint}-expanded</span> classes to the <span class="mono">.grid</span> element.</p>
 
                     <div class="grid grid--collapsed grid--small-expanded grid--medium-collapsed">
-                        <div class="cell">a</div>
-                        <div class="cell">b</div>
-                        <div class="cell">c</div>
-                        <div class="cell">d</div>
+                        <div class="cell">1</div>
+                        <div class="cell">2</div>
+                        <div class="cell">3</div>
+                        <div class="cell">4</div>
                     </div>
                 </section>
 
@@ -172,10 +173,10 @@
                     <p>Please note that this ONLY WORKS when combined with a specific .cell--{#} or .cell--{fraction} class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
 
                     <div class="grid">
-                        <div class="cell">a</div>
-                        <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">b</div>
-                        <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">c</div>
-                        <div class="cell">d</div>
+                        <div class="cell">1</div>
+                        <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">2</div>
+                        <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">3</div>
+                        <div class="cell">4</div>
                     </div>
                 </section>
             </section>
@@ -185,8 +186,8 @@
                 <p>Wrapping functionality that has initialy been set to a <span class="mono">.grid</span> element can be disabled from a specific breakpoint by applying the <span class="mono">.grid--{breakpoint}-nowrap</span> class to the <span class="mono">.grid</span> element.</p>
 
                 <div class="grid grid--wrap grid--small-nowrap">
-                    <div class="cell">A</div>
-                    <div class="cell cell--12 cell--small-4">B</div>
+                    <div class="cell">1</div>
+                    <div class="cell cell--12 cell--small-4">2</div>
                 </div>
             </section>
         </article>

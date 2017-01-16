@@ -20,6 +20,6 @@
   },
   "private": true,
   "dependencies": {
-    "ezpz-grid": "^2.0.9"
+    "ezpz-grid": "^2.1.0"
   }
 }

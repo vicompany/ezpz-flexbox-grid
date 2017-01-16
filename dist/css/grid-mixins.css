@@ -42,6 +42,8 @@ article {
   display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  -ms-flex-align: stretch;
+      align-items: stretch;
   margin-right: -0.5rem;
   margin-left: -0.5rem; }
   article.horizontal {
