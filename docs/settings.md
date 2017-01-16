@@ -66,7 +66,7 @@ The default alignment behaviour of the grid. This variable can be set to **'stre
 Default: **'stretch'**
 
 ```sass
-$ezpz-grid-default-wrap: 'nowrap';
+$ezpz-grid-default-align: 'stretch';
 ```
 
 ### $ezpz-gutter: (string);
