@@ -1,4 +1,7 @@
-## 2.1.1 (2016-01-17)
+## 2.2.1 (2016-01-17)
+- Changed: Included `baseline` property in grid and cell alignment error messages.
+
+## 2.2.0 (2016-01-17)
 - Added: `baseline` option to grid and cell alignment.
 
 ## 2.1.0 (2016-01-13)
