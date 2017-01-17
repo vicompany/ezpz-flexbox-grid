@@ -1,3 +1,6 @@
+## 2.2.2 (2016-01-17)
+- Fixed: Broken if else statement in the create-grid-cell() mixin.
+
 ## 2.2.1 (2016-01-17)
 - Changed: Included `baseline` property in grid and cell alignment error messages.
 
