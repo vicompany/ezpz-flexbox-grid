@@ -20,11 +20,10 @@
     -ms-flex-negative: 1;
         flex-shrink: 1;
     box-sizing: border-box;
+    display: -ms-flexbox;
+    display: flex;
     max-width: 100%;
     padding: 0 0.5rem; }
-    .grid > .cell else {
-      display: -ms-flexbox;
-      display: flex; }
     .grid > .cell > * {
       -ms-flex-positive: 1;
           flex-grow: 1; }
