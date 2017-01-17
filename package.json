@@ -1,6 +1,6 @@
 {
   "name": "ezpz-grid",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation.",
   "main": "lib/_ezpz-flexbox-grid.scss",
   "scripts": {
@@ -22,6 +22,7 @@
     "Sven Sigmond (https://github.com/svensigmond)",
     "Sebastiaan van Kerkfort (https://github.com/ba55ie)",
     "Edwin Kalkman (https://github.com/edw1n)",
+    "Pim van Die (https://github.com/pimskie)",
     "Sjors Spoorendonk (https://github.com/sjorsjes)"
   ],
   "license": "MIT",
