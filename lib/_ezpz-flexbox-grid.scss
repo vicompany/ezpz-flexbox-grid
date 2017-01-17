@@ -11,7 +11,7 @@ $ezpz-namespace:				'.grid' !default;
 $ezpz-cell-namespace:			'.cell' !default;
 $ezpz-grid-type:				'columns' !default;	// 'columns' or 'fractions'
 $ezpz-grid-default-wrap:		'nowrap' !default;	// 'nowrap', 'wrap' or 'reverse'
-$ezpz-grid-default-align:		'stretch' !default; // 'stretch', 'start', 'center' or 'end'
+$ezpz-grid-default-align:		'stretch' !default; // 'stretch', 'start', 'center', 'end' or 'baseline'
 $ezpz-gutter: 					1rem !default;
 
 
@@ -127,7 +127,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		stretch: 'stretch',
 		start: 'flex-start',
 		center: 'center',
-		end: 'flex-end'
+		end: 'flex-end',
+		baseline: 'baseline'
 	);
 
 	@if map-has-key($values, $value) {
@@ -154,6 +155,10 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 	&#{$breakpoint}align-center {
 		@include grid-align('center');
+	}
+
+	&#{$breakpoint}align-baseline {
+		@include grid-align('baseline');
 	}
 }
 
@@ -315,7 +320,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		start: 'flex-start',
 		end: 'flex-end',
 		center: 'center',
-		stretch: 'stretch'
+		stretch: 'stretch',
+		baseline: 'baseline'
 	);
 
 	 @if map-has-key($values, $value) {
@@ -343,6 +349,13 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 		&-stretch {
 			@include cell-align(stretch);
+		}
+
+		&-baseline {
+			@include cell-align(baseline);
+
+			// TODO: Remove this hack to get grid--align-baseline working in Firefox. This should automatically be resolved after tackling Github issues #19 and #22
+			display: inline-block;
 		}
 	}
 }
@@ -469,8 +482,13 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 	box-sizing: border-box;
 
-	// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
-	display: flex;
+	// TODO: Remove this hack to get grid--align-baseline working in Firefox. This should automatically be resolved after tackling Github issues #19 and #22
+	@if $ezpz-grid-default-align == 'baseline' {
+		display: inline-block;
+	} else {
+		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
+		display: flex;
+	}
 
 	max-width: 100%;
 	padding: 0 ($ezpz-gutter / 2);
@@ -572,6 +590,13 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 		// Responsive classes
 		@include create-responsive-classes();
+
+		// TODO: Remove this hack to get grid--align-baseline working in Firefox. This should automatically be resolved after tackling Github issues #19 and #22
+		&#{$ezpz-namespace}--align-baseline {
+			> .cell {
+				display: inline-block;
+			}
+		}
 	}
 }
 
