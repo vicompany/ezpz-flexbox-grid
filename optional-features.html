@@ -47,6 +47,7 @@
                             <li>3.2: <a href="#grid-cells-align-end">Align end</a></li>
                             <li>3.3: <a href="#grid-cells-align-center">Align center</a></li>
                             <li>3.4: <a href="#grid-cells-align-stretch">Align stretch</a></li>
+                            <li>3.4: <a href="#grid-cells-align-baseline">Align baseline</a></li>
                         </ul>
                     </li>
                     <li class="toc__item">4: <a href="#cell-align">Alignment of individual cells</a></li>
@@ -217,15 +218,75 @@
                 <section id="grid-cells-align-stretch">
                     <h1 class="h3">3.4: Align stretch</h1>
 
-                    <p>In the case where stretch is not the default alignment behaviour for the grid, equal heights for all the <span class="mono">.cell</span> elements within the grid section can be regained by adding a <span class="mono">.grid--align-stretch</span> class to the <span class="mono">.grid</span> element.</p>
+                    <p>In cases where stretch is not the default alignment behaviour for the grid, equal heights for all the <span class="mono">.cell</span> elements within the grid section can be regained by adding a <span class="mono">.grid--align-stretch</span> class to the <span class="mono">.grid</span> element.</p>
+
+                    <div class="grid grid--align-stretch">
+                        <div class="cell">
+                            1a<br>
+                            1b<br>
+                            1c
+                        </div>
+                        <div class="cell">2a</div>
+                        <div class="cell">
+                            3a<br>
+                            3b<br>
+                        </div>
+                    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-stretch">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b<br>
+    </div>
+</div></script></code></pre>
+
+                </section>
+
+                <section id="grid-cells-align-baseline">
+                    <h1 class="h3">3.5: Align baseline</h1>
+
+                    <p>By adding a <span class="mono">.grid--align-baseline</span> class to the <span class="mono">.grid</span> element the default stretching behaviour will be overwritten and cells will each align based on the baseline of the content within the <span class="mono">.cell</span> element.</p>
+
+                    <div class="grid grid--align-baseline">
+                        <div class="cell">
+                            <h1>1</h1>
+                        </div>
+                        <div class="cell">
+                            <h2>2</h2>
+                        </div>
+                        <div class="cell">
+                            <h3>3</h3>
+                        </div>
+                    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-baseline">
+    <div class="cell">
+        <h1>1</h1>
+    </div>
+    <div class="cell">
+        <h2>2</h2>
+    </div>
+    <div class="cell">
+        <h3>3</h3>
+    </div>
+</div></script></code></pre>
+
                 </section>
             </section>
 
             <section class="chapter" id="cell-align">
                 <h1 class="h2">4: Alignment of individual cells</h1>
-                <p>Sometimes changing the alignment of all cells within a grid section is overkill and aligning a specific cell might be preferable. In this case a <span class="mono">.cell--align-start</span>, <span class="mono">.cell--align-end</span>, <span class="mono">.cell--align-center</span> or <span class="mono">.cell--align-stretch</span> class can be applied to a <span class="mono">.cell</span> element.</p>
+                <p>Sometimes changing the alignment of all cells within a grid section is overkill and aligning a specific cell might be preferable. In this case a <span class="mono">.cell--align-start</span>, <span class="mono">.cell--align-end</span>, <span class="mono">.cell--align-center</span>, <span class="mono">.cell--align-stretch</span> or <span class="mono">.cell--align-baseline</span> class can be applied to a <span class="mono">.cell</span> element.</p>
 
                 <p>This will only alter the alignment of the specific cells. All cells without an alignment class will stretch and have the same height/width as other cells in the grid section.</p>
+
+                <p>Please note that the <span class="mono">.cell--align-baseline</span> class has to be applied to at least two <span class="mono">.cell</span> elements within a <span class="mono">.grid</span> section for this property to have effect.</p>
 
                 <div class="grid">
                     <div class="cell">
