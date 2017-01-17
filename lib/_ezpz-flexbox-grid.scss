@@ -134,7 +134,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	@if map-has-key($values, $value) {
 		align-items: #{map-get($values, $value)};
 	} @else {
-		@error 'grid-align: Please enter a valid property; "flex-start", "flex-end", "center" or "stretch"';
+		@error 'grid-align: Please enter a valid property; "flex-start", "flex-end", "center", "stretch", or "baseline"';
 	}
 }
 
@@ -327,7 +327,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	 @if map-has-key($values, $value) {
 		 align-self: #{map-get($values, $value)};
 	 } @else {
-		 @error 'cell-align: Please enter a valid property; "flex-start", "flex-end", "center" or "stretch"';
+		 @error 'cell-align: Please enter a valid property; "flex-start", "flex-end", "center", "stretch" or "baseline"';
 	 }
 }
 
