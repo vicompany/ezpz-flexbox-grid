@@ -20,10 +20,11 @@
     -ms-flex-negative: 1;
         flex-shrink: 1;
     box-sizing: border-box;
-    display: -ms-flexbox;
-    display: flex;
     max-width: 100%;
     padding: 0 0.5rem; }
+    .grid > .cell else {
+      display: -ms-flexbox;
+      display: flex; }
     .grid > .cell > * {
       -ms-flex-positive: 1;
           flex-grow: 1; }
@@ -74,6 +75,9 @@
   .grid--align-center {
     -ms-flex-align: center;
         align-items: center; }
+  .grid--align-baseline {
+    -ms-flex-align: baseline;
+        align-items: baseline; }
   .grid--wrap {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
@@ -146,6 +150,10 @@
     -ms-flex-item-align: stretch;
         -ms-grid-row-align: stretch;
         align-self: stretch; }
+  .grid > .cell--align-baseline {
+    -ms-flex-item-align: baseline;
+        align-self: baseline;
+    display: inline-block; }
   @media (min-width: 25rem) {
     .grid > .cell--tiny-1 {
       -ms-flex: 0 0 auto;
@@ -194,6 +202,9 @@
     .grid--tiny-align-center {
       -ms-flex-align: center;
           align-items: center; }
+    .grid--tiny-align-baseline {
+      -ms-flex-align: baseline;
+          align-items: baseline; }
     .grid--tiny-wrap {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
@@ -265,7 +276,11 @@
     .grid > .cell--tiny-align-stretch {
       -ms-flex-item-align: stretch;
           -ms-grid-row-align: stretch;
-          align-self: stretch; } }
+          align-self: stretch; }
+    .grid > .cell--tiny-align-baseline {
+      -ms-flex-item-align: baseline;
+          align-self: baseline;
+      display: inline-block; } }
   @media (min-width: 37.5rem) {
     .grid > .cell--small-1 {
       -ms-flex: 0 0 auto;
@@ -314,6 +329,9 @@
     .grid--small-align-center {
       -ms-flex-align: center;
           align-items: center; }
+    .grid--small-align-baseline {
+      -ms-flex-align: baseline;
+          align-items: baseline; }
     .grid--small-wrap {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
@@ -385,7 +403,11 @@
     .grid > .cell--small-align-stretch {
       -ms-flex-item-align: stretch;
           -ms-grid-row-align: stretch;
-          align-self: stretch; } }
+          align-self: stretch; }
+    .grid > .cell--small-align-baseline {
+      -ms-flex-item-align: baseline;
+          align-self: baseline;
+      display: inline-block; } }
   @media (min-width: 60rem) {
     .grid > .cell--medium-1 {
       -ms-flex: 0 0 auto;
@@ -434,6 +456,9 @@
     .grid--medium-align-center {
       -ms-flex-align: center;
           align-items: center; }
+    .grid--medium-align-baseline {
+      -ms-flex-align: baseline;
+          align-items: baseline; }
     .grid--medium-wrap {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
@@ -505,7 +530,11 @@
     .grid > .cell--medium-align-stretch {
       -ms-flex-item-align: stretch;
           -ms-grid-row-align: stretch;
-          align-self: stretch; } }
+          align-self: stretch; }
+    .grid > .cell--medium-align-baseline {
+      -ms-flex-item-align: baseline;
+          align-self: baseline;
+      display: inline-block; } }
   @media (min-width: 90rem) {
     .grid > .cell--large-1 {
       -ms-flex: 0 0 auto;
@@ -554,6 +583,9 @@
     .grid--large-align-center {
       -ms-flex-align: center;
           align-items: center; }
+    .grid--large-align-baseline {
+      -ms-flex-align: baseline;
+          align-items: baseline; }
     .grid--large-wrap {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
@@ -625,4 +657,10 @@
     .grid > .cell--large-align-stretch {
       -ms-flex-item-align: stretch;
           -ms-grid-row-align: stretch;
-          align-self: stretch; } }
+          align-self: stretch; }
+    .grid > .cell--large-align-baseline {
+      -ms-flex-item-align: baseline;
+          align-self: baseline;
+      display: inline-block; } }
+  .grid.grid--align-baseline > .cell {
+    display: inline-block; }
