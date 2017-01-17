@@ -485,7 +485,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	// TODO: Remove this hack to get grid--align-baseline working in Firefox. This should automatically be resolved after tackling Github issues #19 and #22
 	@if $ezpz-grid-default-align == 'baseline' {
 		display: inline-block;
-	} else {
+	} @else {
 		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
 		display: flex;
 	}
