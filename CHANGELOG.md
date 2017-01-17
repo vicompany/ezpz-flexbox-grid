@@ -1,3 +1,6 @@
+## 2.1.1 (2016-01-17)
+- Added: `baseline` option to grid and cell alignment.
+
 ## 2.1.0 (2016-01-13)
 - Added: Change the default alignment behaviour of cells in a grid section with the new `$ezpz-grid-default-align` setting. The default setting is `stretch`, the alternative options are: `start`, `center` and `end`.
 
