@@ -1,20 +1,29 @@
-## 2.2.2 (2016-01-17)
+## 3.0.0 (2017-03-06)
+- Changed: Direct child elements of a grid cell no longer automatically stretch to occupy the full width and height of the cell.
+- Added: `grid--content-stretch` class to ensure that direct child elements of all grid cells automatically occupy the full width and height of the cell.
+- Added: `grid--content-unstretch` class to disable stretching behaviour of the direct child elements of grid cells within a grid section.
+- Added: `cell--content-stretch` class to ensure that direct child elements of a specific grid cell automatically occupies the full width and height of the cell.
+- Added: `grid--content-unstretch` class to disable stretching behaviour of the direct child elements of a specific cell within a grid section.
+- Added: Responsive classes for the content-stretch behaviour.
+- Added: Change the default stretching behaviour of direct child elements of grid cells with the new `$ezpz-grid-default-content-stretch` setting. The default setting is `unstretch`, the alternative option is `stretch`.
+
+## 2.2.2 (2017-01-17)
 - Fixed: Broken if else statement in the create-grid-cell() mixin.
 
-## 2.2.1 (2016-01-17)
+## 2.2.1 (2017-01-17)
 - Changed: Included `baseline` property in grid and cell alignment error messages.
 
-## 2.2.0 (2016-01-17)
+## 2.2.0 (2017-01-17)
 - Added: `baseline` option to grid and cell alignment.
 
-## 2.1.0 (2016-01-13)
+## 2.1.0 (2017-01-13)
 - Added: Change the default alignment behaviour of cells in a grid section with the new `$ezpz-grid-default-align` setting. The default setting is `stretch`, the alternative options are: `start`, `center` and `end`.
 
-## 2.0.9 (2016-01-12)
+## 2.0.9 (2017-01-12)
 - Fixed: Cells now correctly wrap to a new line in IE11 and below, instead of overflowing the grid element on the right side when there is insufficient space to house them all on a single row.
 - Fixed: Cells without a specific width now maintain the same width as other cells within the same grid element, instead of changing in size depending on content length.
 
-## 2.0.8 (2016-01-12)
+## 2.0.8 (2017-01-12)
 - Fixed: Changed optional gutter-collapse value from `true` to `false`.
 
 ## 2.0.7 (2016-10-14)
