@@ -5,42 +5,43 @@
 // Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
 // ========================================================================== //
 
-$ezpz-auto-generate:			true !default;
+$ezpz-auto-generate:				true !default;
 
-$ezpz-namespace:				'.grid' !default;
-$ezpz-cell-namespace:			'.cell' !default;
-$ezpz-grid-type:				'columns' !default;	// 'columns' or 'fractions'
-$ezpz-grid-default-wrap:		'nowrap' !default;	// 'nowrap', 'wrap' or 'reverse'
-$ezpz-grid-default-align:		'stretch' !default; // 'stretch', 'start', 'center', 'end' or 'baseline'
-$ezpz-gutter: 					1rem !default;
+$ezpz-namespace:					'.grid' !default;
+$ezpz-cell-namespace:				'.cell' !default;
+$ezpz-grid-type:					'columns' !default;		// 'columns' or 'fractions'
+$ezpz-grid-default-wrap:			'nowrap' !default;		// 'nowrap', 'wrap' or 'reverse'
+$ezpz-grid-default-align:			'stretch' !default; 	// 'stretch', 'start', 'center', 'end' or 'baseline'
+$ezpz-grid-default-content-stretch:	'unstretch' !default;	// 'stretch' or 'unstretch'
+$ezpz-gutter: 						1rem !default;
 
 
 // Only used when $ezpz-grid-type is set to 'columns'
-$ezpz-columns: 					12 !default;
+$ezpz-columns: 						12 !default;
 
 // Only used when $ezpz-grid-type is set to 'fractions'
-$ezpz-fractions:				(1:2),
-								(1:3),
-								(2:3),
-								(1:4),
-								(3:4) !default;
+$ezpz-fractions:					(1:2),
+									(1:3),
+									(2:3),
+									(1:4),
+									(3:4) !default;
 
 // Breakpoints
 // Please note that adding more breakpoints adds quite a lot of extra css depending on the optional features
-$ezpz-breakpoints: 				(
-									'tiny':		25rem,
-									'small':	37.5rem,
-									'medium':	60rem,
-									'large':	90rem
-								) !default;
+$ezpz-breakpoints: 					(
+										'tiny':		25rem,
+										'small':	37.5rem,
+										'medium':	60rem,
+										'large':	90rem
+									) !default;
 
 // Optional grid features - Set to true to enable
-$ezpz-grid-align:				false !default;
-$ezpz-grid-wrap:				false !default;
-$ezpz-cell-order:				false !default;
-$ezpz-cell-offset:				false !default;
-$ezpz-cell-align:				false !default;
-$ezpz-gutter-collapse:			false !default;
+$ezpz-grid-align:					false !default;
+$ezpz-grid-wrap:					false !default;
+$ezpz-cell-order:					false !default;
+$ezpz-cell-offset:					false !default;
+$ezpz-cell-align:					false !default;
+$ezpz-gutter-collapse:				false !default;
 
 
 
@@ -120,6 +121,36 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 }
 
 
+// Content stretch behavior of all cells within a grid section
+// ==========================================================================
+@mixin grid-content-stretch($value: 'stretch') {
+	$values: (
+		stretch: 'flex',
+		unstretch: 'inline'
+	);
+
+	@if map-has-key($values, $value) {
+		.cell {
+			@include cell-content-stretch($value);
+		}
+	} @else {
+		@error 'grid-content-stretch: Please enter a valid property; "stretch", or "unstretch"';
+	}
+}
+
+@mixin generate-grid-content-stretch($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
+
+	&#{$breakpoint}content-stretch {
+		@include grid-content-stretch('stretch');
+	}
+
+	&#{$breakpoint}content-unstretch {
+		@include grid-content-stretch('unstretch');
+	}
+}
+
+
 // Alignment of all cells within a grid section
 // ==========================================================================
 @mixin grid-align($value: 'stretch') {
@@ -161,7 +192,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		@include grid-align('baseline');
 	}
 }
-
 
 // Grid section with automatically wrapping cells
 // ==========================================================================
@@ -312,6 +342,36 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
+// Content stretch behavior of individual cells
+// ==========================================================================
+@mixin cell-content-stretch($value: 'stretch') {
+	$values: (
+		stretch: 'flex',
+		unstretch: 'inline'
+	);
+
+	 @if map-has-key($values, $value) {
+		 display: #{map-get($values, $value)};
+
+		 > * {
+			 flex-grow: 1;
+		 }
+	 } @else {
+		@error 'cell-content-stretch: Please enter a valid property; "stretch", or "unstretch"';
+	 }
+}
+
+@mixin generate-cell-content-stretch($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
+
+	&#{$breakpoint}content-stretch {
+		@include cell-content-stretch('stretch');
+	}
+
+	&#{$breakpoint}content-unstretch {
+		@include cell-content-stretch('unstretch');
+	}
+}
 
 // Alignment of individual cells
 // ==========================================================================
@@ -353,13 +413,9 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 		&-baseline {
 			@include cell-align(baseline);
-
-			// TODO: Remove this hack to get grid--align-baseline working in Firefox. This should automatically be resolved after tackling Github issues #19 and #22
-			display: inline-block;
 		}
 	}
 }
-
 
 // Grid or cell without gutters
 // ==========================================================================
@@ -408,7 +464,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	padding: 0 ($ezpz-gutter / 2);
 }
 
-
 // Create responsive classes for all additional options
 // ==========================================================================
 @mixin create-responsive-classes() {
@@ -417,6 +472,11 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			// Base
 			@include create-cells($breakpoint);
 			@include generate-grid-layout($breakpoint);
+			@include generate-grid-content-stretch($breakpoint);
+
+			& > #{$ezpz-cell-namespace} {
+				@include generate-cell-content-stretch($breakpoint);
+			}
 
 			// Optional
 			@if $ezpz-grid-align {
@@ -458,7 +518,6 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	}
 }
 
-
 // Base
 // ==========================================================================
 @mixin create-grid() {
@@ -470,6 +529,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 
 	margin-right: -($ezpz-gutter / 2);
 	margin-left: -($ezpz-gutter / 2);
+
+	@include grid-content-stretch($ezpz-grid-default-content-stretch);
 }
 
 @mixin create-grid-cell() {
@@ -481,22 +542,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	flex-shrink: 1;
 
 	box-sizing: border-box;
-
-	// TODO: Remove this hack to get grid--align-baseline working in Firefox. This should automatically be resolved after tackling Github issues #19 and #22
-	@if $ezpz-grid-default-align == 'baseline' {
-		display: inline-block;
-	} @else {
-		// Child items of a grid section also have display flex to allow same-height (stretched) modules within multiple cells
-		display: flex;
-	}
-
 	max-width: 100%;
 	padding: 0 ($ezpz-gutter / 2);
-
-	> * {
-		// All direct child elements within a cell try to use up the maximum (and same) amount of available space
-		flex-grow: 1;
-	}
 }
 
 @mixin generate-full-grid() {
@@ -550,6 +597,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		@include generate-full-grid();
 		@include generate-grid-layout();
 		@include generate-all-cells();
+		@include generate-grid-content-stretch();
 
 		// Optional
 		@if $ezpz-grid-align {
@@ -588,15 +636,12 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 			}
 		}
 
+		& > #{$ezpz-cell-namespace} {
+			@include generate-cell-content-stretch();
+		}
+
 		// Responsive classes
 		@include create-responsive-classes();
-
-		// TODO: Remove this hack to get grid--align-baseline working in Firefox. This should automatically be resolved after tackling Github issues #19 and #22
-		&#{$ezpz-namespace}--align-baseline {
-			> .cell {
-				display: inline-block;
-			}
-		}
 	}
 }
 
