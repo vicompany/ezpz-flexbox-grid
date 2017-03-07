@@ -69,6 +69,17 @@ Default: **'stretch'**
 $ezpz-grid-default-align: 'stretch';
 ```
 
+### $ezpz-grid-default-content-stretch: (string);
+
+The default stretching behaviour of direct child elements of a grid cell. This variable can be set to **'unstretch'** or **'stretch'**. Changing this variable will ensure that all the direct children of a cell  within a grid section will stretch to occupy the full width and height of the cell, overwriting the default non-stretching behaviour.
+
+
+Default: **'unstretch'**
+
+```sass
+$ezpz-grid-default-align: 'stretch';
+```
+
 ### $ezpz-gutter: (string);
 
 The amount of horizontal space the gutter between 2 cells will occupy. Changing this variable will change the amount of space a gutter occupies.
