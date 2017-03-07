@@ -54,6 +54,12 @@
                         </ul>
                     </li>
                     <li class="toc__item">7: <a href="#grid-wrapping">Changing wrapping</a></li>
+                    <li class="toc__item">8: <a href="#stretching-content">Changing content stretching behaviour</a>
+                        <ul>
+                            <li>8.1: <a href="#stretching-content-all-cells">For all cells within a grid section</a></li>
+                            <li>8.2: <a href="#stretching-content-specific-cells">For specific cells</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
@@ -278,6 +284,130 @@
     <div class="cell cell--12 cell--small-4">2</div>
 </div></script></code></pre>
 
+            </section>
+
+            <section class="chapter" id="stretching-content">
+                <h1 class="h2">8: Changing content stretching behaviour</h1>
+
+                <section id="stretching-content-all-cells">
+                    <h1 class="h3">8.1: For all cells within a grid section</h1>
+
+                    <p>The stretching behaviour of the direct children of all the cells within a grid section can be changed by adding the <span class="mono">.grid--{breakpoint}-content-stretch</span> and <span class="mono">.grid--{breakpoint}-content-unstretch</span> classes to the <span class="mono">.grid</span> element.</p>
+
+                    <div class="grid grid--small-content-stretch grid--medium-content-unstretch grid--large-content-stretch">
+                        <div class="cell">
+                            <div class="box">
+                                1a <br>
+                                1b <br>
+                                1c
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="box">
+                                2a
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class=" box">
+                                3a <br>
+                                3b
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="box">
+                                4a
+                            </div>
+                        </div>
+                    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--small-content-stretch grid--medium-content-unstretch grid--large-content-stretch">
+    <div class="cell">
+        <div class="box">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            2a
+        </div>
+    </div>
+    <div class="cell">
+        <div class=" box">
+            3a <br>
+            3b
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            4a
+        </div>
+    </div>
+</div>
+</script></code></pre>
+
+                </section>
+
+               <section id="stretching-content-specific-cells">
+                    <h1 class="h3">8.2: For specific cells</h1>
+
+                    <p>The stretching behaviour of the direct children of a specific cell be changed by adding the <span class="mono">.cell--{breakpoint}-content-stretch</span> and <span class="mono">.cell--{breakpoint}-content-unstretch</span> classes to the <span class="mono">.cell</span> element.</p>
+
+                    <div class="grid">
+                        <div class="cell">
+                            <div class="box">
+                                1a <br>
+                                1b <br>
+                                1c
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="box">
+                                2a
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class=" box">
+                                3a <br>
+                                3b
+                            </div>
+                        </div>
+                        <div class="cell cell--small-content-stretch cell--medium-content-unstretch cell--large-content-stretch">
+                            <div class="box">
+                                4a
+                            </div>
+                        </div>
+                    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        <div class="box">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            2a
+        </div>
+    </div>
+    <div class="cell">
+        <div class=" box">
+            3a <br>
+            3b
+        </div>
+    </div>
+    <div class="cell cell--small-content-stretch cell--medium-content-unstretch cell--large-content-stretch">
+        <div class="box">
+            4a
+        </div>
+    </div>
+</div>
+</script></code></pre>
+
+                </section>
             </section>
         </article>
 

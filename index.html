@@ -45,6 +45,12 @@
                     <li class="toc__item">3: <a href="#vertical-layout">Vertical layout</a></li>
                     <li class="toc__item">4: <a href="#nested-grid-sections">Nested grid sections</a></li>
                     <li class="toc__item">5: <a href="#cell-sizes">Cells with specific sizes</a></li>
+                    <li class="toc__item">6: <a href="#stretching-cell-content">Stretching cell content</a>
+                        <ul class="toc__list">
+                            <li>6.1: <a href="#stretching-cell-content-all-cells">For all cells within a grid section</a></li>
+                            <li>6.2: <a href="#stretching-cell-content-specific-cells">For specific cells</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
@@ -53,9 +59,10 @@
                 <p>To generate a functional grid out of the box, several default settings are used. Most of these defaults can be overwritten through the use of variables, most notably: grid type, wrapping behaviour and alignment.</p>
 
                 <ul>
-                    <li>The default grid type can be changed from <span class="bold">'columns'</span> to <span class="bold">'fractions'</span></li>
-                    <li>The default wrapping can be changed from <span class="bold">'nowrap'</span> to <span class="bold">'wrap'</span> or <span class="bold">'reverse'</span></li>
-                    <li>The default alignment can be changed from <span class="bold">'stretch'</span> to <span class="bold">'start'</span>, <span class="bold">'center'</span>, <span class="bold">'end'</span> or <span class="bold">'baseline'</span></li>
+                    <li>The default <span class="italic">grid type</span> can be changed from <span class="bold">'columns'</span> to <span class="bold">'fractions'</span></li>
+                    <li>The default <span class="italic">grid wrapping</span> can be changed from <span class="bold">'nowrap'</span> to <span class="bold">'wrap'</span> or <span class="bold">'reverse'</span></li>
+                    <li>The default <span class="italic">cell alignment</span> can be changed from <span class="bold">'stretch'</span> to <span class="bold">'start'</span>, <span class="bold">'center'</span>, <span class="bold">'end'</span> or <span class="bold">'baseline'</span></li>
+                    <li>The default <span class="italic">stretching behaviour of cell content</span> can be changed from <span class="bold">'unstretch'</span> to <span class="bold">'stretch'</span></li>
                 </ul>
 
                 <p>For a <span class="bold">full list</span> of all the default settings that can be overwritten please refer to the <a href="https://github.com/vicompany/ezpz-flexbox-grid/blob/master/docs/settings.md">settings documentation</a>.</p>
@@ -196,6 +203,134 @@
     <div class="cell">2</div>
     <div class="cell">3</div>
 </div></script></code></pre>
+
+            </section>
+
+            <section class="chapter" id="stretching-cell-content">
+                <h1 class="h2">6: Stretching cell content</h1>
+                <p>By default all direct children of specific or multiple cells within a grid section can be forced to stretch so they take up the full width and height of the parent cell.</p>
+
+                <section id="stretching-cell-content-all-cells">
+                    <h1 class="h3">6.1: For all cells within a grid section</h1>
+
+                    <p>The direct children of all cells within a grid section can be forced to stretch by adding the <span class="mono">.grid--content-stretch</span> class to the <span class="mono">.grid</span> element.</p>
+
+                    <p>If the default content stretch behaviour has been set to <span class="bold">stretch</span> the <span class="mono">.grid--content-unstretch</span> class can be used to disable this behaviour for a specific grid section.</p>
+
+                    <div class="grid grid--content-stretch">
+                        <div class="cell">
+                            <div class="box">
+                                1a <br>
+                                1b <br>
+                                1c
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="box">
+                                2a
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class=" box">
+                                3a <br>
+                                3b
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="box">
+                                4a
+                            </div>
+                        </div>
+                    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--content-stretch">
+    <div class="cell">
+        <div class="box">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            2a
+        </div>
+    </div>
+    <div class="cell">
+        <div class=" box">
+            3a <br>
+            3b
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            4a
+        </div>
+    </div>
+</div>
+</script></code></pre>
+
+                </section>
+
+                <section id="stretching-cell-content-specific-cells">
+                    <h1 class="h3">6.2: For specific cells</h1>
+
+                    <p>The direct children of a specific cell can forced to stretch by adding the <span class="mono">.cell--content-stretch</span> class to the <span class="mono">.cell</span> element.</p>
+
+                    <p>If the default content stretch behaviour has been set to <span class="bold">stretch</span> the <span class="mono">.cell--content-unstretch</span> class can be used to disable this behaviour for a specific cell.</p>
+
+                    <div class="grid">
+                        <div class="cell">
+                            <div class="box">
+                                1a <br>
+                                1b <br>
+                                1c
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class="box">
+                                2a
+                            </div>
+                        </div>
+                        <div class="cell">
+                            <div class=" box">
+                                3a <br>
+                                3b
+                            </div>
+                        </div>
+                        <div class="cell cell--content-stretch">
+                            <div class="box">
+                                4a
+                            </div>
+                        </div>
+                    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        <div class="box">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            2a
+        </div>
+    </div>
+    <div class="cell">
+        <div class=" box">
+            3a <br>
+            3b
+        </div>
+    </div>
+    <div class="cell cell--content-stretch">
+        <div class="box">
+            4a
+        </div>
+    </div>
+</div>
+</script></code></pre>
 
             </section>
         </article>

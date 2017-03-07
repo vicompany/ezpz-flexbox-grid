@@ -84,6 +84,9 @@ h3,
 .bold {
   font-weight: bold; }
 
+.italic {
+  font-style: italic; }
+
 .mono {
   padding: 3px 8px;
   border-radius: 3px;
@@ -132,6 +135,9 @@ h3,
     list-style: none; }
     .toc__list .toc__list {
       padding-left: 2rem; }
+
+.box {
+  background: #6A4A3C; }
 
 /* Example grid markup - Only used to highlight functionality, do not use in production
    ========================================================================== */

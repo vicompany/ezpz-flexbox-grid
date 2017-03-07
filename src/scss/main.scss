@@ -77,6 +77,10 @@ h3,
 	font-weight: bold;
 }
 
+.italic {
+	font-style: italic;
+}
+
 .mono {
 	padding: 3px 8px;
 	border-radius: 3px;
@@ -152,6 +156,10 @@ h3,
 			padding-left: 2rem;
 		}
 	}
+}
+
+.box {
+	background: $example-color-5;
 }
 
 /* Example grid markup - Only used to highlight functionality, do not use in production

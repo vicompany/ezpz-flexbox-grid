@@ -46,6 +46,11 @@ article {
       align-items: stretch;
   margin-right: -0.5rem;
   margin-left: -0.5rem; }
+  article .cell {
+    display: inline; }
+    article .cell > * {
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
   article.horizontal {
     -ms-flex-direction: row;
         flex-direction: row; }
@@ -85,13 +90,8 @@ article {
     -ms-flex-negative: 1;
         flex-shrink: 1;
     box-sizing: border-box;
-    display: -ms-flexbox;
-    display: flex;
     max-width: 100%;
     padding: 0 0.5rem; }
-    article > section > * {
-      -ms-flex-positive: 1;
-          flex-grow: 1; }
     article > section.offset-1 {
       margin-left: 8.33333%; }
     article > section.offset-3 {
