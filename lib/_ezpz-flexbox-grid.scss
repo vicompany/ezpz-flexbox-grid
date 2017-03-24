@@ -126,7 +126,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin grid-content-stretch($value: 'stretch') {
 	$values: (
 		stretch: 'flex',
-		unstretch: 'inline'
+		unstretch: 'inline-block'
 	);
 
 	@if map-has-key($values, $value) {
@@ -347,7 +347,7 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 @mixin cell-content-stretch($value: 'stretch') {
 	$values: (
 		stretch: 'flex',
-		unstretch: 'inline'
+		unstretch: 'inline-block'
 	);
 
 	 @if map-has-key($values, $value) {
