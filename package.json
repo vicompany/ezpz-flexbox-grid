@@ -3,9 +3,6 @@
   "version": "3.0.0",
   "description": "A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation.",
   "main": "lib/_ezpz-flexbox-grid.scss",
-  "scripts": {
-    "postversion": "git push && git push --tags"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/vicompany/ezpz-flexbox-grid.git"
