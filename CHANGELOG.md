@@ -1,3 +1,6 @@
+## 3.0.1 (2017-03-24)
+- Fixed: Cells within unstretched grid sections now behave properly in IE10.
+
 ## 3.0.0 (2017-03-06)
 - Changed: Direct child elements of a grid cell no longer automatically stretch to occupy the full width and height of the cell.
 - Added: `grid--content-stretch` class to ensure that direct child elements of all grid cells automatically occupy the full width and height of the cell.
