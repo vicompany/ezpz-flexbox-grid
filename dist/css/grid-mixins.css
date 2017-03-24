@@ -47,7 +47,7 @@ article {
   margin-right: -0.5rem;
   margin-left: -0.5rem; }
   article .cell {
-    display: inline; }
+    display: inline-block; }
     article .cell > * {
       -ms-flex-positive: 1;
           flex-grow: 1; }
