@@ -94,7 +94,9 @@ h3,
   background-color: Gainsboro; }
 
 .header {
-  padding: 0 0.5rem; }
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  max-width: 90rem; }
   .header h1 a {
     text-decoration: none; }
 
@@ -142,7 +144,9 @@ h3,
 /* Example grid markup - Only used to highlight functionality, do not use in production
    ========================================================================== */
 .example-flex-grid {
-  padding: 0 0.5rem; }
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  max-width: 90rem; }
   .example-flex-grid .chapter {
     margin-bottom: 2.75rem;
     border-top: 1px solid Gainsboro; }
