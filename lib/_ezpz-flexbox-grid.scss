@@ -424,6 +424,9 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}collapsed {
+		margin-left: 0;
+		margin-right: 0;
+
 		& > #{$ezpz-cell-namespace} {
 			@include gutter-collapsed();
 		}
