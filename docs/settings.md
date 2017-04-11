@@ -77,7 +77,7 @@ The default stretching behaviour of direct child elements of a grid cell. This v
 Default: **'unstretch'**
 
 ```sass
-$ezpz-grid-default-align: 'stretch';
+$ezpz-grid-default-content-stretch: 'unstretch';
 ```
 
 ### $ezpz-gutter: (string);
