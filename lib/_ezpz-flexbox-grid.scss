@@ -9,23 +9,15 @@ $ezpz-auto-generate:				true !default;
 
 $ezpz-namespace:					'.grid' !default;
 $ezpz-cell-namespace:				'.cell' !default;
-$ezpz-grid-type:					'columns' !default;		// 'columns' or 'fractions'
 $ezpz-grid-default-wrap:			'nowrap' !default;		// 'nowrap', 'wrap' or 'reverse'
 $ezpz-grid-default-align:			'stretch' !default; 	// 'stretch', 'start', 'center', 'end' or 'baseline'
 $ezpz-grid-default-content-stretch:	'unstretch' !default;	// 'stretch' or 'unstretch'
 $ezpz-gutter: 						1rem !default;
-
-
-// Only used when $ezpz-grid-type is set to 'columns'
-$ezpz-columns: 						12 !default;
-
-// Only used when $ezpz-grid-type is set to 'fractions'
 $ezpz-fractions:					(1:2),
 									(1:3),
 									(2:3),
 									(1:4),
 									(3:4) !default;
-
 // Breakpoints
 // Please note that adding more breakpoints adds quite a lot of extra css depending on the optional features
 $ezpz-breakpoints: 					(
@@ -48,10 +40,7 @@ $ezpz-gutter-collapse:				false !default;
 
 // Grid generator - !!!DO NOT EDIT OR REMOVE ANTHING BELOW THIS LINE!!!
 // ==========================================================================
-
-$is-columns: if($ezpz-grid-type == 'columns', true, false);
-$is-fractions: if($ezpz-grid-type == 'fractions', true, false);
-$total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fractions));
+$total-cells: length($ezpz-fractions);
 
 
 // Utils
@@ -68,32 +57,22 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Cells
 // ==========================================================================
 @mixin generate-all-cells() {
-	@if($is-columns or $is-fractions) {
-		@include create-cells();
-	}
+	@include create-cells();
 }
 
 @mixin create-cells($breakpoint: null) {
 	$breakpoint: format-breakpoint($breakpoint);
 
-	@if($is-columns) {
-		@for $i from 1 through $ezpz-columns {
-			& > #{$ezpz-cell-namespace}#{$breakpoint}#{$i} {
-				@include create-cell($i);
-			}
-		}
-	} @else {
-		& > #{$ezpz-cell-namespace}#{$breakpoint}1 {
-			@include create-cell(1);
-		}
+	& > #{$ezpz-cell-namespace}#{$breakpoint}1 {
+		@include create-cell(1);
+	}
 
-		@each $fraction in $ezpz-fractions {
-			@each $key, $val in $fraction {
-				$modifier: format-modifier($key, $val);
+	@each $fraction in $ezpz-fractions {
+		@each $key, $val in $fraction {
+			$modifier: format-modifier($key, $val);
 
-				& > #{$ezpz-cell-namespace}#{$breakpoint}#{$modifier} {
-					@include create-cell($key / $val);
-				}
+			& > #{$ezpz-cell-namespace}#{$breakpoint}#{$modifier} {
+				@include create-cell($key / $val);
 			}
 		}
 	}
@@ -102,21 +81,13 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Accepts number input
 //	- @include create-cell(3)
 //	- @include create-cell(1/4)
-@mixin create-cell($column: 1) {
+@mixin create-cell($cell: 1) {
 	flex: 0 0 auto;
 
-	@if (type-of($column) != number) {
-		@error 'create-cell: Please define a number variable.';
-	}
-
-	@if($is-columns) {
-		width: (100% / $ezpz-columns) * $column;
-	} @else if ($is-fractions) {
-		@if ($column > 1) {
-			@error 'create-cell: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
-		} @else {
-			width: percentage($column);
-		}
+	@if ($cell) {
+		width: percentage($cell);
+	} @else {
+		@error 'create-cell: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
 	}
 }
 
@@ -254,12 +225,12 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 	$breakpoint: format-breakpoint($breakpoint);
 
 	&#{$breakpoint}order {
-		// Useful for pulling a single column to the front of the row
+		// Useful for pulling a single cell to the front of the row
 		&-start {
 			@include cell-order(start);
 		}
 
-		// Useful for pushing a single column to the end of the row
+		// Useful for pushing a single cell to the end of the row
 		&-end {
 			@include cell-order(end);
 		}
@@ -277,31 +248,8 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 // Cell positioning through offset
 // ========================================================================== */
 @mixin generate-cell-offset($breakpoint: null) {
-
-	// Generate the offset classes for a column based grid
-	@if($is-columns) {
-		@include cell-column-offset($breakpoint);
-	}
 	// Generate the offset classes for a fraction based grid
-	@else if($is-fractions) {
-		@include cell-fraction-offset($breakpoint);
-	}
-}
-
-@mixin cell-column-offset($breakpoint: null) {
-	$breakpoint: format-breakpoint($breakpoint);
-
-	&#{$breakpoint}offset {
-		&-0 {
-			margin-left: 0;
-		}
-
-		@for $i from 1 through $ezpz-columns {
-			&-#{$i} {
-				@include cell-offset($i);
-			}
-		}
-	}
+	@include cell-fraction-offset($breakpoint);
 }
 
 @mixin cell-fraction-offset($breakpoint: null) {
@@ -331,14 +279,10 @@ $total-cells: if($ezpz-grid-type == 'columns', $ezpz-columns, length($ezpz-fract
 		@error 'Please define a number variable.';
 	}
 
-	@if($is-columns) {
-		margin-left: (100% / $ezpz-columns) * $value;
-	} @else if ($is-fractions) {
-		@if ($value > 1) {
-			@error 'create-offset: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
-		} @else {
-			margin-left: percentage($value);
-		}
+	@if ($value) {
+		margin-left: percentage($value);
+	} @else {
+		@error 'create-offset: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
 	}
 }
 
