@@ -37,16 +37,6 @@ Default: **'.cell'**
 $ezpz-cell-namespace: '.cell';
 ```
 
-### $ezpz-grid-type: (string);
-
-The grid can be used as a column or fraction based system. This variable can be set to **'columns'** or **'fractions'**.
-
-Default: **'columns'**
-
-```sass
-$ezpz-grid-type: 'columns';
-```
-
 ### $ezpz-grid-default-wrap: (string);
 
 The default wrap type for the grid. This variable can be set to **'nowrap'**, **'wrap'** or **'reverse'**. Changing this variable will change the way cells wrap within a grid section on smaller screensizes, overwriting the default non wrapping behaviour.
@@ -88,16 +78,6 @@ Default: **'1rem'**
 
 ```sass
 $ezpz-gutter: 1rem;
-```
-
-### $ezpz-columns: (string);
-
-When $ezpz-grid-type is set to 'grid' this variable controls the amount of cells that will horizontally occupy a grid section. Changing this variable will automatically generate the proper .cell--{#} classes.
-
-Default: **'12'**
-
-```sass
-$ezpz-columns: 12;
 ```
 
 ### $ezpz-fractions: (numerator:denominator);

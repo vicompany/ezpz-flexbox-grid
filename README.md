@@ -11,7 +11,7 @@ Want to see how it works? Check out the [demo pages](http://vicompany.github.io/
 * IE10 when using [Autoprefixer](https://github.com/postcss/autoprefixer)
 * Uses [BEM syntax](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) for grid classes
 * Many optional features to reduce CSS bloat
-* Define and use columns or fractions
+* Define and use fractions
 * Infinite nesting
 * Create and name your own breakpoints
 * Custom namespacing
@@ -26,7 +26,6 @@ Want to see how it works? Check out the [demo pages](http://vicompany.github.io/
 * [Default features](http://vicompany.github.io/ezpz-flexbox-grid/)
 * [Optional features](http://vicompany.github.io/ezpz-flexbox-grid/optional-features.html)
 * [Responsive features](http://vicompany.github.io/ezpz-flexbox-grid/responsive-features.html)
-* [Using fractions](http://vicompany.github.io/ezpz-flexbox-grid/fractions.html)
 * [Using mixins](http://vicompany.github.io/ezpz-flexbox-grid/mixins.html)
 
 ## What about older browsers?

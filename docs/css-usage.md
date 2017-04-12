@@ -41,7 +41,7 @@ Content within the grid can be divided and positioned through the use of element
 | class | description
 | :--- | :---
 | ```.cell``` | Turns an element into a cell within a grid section. Cell elements have to be direct descendants of a grid element. This is a **mandatory class** for each cell, but can be used in conjunction with modifier classes. By default direct child elements placed within a cell will try to take up the same height as the cell itself. This behaviour can be changed by using the various alignment classes.
-| ```.cell--{#}```<br>```.cell--{breakpoint}-{#}```<br>```.cell--{fraction}```<br>```.cell--{breakpoint}-{fraction}``` | Controls the amount of horizontal space a cell should occupy in a grid section. This modifier uses either numbers or fractions, based on the selected grid type. These classes are automatically generated based on the amount of grid columns or selected fractions.
+| ```.cell--{#}```<br>```.cell--{breakpoint}-{#}```<br>```.cell--{fraction}```<br>```.cell--{breakpoint}-{fraction}``` | Controls the amount of horizontal space a cell should occupy in a grid section. This modifier uses either numbers or fractions, based on the selected grid type. These classes are automatically generated based on the amount of selected fractions.
 
 ### Optional
 
@@ -50,12 +50,12 @@ Content within the grid can be divided and positioned through the use of element
 | :--- | :---
 | ```.cell--order-start```<br>```.cell--{breakpoint}-order-start``` | Places a cell at the **start** of a grid section, regardless of the placement in the HTML structure.
 | ```.cell--order-end```<br>```.cell--{breakpoint}-order-end``` | Places a cell at the **end** of a grid section, regardless of the placement in the HTML structure.
-| ```.cell--order-{#}```<br>```.cell--{breakpoint}-order-{#}``` | Places a cell at the desired position. These classes are automatically generated based on the amount of grid columns or fractions. Note: The flexbox order property is zero based, so ```.cell--order-1``` outputs ```order: 0;``` etc.
+| ```.cell--order-{#}```<br>```.cell--{breakpoint}-order-{#}``` | Places a cell at the desired position. These classes are automatically generated based on the amount of fractions. Note: The flexbox order property is zero based, so ```.cell--order-1``` outputs ```order: 0;``` etc.
 
 #### Cell offset
 | class | description
 | :--- | :---
-| ```.cell--offset-#```<br>```.cell--{breakpoint}-offset-#``` | Horizontally offset a cell by a specific number of cell widths/columns. Ie. ```.cell--offset-3``` will offset a cell by 3 cell widths/columns.
+| ```.cell--offset-#```<br>```.cell--{breakpoint}-offset-#``` | Horizontally offset a cell by a specific disance. Ie. ```.cell--offset-1/4``` will offset a cell by a quarter of the total width of the parent grid section.
 
 #### Cell align
 | class | description
@@ -79,13 +79,13 @@ Previously set behaviour can be overwritten by adding multiple breakpoint classe
 
 ```html
 <div class="grid grid--vertical grid--small-horizontal">
-    <div class="cell cell--small-4 cell--medium-2">Cell</div>
-    <div class="cell cell--small-8 cell--medium-10">Cell</div>
+    <div class="cell cell--small-1/3 cell--medium-2/3">Cell</div>
+    <div class="cell cell--small-2/3 cell--medium-1/3">Cell</div>
 </div>
 ```
 In this example the grid will start out in a vertical layout but will change to a horizontal layout as soon as the screen reaches the size set for the 'small' breakpoint or above.
 
-The cells within the grid will both start out taking up half of the available space in the grid section. As soon as the 'small' breakpoint is reached they will take up 4 and 8 columns. When the 'medium' breakpoint is reached they will be divided in a 10 and 2 column fashion.
+The cells within the grid will both start out taking up half of the available space in the grid section. As soon as the 'small' breakpoint is reached they will take up one thirds and two thirds of the total width of the parent grid section. When the 'medium' breakpoint is reached they will be divided in a two thirds and one thirds fashion.
 
 ## Demo
 For a more in-depth explanation with examples please visit [the demo](http://vicompany.github.io/ezpz-flexbox-grid/index.html).
