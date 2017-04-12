@@ -93,9 +93,9 @@ article {
     max-width: 100%;
     padding: 0 0.5rem; }
     article > section.offset-1 {
-      margin-left: 100%; }
+      margin-left: 12.5%; }
     article > section.offset-3 {
-      margin-left: 300%; }
+      margin-left: 25%; }
     article > section.order-start {
       -ms-flex-order: -1;
           order: -1; }
@@ -128,19 +128,19 @@ article {
 .col-2 {
   -ms-flex: 0 0 auto;
       flex: 0 0 auto;
-  width: 200%; }
+  width: 16.66667%; }
 
 .col-3 {
   -ms-flex: 0 0 auto;
       flex: 0 0 auto;
-  width: 300%; }
+  width: 25%; }
 
 .col-4 {
   -ms-flex: 0 0 auto;
       flex: 0 0 auto;
-  width: 400%; }
+  width: 33.33333%; }
 
 .col-5 {
   -ms-flex: 0 0 auto;
       flex: 0 0 auto;
-  width: 500%; }
+  width: 50%; }

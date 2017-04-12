@@ -56,11 +56,11 @@ article {
 		@extend %cell;
 
 		&.offset-1 {
-			@include cell-offset(1);
+			@include cell-offset(1/8);
 		}
 
 		&.offset-3 {
-			@include cell-offset(3);
+			@include cell-offset(1/4);
 		}
 
 		&.order-start {
@@ -102,17 +102,17 @@ article {
 }
 
 .col-2 {
-	@include create-cell(2);
+	@include create-cell(1/6);
 }
 
 .col-3 {
-	@include create-cell(3);
+	@include create-cell(1/4);
 }
 
 .col-4 {
-	@include create-cell(4);
+	@include create-cell(1/3);
 }
 
 .col-5 {
-	@include create-cell(5);
+	@include create-cell(1/2);
 }

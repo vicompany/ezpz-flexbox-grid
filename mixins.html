@@ -24,7 +24,6 @@
                         <li class="nav__item"><a href="./index.html">Default features</a></li>
                         <li class="nav__item"><a href="./optional-features.html">Optional features</a></li>
                         <li class="nav__item"><a href="./responsive-features.html">Responsive features</a></li>
-                        <li class="nav__item"><a href="./fractions.html">Using fractions</a></li>
                         <li class="nav__item is-active"><a href="./mixins.html">Using mixins</a></li>
                         <li class="nav__item"><a href="https://github.com/vicompany/ezpz-flexbox-grid/tree/master/docs">Documentation</a></li>
                     </ul>
@@ -121,7 +120,7 @@
                 </article>
 
 <pre class="line-numbers"><code>.col-{number} {
-    @include create-cell({number});
+    @include create-cell({fraction});
 }
 </code></pre>
 
@@ -151,7 +150,7 @@
                 </article>
 
 <pre class="line-numbers"><code>section {
-    @include cell-offset({number});
+    @include cell-offset({fraction});
 }
 </code></pre>
             </div>

@@ -24,7 +24,6 @@
                         <li class="nav__item is-active"><a href="./index.html">Default features</a></li>
                         <li class="nav__item"><a href="./optional-features.html">Optional features</a></li>
                         <li class="nav__item"><a href="./responsive-features.html">Responsive features</a></li>
-                        <li class="nav__item"><a href="./fractions.html">Using fractions</a></li>
                         <li class="nav__item"><a href="./mixins.html">Using mixins</a></li>
                         <li class="nav__item"><a href="https://github.com/vicompany/ezpz-flexbox-grid/tree/master/docs">Documentation</a></li>
                     </ul>
@@ -35,8 +34,6 @@
         <article class="example-flex-grid">
             <h1>Default features</h1>
             <p>This page contains examples of the grid features that are <span class="bold">enabled by default</span>.</p>
-
-            <p>All examples on this page are based on a 12 column grid system. Please refer to the examples of the <a href="fractions.html">fraction based grid</a> system if you prefer this over a column based setup.</p>
 
             <div class="toc">
                 <ul class="toc__list">
@@ -56,10 +53,9 @@
 
             <section class="chapter" id="default-overwrites">
                 <h1 class="h2">1: Overwriting defaults</h1>
-                <p>To generate a functional grid out of the box, several default settings are used. Most of these defaults can be overwritten through the use of variables, most notably: grid type, wrapping behaviour and alignment.</p>
+                <p>To generate a functional grid out of the box, several default settings are used. Most of these defaults can be overwritten through the use of variables, most notably: wrapping behaviour, alignment and content stretching behaviour.</p>
 
                 <ul>
-                    <li>The default <span class="italic">grid type</span> can be changed from <span class="bold">'columns'</span> to <span class="bold">'fractions'</span></li>
                     <li>The default <span class="italic">grid wrapping</span> can be changed from <span class="bold">'nowrap'</span> to <span class="bold">'wrap'</span> or <span class="bold">'reverse'</span></li>
                     <li>The default <span class="italic">cell alignment</span> can be changed from <span class="bold">'stretch'</span> to <span class="bold">'start'</span>, <span class="bold">'center'</span>, <span class="bold">'end'</span> or <span class="bold">'baseline'</span></li>
                     <li>The default <span class="italic">stretching behaviour of cell content</span> can be changed from <span class="bold">'unstretch'</span> to <span class="bold">'stretch'</span></li>
@@ -174,32 +170,28 @@
             <section class="chapter" id="cell-sizes">
                 <h1 class="h2">5: Cells with specific sizes</h1>
 
-                <p>By adding a <span class="mono">.cell--{#}</span> class to a <span class="mono">.cell</span> element a percentual width can be applied to the cell. A <span class="mono">.cell--1</span> class means that the element will take up 1 cell out of a maximum of 12. An element with the <span class="mono">.cell--6</span> class will take up 6 cell spaces etc.</p>
+                <p>By adding a <span class="mono">.cell--{fraction}</span> class to a <span class="mono">.cell</span> element a percentual width can be applied to the cell. A <span class="mono">.cell--1/4</span> class means that the element will take up one quarter of the available space. An element with the <span class="mono">.cell--1/2</span> class will take up half the available space etc.</p>
 
                 <div class="grid">
-                    <div class="cell cell--4">1</div>
-                    <div class="cell cell--2">2</div>
-                    <div class="cell cell--5">3</div>
-                    <div class="cell cell--1">4</div>
+                    <div class="cell cell--2/3">1</div>
+                    <div class="cell cell--1/3">2</div>
                 </div>
 
 <pre class="line-numbers"><code><script type="text/plain"><div class="grid">
-    <div class="cell cell--4">1</div>
-    <div class="cell cell--2">2</div>
-    <div class="cell cell--5">3</div>
-    <div class="cell cell--1">4</div>
+    <div class="cell cell--2/3">1</div>
+    <div class="cell cell--1/3">2</div>
 </div></script></code></pre>
 
-                <p>By only applying a <span class="mono">.cell-#</span> to specific cells, a width can be set for these cells. The remaining cells will equaly divide the remaining space within the grid section automatically.</p>
+                <p>By only applying a <span class="mono">.cell-{fraction}</span> to specific cells, a width can be set for these cells. The remaining cells will automatically divide the remaining space within the grid section equally.</p>
 
                 <div class="grid">
-                    <div class="cell cell--6">1</div>
+                    <div class="cell cell--1/2">1</div>
                     <div class="cell">2</div>
                     <div class="cell">3</div>
                 </div>
 
 <pre class="line-numbers"><code><script type="text/plain"><div class="grid">
-    <div class="cell cell--6">1</div>
+    <div class="cell cell--1/2">1</div>
     <div class="cell">2</div>
     <div class="cell">3</div>
 </div></script></code></pre>

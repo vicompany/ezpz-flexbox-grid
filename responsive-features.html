@@ -23,7 +23,6 @@
                         <li class="nav__item"><a href="./index.html">Default features</a></li>
                         <li class="nav__item"><a href="./optional-features.html">Optional features</a></li>
                         <li class="nav__item is-active"><a href="./responsive-features.html">Responsive features</a></li>
-                        <li class="nav__item"><a href="./fractions.html">Using fractions</a></li>
                         <li class="nav__item"><a href="./mixins.html">Using mixins</a></li>
                         <li class="nav__item"><a href="https://github.com/vicompany/ezpz-flexbox-grid/tree/master/docs">Documentation</a></li>
                     </ul>
@@ -85,18 +84,17 @@
 
             <section class="chapter" id="cell-sizes">
                 <h1 class="h2">2: Changing cell sizes</h1>
-                <p>There are two ways to force a certain size upon a cell, depending on the chosen grid type. This can either be <span class="mono">'columns'</span> or <span class="mono">'fractions'</span>. Different classes are used to achieve the desired width of the cell(s) for these options.</p>
 
-                <p>The size of specific cells can be altered from certain breakpoints and up by adding the <span class="mono">.cell--{breakpoint}-{#}</span> or <span class="mono">.cell--{breakpoint}-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
+                <p>The size of specific cells can be altered from certain breakpoints and up by adding the <span class="mono">.cell--{breakpoint}-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
 
                 <div class="grid">
-                    <div class="cell cell--small-4 cell--medium-8">1</div>
-                    <div class="cell cell--small-8 cell--medium-4">2</div>
+                    <div class="cell cell--small-1/3 cell--medium-2/3">1</div>
+                    <div class="cell cell--small-2/3 cell--medium-1/3">2</div>
                 </div>
 
 <pre class="line-numbers"><code><script type="text/plain"><div class="grid">
-    <div class="cell cell--small-4 cell--medium-8">1</div>
-    <div class="cell cell--small-8 cell--medium-4">2</div>
+    <div class="cell cell--small-1/3 cell--medium-2/3">1</div>
+    <div class="cell cell--small-2/3 cell--medium-1/3">2</div>
 </div></script></code></pre>
 
             </section>
@@ -105,7 +103,7 @@
                 <h1 class="h2">3. Changing cell order</h1>
                 <p>The order of cells within a grid section can be changed by adding a <span class="mono">.cell--{breakpoint}-order-{#}</span>, <span class="mono">.cell--{breakpoint}-order-start</span> or <span class="mono">.cell--{breakpoint}-order-end</span> class to a <span class="mono">.cell</span> element.</p>
 
-                <p>The amount of numerical order classes will match the amount of columns or fractions depending on the chosen grid type.</p>
+                <p>The amount of numerical order classes will match the amount of fractions that were chosen.</p>
 
                 <div class="grid">
                     <div class="cell cell--medium-order-2">1</div>
@@ -125,19 +123,18 @@
 
             <section class="chapter" id="offset">
                 <h1 class="h2">4: Changing cell offset</h1>
-                <p>There are two ways to force a certain offset upon a cell, depending on the chosen grid type. This can either be 'columns' or 'fractions'. Different classes are used to achieve the desired offset of the cell(s) for these options.</p>
 
-                <p>A cell can be offset by adding a <span class="mono">.cell--{breakpoint}-offset-{#}</span> or <span class="mono">.cell--{breakpoint}-offset-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
+                <p>A cell can be offset by adding a <span class="mono">.cell--{breakpoint}-offset-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
 
                 <div class="grid">
                     <div class="cell">1</div>
-                    <div class="cell cell--small-offset-3 cell--medium-offset-6">2</div>
+                    <div class="cell cell--small-offset-1/4 cell--medium-offset-1/2">2</div>
                     <div class="cell">3</div>
                 </div>
 
 <pre class="line-numbers"><code><script type="text/plain"><div class="grid">
     <div class="cell">1</div>
-    <div class="cell cell--small-offset-3 cell--medium-offset-6">2</div>
+    <div class="cell cell--small-offset-1/4 cell--medium-offset-1/2">2</div>
     <div class="cell">3</div>
 </div></script></code></pre>
 

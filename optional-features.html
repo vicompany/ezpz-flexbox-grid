@@ -24,7 +24,6 @@
                         <li class="nav__item"><a href="./index.html">Default features</a></li>
                         <li class="nav__item is-active"><a href="./optional-features.html">Optional features</a></li>
                         <li class="nav__item"><a href="./responsive-features.html">Responsive features</a></li>
-                        <li class="nav__item"><a href="./fractions.html">Using fractions</a></li>
                         <li class="nav__item"><a href="./mixins.html">Using mixins</a></li>
                         <li class="nav__item"><a href="https://github.com/vicompany/ezpz-flexbox-grid/tree/master/docs">Documentation</a></li>
                     </ul>
@@ -69,7 +68,7 @@
             <section class="chapter" id="cell-order">
                 <h1 class="h2">1: Cell order</h1>
 
-                <p>The order of cells in a grid section can be altered by adding a <span class="mono">cell--order-#</span> class to the cells. In the example below the HTML elements exist in alphabetical order, but the classes re-order them without altering the HTML order.</p>
+                <p>The order of cells in a grid section can be altered by adding a <span class="mono">cell--order-{#}</span> class to the cells. In the example below the HTML elements exist in alphabetical order, but the classes re-order them without altering the HTML order.</p>
 
                 <p>The <span class="mono">.cell--order-start</span> and <span class="mono">.cell--order-end</span> classes will move the cell to the start/end of the grid section.</p>
 
@@ -95,17 +94,17 @@
                 <h1 class="h2">2: Horizontal cell offset</h1>
                 <p>Cells within a grid section can be offset horizontally to create a gap between that specific cell and the previous cell in the section. All cells will automatically take up an equal amount of the remaining space in the section.</p>
 
-                <p>When using a column based grid type, cells can be offset by adding a <span class="mono">.cell--offset-{#}</span> class to a <span class="mono">.cell</span> element. The second cell in the example has been offset by 3 cell widths.</p>
+                <p>Cells can be offset by adding a <span class="mono">.cell--offset-{fraction}</span> class to a <span class="mono">.cell</span> element. The second cell in the example has been offset by quarter of the width of the grid element.</p>
 
                 <div class="grid">
                     <div class="cell">1</div>
-                    <div class="cell cell--offset-3">2</div>
+                    <div class="cell cell--offset-1/4">2</div>
                     <div class="cell">3</div>
                 </div>
 
 <pre class="line-numbers"><code><script type="text/plain"><div class="grid">
     <div class="cell">1</div>
-    <div class="cell cell--offset-3">2</div>
+    <div class="cell cell--offset-1/4">2</div>
     <div class="cell">3</div>
 </div></script></code></pre>
 
@@ -348,7 +347,7 @@
                     <h1 class="h3">5.2: For specific cells</h1>
                     <p>Sometimes it might be preferable to disable the gutters of a specific cell instead of all cells. This can be achieved by adding the <span class="mono">.cell--collapsed</span> class to a <span class="mono">.cell</span> element.</p>
 
-                    <p>Please note that this ONLY WORKS when combined with a specific <span class="mono">.cell--{#}</span> or <span class="mono">.cell--{fraction}</span> class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
+                    <p>Please note that this ONLY WORKS when combined with a specific <span class="mono">.cell--{fraction}</span> class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
 
                     <div class="grid">
                         <div class="cell">1</div>
