@@ -1,3 +1,6 @@
+## 4.0.0 (2017-04-12)
+- Removed: The `column` grid type is no longer supported, `fractions` is the only remaining grid type. The last version to support columns is 3.0.1
+
 ## 3.0.1 (2017-03-24)
 - Fixed: Cells within unstretched grid sections now behave properly in IE10.
 
