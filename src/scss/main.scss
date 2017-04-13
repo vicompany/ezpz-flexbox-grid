@@ -244,6 +244,42 @@ h3,
 			display: none;
 		}
 	}
+
+	@each $breakpoint, $size in $breakpoints {
+		@media (min-width: $size) {
+			.grid--#{$breakpoint}-collapsed {
+				& > .cell {
+					&:before,
+					&:after {
+						display: none;
+					}
+				}
+			}
+
+			.grid--#{$breakpoint}-expanded {
+				& > .cell {
+					&:before,
+					&:after {
+						display: block;
+					}
+				}
+			}
+
+			.cell--#{$breakpoint}-collapsed {
+				&:before,
+				&:after {
+					display: none;
+				}
+			}
+
+			.cell--#{$breakpoint}-expanded {
+				&:before,
+				&:after {
+					display: block;
+				}
+			}
+		}
+	}
 }
 
 // PrismJS
