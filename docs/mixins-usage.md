@@ -32,9 +32,9 @@ main {
 ### Cell mixins
 | mixin | options |
 | :--- | :--- |
-| ```@include create-cell({option});``` | A number or a fraction depending on $ezpz-grid-type |
+| ```@include create-cell({fraction});``` | A fraction: for example 1/4 |
 | ```@include cell-order({option});``` | 'start', 'end' or a number |
-| ```@include cell-offset({option});``` | A number |
+| ```@include cell-offset({fraction});``` | A fraction: for example 1/4 |
 | ```@include cell-align({option});``` | 'stretch' (default), 'start', 'center' or 'end' |
 | ```@include gutter-collapsed();``` | No gutter |
 
