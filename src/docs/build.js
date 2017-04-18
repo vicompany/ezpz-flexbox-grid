@@ -26,7 +26,7 @@ const buildPage = (file) => {
 
 	const newFileName = path.basename(file);
 
-	fs.writeFileSync(`${__dirname}/../../docs/${newFileName}`, newContent);
+	fs.writeFileSync(`${__dirname}/../../${newFileName}`, newContent);
 };
 
 globby([`${__dirname}/*.html`])
