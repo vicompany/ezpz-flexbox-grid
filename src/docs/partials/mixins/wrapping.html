@@ -1,0 +1,70 @@
+<div class="chapter" id="grid-wrap">
+    <h1 class="h2">4: Wrapping of cells within a grid section</h1>
+
+    <h2 class="h3" id="grid-wrap-nowrap">4.1: No wrap (default)</h2>
+
+    <article class="no-wrap">
+        <section class="col-2">1</section>
+        <section class="col-2">2</section>
+        <section class="col-2">3</section>
+        <section class="col-2">4</section>
+        <section class="col-2">5</section>
+        <section class="col-2">6</section>
+        <section class="col-2">7</section>
+        <section class="col-2">8</section>
+        <section class="col-2">9</section>
+        <section class="col-2">10</section>
+        <section class="col-2">11</section>
+        <section class="col-2">12</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-wrap(nowrap);
+}
+</code></pre>
+
+    <h2 class="h3" id="grid-wrap-wrap">4.2: Wrap</h2>
+
+    <article class="wrap">
+        <section class="col-2">1</section>
+        <section class="col-2">2</section>
+        <section class="col-2">3</section>
+        <section class="col-2">4</section>
+        <section class="col-2">5</section>
+        <section class="col-2">6</section>
+        <section class="col-2">7</section>
+        <section class="col-2">8</section>
+        <section class="col-2">9</section>
+        <section class="col-2">10</section>
+        <section class="col-2">11</section>
+        <section class="col-2">12</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-wrap(wrap);
+}
+</code></pre>
+
+    <h2 class="h3" id="grid-wrap-reversed">4.3: Reversed wrap</h2>
+
+    <article class="reverse-wrap">
+        <section class="col-2">1</section>
+        <section class="col-2">2</section>
+        <section class="col-2">3</section>
+        <section class="col-2">4</section>
+        <section class="col-2">5</section>
+        <section class="col-2">6</section>
+        <section class="col-2">7</section>
+        <section class="col-2">8</section>
+        <section class="col-2">9</section>
+        <section class="col-2">10</section>
+        <section class="col-2">11</section>
+        <section class="col-2">12</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-wrap(reverse);
+}
+</code></pre>
+
+</div>

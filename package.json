@@ -3,20 +3,24 @@
   "version": "1.0.0",
   "description": "A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation.",
   "scripts": {
-    "postcss": "postcss -u autoprefixer --autoprefixer.browsers \"ie 10, last 2 versions\" -r dist/css/*.css",
-    "sass:build": "node-sass src/scss/ -o dist/css/ --output-style uncompressed",
+    "postcss": "postcss -u autoprefixer --autoprefixer.browsers \"ie 10, last 2 versions\" -r docs/css/*.css",
+    "sass:build": "node-sass src/scss/ -o docs/css/ --output-style uncompressed",
     "sass:watch": "npm run sass:build -- -w",
-    "browsersync": "browser-sync start --files \"dist/css/*.css, *.html\" --server",
-    "start": "parallelshell \"npm run sass:build\" \"npm run sass:watch\" \"npm run browsersync\"",
-    "build": "npm run sass:build & npm run postcss"
+    "browsersync": "browser-sync start --files \"docs/css/*.css, docs/*.html\" --startPath \"docs\" --server",
+    "start": "parallelshell \"npm run sass:build\" \"npm run sass:watch\" \"npm run watch:docs\" \"npm run browsersync\"",
+    "build": "npm run sass:build & npm run postcss",
+    "build:docs": "node src/docs/build.js",
+    "watch:docs": "watch \"npm run build:docs\" src/docs --interval=1"
   },
   "devDependencies": {
     "autoprefixer": "^6.2.3",
     "browser-sync": "^2.10.1",
+    "globby": "^6.1.0",
     "node-sass": "^3.4.2",
     "parallelshell": "^2.0.0",
     "postcss-cli": "^2.3.3",
-    "sass-lint": "^1.4.0"
+    "sass-lint": "^1.4.0",
+    "watch": "^1.0.2"
   },
   "private": true,
   "dependencies": {

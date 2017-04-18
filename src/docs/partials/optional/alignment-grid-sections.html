@@ -1,0 +1,168 @@
+<section class="chapter" id="grid-cells-align">
+    <h1 class="h2">3: Alignment of all cells within a grid section</h1>
+
+    <p>By default all cells within a grid section will stretch vertically to ensure they all have the same height as the tallest cell in the section.</p>
+
+    <section id="grid-cells-align-start">
+        <h1 class="h3">3.1: Align start</h1>
+
+        <p>By adding a <span class="mono">.grid--align-start</span> class to the <span class="mono">.grid</span> element the default stretching behaviour will be overwritten and cells will each have their own height/width and align to the start of the grid element.</p>
+
+        <div class="grid grid--align-start">
+            <div class="cell">
+                1a<br>
+                1b<br>
+                1c
+            </div>
+            <div class="cell">2a</div>
+            <div class="cell">
+                3a<br>
+                3b<br>
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-start">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b<br>
+    </div>
+</div></script></code></pre>
+
+    </section>
+
+    <section id="grid-cells-align-end">
+        <h1 class="h3">3.2: Align end</h1>
+
+        <p>By adding a <span class="mono">.grid--align-end</span> class to the <span class="mono">.grid</span> element the default stretching behaviour will be overwritten and cells will each have their own height/width and align to the end of the grid element.</p>
+
+        <div class="grid grid--align-end">
+            <div class="cell">
+                1a<br>
+                1b<br>
+                1c
+            </div>
+            <div class="cell">2a</div>
+            <div class="cell">
+                3a<br>
+                3b
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-end">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b
+    </div>
+</div></script></code></pre>
+
+    </section>
+
+    <section id="grid-cells-align-center">
+        <h1 class="h3">3.3: Align center</h1>
+
+        <p>By adding a <span class="mono">.grid--align-center</span> class to the <span class="mono">.grid</span> element the default stretching behaviour will be overwritten and cells will each have their own height/width and align in the center of the grid element.</p>
+
+        <div class="grid grid--align-center">
+            <div class="cell">
+                1a<br>
+                1b<br>
+                1c
+            </div>
+            <div class="cell">2a</div>
+            <div class="cell">
+                3a<br>
+                3b<br>
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-center">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b<br>
+    </div>
+</div></script></code></pre>
+
+    </section>
+
+    <section id="grid-cells-align-stretch">
+        <h1 class="h3">3.4: Align stretch</h1>
+
+        <p>In cases where stretch is not the default alignment behaviour for the grid, equal heights for all the <span class="mono">.cell</span> elements within the grid section can be regained by adding a <span class="mono">.grid--align-stretch</span> class to the <span class="mono">.grid</span> element.</p>
+
+        <div class="grid grid--align-stretch">
+            <div class="cell">
+                1a<br>
+                1b<br>
+                1c
+            </div>
+            <div class="cell">2a</div>
+            <div class="cell">
+                3a<br>
+                3b<br>
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-stretch">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a<br>
+        3b<br>
+    </div>
+</div></script></code></pre>
+
+    </section>
+
+    <section id="grid-cells-align-baseline">
+        <h1 class="h3">3.5: Align baseline</h1>
+
+        <p>By adding a <span class="mono">.grid--align-baseline</span> class to the <span class="mono">.grid</span> element the default stretching behaviour will be overwritten and cells will each align based on the baseline of the content within the <span class="mono">.cell</span> element.</p>
+
+        <div class="grid grid--align-baseline">
+            <div class="cell">
+                <h1>1</h1>
+            </div>
+            <div class="cell">
+                <h2>2</h2>
+            </div>
+            <div class="cell">
+                <h3>3</h3>
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--align-baseline">
+    <div class="cell">
+        <h1>1</h1>
+    </div>
+    <div class="cell">
+        <h2>2</h2>
+    </div>
+    <div class="cell">
+        <h3>3</h3>
+    </div>
+</div></script></code></pre>
+
+    </section>
+</section>

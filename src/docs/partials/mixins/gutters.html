@@ -1,0 +1,35 @@
+<div class="chapter" id="collapsed-gutters">
+    <h1 class="h2">6: Collapsed gutters</h1>
+
+    <h2 class="h3" id="grid-collapsed-gutters">6.1: For all cells</h2>
+
+    <article class="is-collapsed">
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section>4</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    > section {
+        @include gutter-collapsed();
+    }
+}
+</code></pre>
+
+    <h2 class="h3" id="cell-collapsed-gutter">6.2: For a specific cell</h2>
+
+    <article>
+        <section>1</section>
+        <section class="is-collapsed">2</section>
+        <section class="is-collapsed">3</section>
+        <section>4</section>
+    </article>
+
+<pre class="line-numbers"><code>section {
+    &.is-collapsed {
+        @include gutter-collapsed();
+    }
+}
+</code></pre>
+</div>

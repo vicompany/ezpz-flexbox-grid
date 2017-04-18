@@ -1,0 +1,37 @@
+<section class="chapter" id="cell-align">
+    <h1 class="h2">4: Alignment of individual cells</h1>
+    <p>Sometimes changing the alignment of all cells within a grid section is overkill and aligning a specific cell might be preferable. In this case a <span class="mono">.cell--align-start</span>, <span class="mono">.cell--align-end</span>, <span class="mono">.cell--align-center</span>, <span class="mono">.cell--align-stretch</span> or <span class="mono">.cell--align-baseline</span> class can be applied to a <span class="mono">.cell</span> element.</p>
+
+    <p>This will only alter the alignment of the specific cells. All cells without an alignment class will stretch and have the same height/width as other cells in the grid section.</p>
+
+    <p>Please note that the <span class="mono">.cell--align-baseline</span> class has to be applied to at least two <span class="mono">.cell</span> elements within a <span class="mono">.grid</span> section for this property to have effect.</p>
+
+    <div class="grid">
+        <div class="cell">
+            1a<br>
+            1b<br>
+            1c
+        </div>
+        <div class="cell cell--align-end">2a</div>
+        <div class="cell">
+            3a<br>
+            3b
+        </div>
+        <div class="cell cell--align-center">4a</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c
+    </div>
+    <div class="cell cell--align-end">2a</div>
+    <div class="cell">
+        3a<br>
+        3b
+    </div>
+    <div class="cell cell--align-center">4a</div>
+</div></script></code></pre>
+
+</section>

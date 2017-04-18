@@ -1,0 +1,47 @@
+<section class="chapter" id="gutters">
+    <h1 class="h2">6: Changing gutters</h1>
+
+    <section id="gutters-grid">
+        <h1 class="h3">6.1: For all cells within a grid section</h1>
+
+        <p>Gutters for all cells within a grid section can be collapsed or expanded by adding the <span class="mono">.grid--{breakpoint]-collapsed</span> and <span class="mono">.grid--{breakpoint}-expanded</span> classes to the <span class="mono">.grid</span> element.</p>
+
+        <div class="grid grid--collapsed grid--small-expanded grid--medium-collapsed">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--collapsed grid--small-expanded grid--medium-collapsed">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
+    </section>
+
+    <section id="gutters-cell">
+        <h1 class="h3">6.2: For specific cells</h1>
+
+        <p>Gutters for specific cells within a grid section can be collapsed or expanded by adding the <span class="mono">.cell--{breakpoint]-collapsed</span> and <span class="mono">.cell--{breakpoint}-expanded</span> classes to the <span class="mono">.cell</span> element.</p>
+
+        <p>Please note that this ONLY WORKS when combined with a specific .cell--{#} or .cell--{fraction} class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
+
+        <div class="grid">
+            <div class="cell">1</div>
+            <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">2</div>
+            <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">3</div>
+            <div class="cell">4</div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">1</div>
+    <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">2</div>
+    <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
+    </section>
+</section>

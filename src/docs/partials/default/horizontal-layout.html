@@ -1,0 +1,34 @@
+<section class="chapter" id="horizontal-layout">
+    <h1 class="h2">2: Horizontal layout</h1>
+    <p>The most basic form of the grid, each <span class="mono">.cell</span> element will take up an equal amount of horizontal space in the containing <span class="mono">.grid</span> element.</p>
+
+    <p>By default all <span class="mono">.cell</span> elements will maintain the same height as all other cells on the same row within a <span class="mono">.grid</span> element, similar to the way flexbox handles the height of flex-items. This behaviour can be changed through the use of the <a href="/optional-features.html#grid-cells-align">optional alignment classes</a>.</p>
+
+    <div class="grid">
+        <div class="cell">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+        <div class="cell">2a</div>
+        <div class="cell">
+            3a <br>
+            3b
+        </div>
+        <div class="cell">4a</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1a <br>
+        1b <br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a <br>
+        3b
+    </div>
+    <div class="cell">4a</div>
+</div></script></code></pre>
+</section>

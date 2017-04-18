@@ -1,0 +1,83 @@
+<section class="chapter" id="wrapping-cells">
+    <h1 class="h2">6: Wrapping cells</h1>
+    <p>Cells within a grid section can be forced to wrap to a new or previous line when there is not enough space to house all the content. Wrapping cells will take up an equal amount of horizontal space per line, unless defined otherwise.</p>
+
+    <section id="wrapping-cells-default">
+        <h1 class="h3">6.1: Default wrapping</h1>
+
+        <p>By adding the <span class="mono">.grid--wrap</span> class to a <span class="mono">.grid</span> element the cells will automatically wrap to the next line once there is not enough space to house them.</p>
+
+        <p>Please resize your browser to a small width to see this effect.</p>
+
+        <div class="grid grid--wrap">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+            <div class="cell">5</div>
+            <div class="cell">6</div>
+            <div class="cell">7</div>
+            <div class="cell">8</div>
+            <div class="cell">9</div>
+            <div class="cell">10</div>
+            <div class="cell">11</div>
+            <div class="cell">12</div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--wrap">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+    <div class="cell">7</div>
+    <div class="cell">8</div>
+    <div class="cell">9</div>
+    <div class="cell">10</div>
+    <div class="cell">11</div>
+    <div class="cell">12</div>
+</div>
+</script></code></pre>
+
+    </section>
+
+    <section id="wrapping-cells-reversed">
+        <h1 class="h3">6.2: Reversed wrapping</h1>
+
+        <p>By adding the <span class="mono">.grid--wrap-reverse</span> class to a <span class="mono">.grid</span> element the cells will automatically wrap to the previous line once there is not enough space to house them.</p>
+        <p>Please resize your browser to a small width to see this effect.</p>
+
+        <div class="grid grid--wrap-reverse">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+            <div class="cell">5</div>
+            <div class="cell">6</div>
+            <div class="cell">7</div>
+            <div class="cell">8</div>
+            <div class="cell">9</div>
+            <div class="cell">10</div>
+            <div class="cell">11</div>
+            <div class="cell">12</div>
+        </div>
+    </section>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--wrap-reverse">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+    <div class="cell">5</div>
+    <div class="cell">6</div>
+    <div class="cell">7</div>
+    <div class="cell">8</div>
+    <div class="cell">9</div>
+    <div class="cell">10</div>
+    <div class="cell">11</div>
+    <div class="cell">12</div>
+</div>
+</script></code></pre>
+
+</section>

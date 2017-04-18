@@ -1,0 +1,49 @@
+<section class="chapter" id="collapsed-gutters">
+    <h1 class="h2">5: Collapsed gutters</h1>
+    <p>It can be beneficial to have a grid section with one or more cells that do not have a gutter.</p>
+
+    <section id="collapsed-gutters-all-cells">
+        <h1 class="h3">5.1: For all cells within a grid section</h1>
+
+        <p>The gutters for all cells within a grid section can be disabled by adding the <span class="mono">.grid--collapsed</span> class to the <span class="mono">.grid</span> element.</p>
+
+        <div class="grid grid--collapsed">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--collapsed">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div>
+</script></code></pre>
+
+    </section>
+
+    <section id="collapsed-gutters-specific-cells">
+        <h1 class="h3">5.2: For specific cells</h1>
+        <p>Sometimes it might be preferable to disable the gutters of a specific cell instead of all cells. This can be achieved by adding the <span class="mono">.cell--collapsed</span> class to a <span class="mono">.cell</span> element.</p>
+
+        <p>Please note that this ONLY WORKS when combined with a specific <span class="mono">.cell--{fraction}</span> class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
+
+        <div class="grid">
+            <div class="cell">1</div>
+            <div class="cell cell--3 cell--collapsed">2</div>
+            <div class="cell cell--3 cell--collapsed">3</div>
+            <div class="cell">4</div>
+        </div>
+    </section>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">1</div>
+    <div class="cell cell--3 cell--collapsed">2</div>
+    <div class="cell cell--3 cell--collapsed">3</div>
+    <div class="cell">4</div>
+</div>
+</script></code></pre>
+
+</section>

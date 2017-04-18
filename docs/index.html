@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>EZPZ Flexbox Grid Demo - Default features</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/grid.css" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-coy.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.css" />
+    </head>
+    <body class="language-html">
+        <header class="header">
+            <div>
+                <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
+
+                <nav class="nav">
+    <ul class="nav__list">
+        <li class="nav__item is-active"><a href="./index.html">Default features</a></li>
+        <li class="nav__item "><a href="./optional-features.html">Optional features</a></li>
+        <li class="nav__item "><a href="./responsive-features.html">Responsive features</a></li>
+        <li class="nav__item "><a href="./mixins.html">Using mixins</a></li>
+        <li class="nav__item"><a href="https://github.com/vicompany/ezpz-flexbox-grid/tree/master/docs">Documentation</a></li>
+    </ul>
+</nav>
+
+            </div>
+        </header>
+
+        <article class="example-flex-grid">
+            <h1>Default features</h1>
+            <p>This page contains examples of the grid features that are <span class="bold">enabled by default</span>.</p>
+
+            <div class="toc">
+    <ul class="toc__list">
+        <li class="toc__item">1: <a href="#default-overwrites">Overwriting defaults</a></li>
+        <li class="toc__item">2: <a href="#horizontal-layout">Horizontal layout</a></li>
+        <li class="toc__item">3: <a href="#vertical-layout">Vertical layout</a></li>
+        <li class="toc__item">4: <a href="#nested-grid-sections">Nested grid sections</a></li>
+        <li class="toc__item">5: <a href="#cell-sizes">Cells with specific sizes</a></li>
+        <li class="toc__item">6: <a href="#stretching-cell-content">Stretching cell content</a>
+            <ul class="toc__list">
+                <li>6.1: <a href="#stretching-cell-content-all-cells">For all cells within a grid section</a></li>
+                <li>6.2: <a href="#stretching-cell-content-specific-cells">For specific cells</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+            <section class="chapter" id="default-overwrites">
+    <h1 class="h2">1: Overwriting defaults</h1>
+    <p>To generate a functional grid out of the box, several default settings are used. Most of these defaults can be overwritten through the use of variables, most notably: wrapping behaviour, alignment and content stretching behaviour.</p>
+
+    <ul>
+        <li>The default <span class="italic">grid wrapping</span> can be changed from <span class="bold">'nowrap'</span> to <span class="bold">'wrap'</span> or <span class="bold">'reverse'</span></li>
+        <li>The default <span class="italic">cell alignment</span> can be changed from <span class="bold">'stretch'</span> to <span class="bold">'start'</span>, <span class="bold">'center'</span>, <span class="bold">'end'</span> or <span class="bold">'baseline'</span></li>
+        <li>The default <span class="italic">stretching behaviour of cell content</span> can be changed from <span class="bold">'unstretch'</span> to <span class="bold">'stretch'</span></li>
+    </ul>
+
+    <p>For a <span class="bold">full list</span> of all the default settings that can be overwritten please refer to the <a href="https://github.com/vicompany/ezpz-flexbox-grid/blob/master/docs/settings.md">settings documentation</a>.</p>
+</section>
+
+            <section class="chapter" id="horizontal-layout">
+    <h1 class="h2">2: Horizontal layout</h1>
+    <p>The most basic form of the grid, each <span class="mono">.cell</span> element will take up an equal amount of horizontal space in the containing <span class="mono">.grid</span> element.</p>
+
+    <p>By default all <span class="mono">.cell</span> elements will maintain the same height as all other cells on the same row within a <span class="mono">.grid</span> element, similar to the way flexbox handles the height of flex-items. This behaviour can be changed through the use of the <a href="/optional-features.html#grid-cells-align">optional alignment classes</a>.</p>
+
+    <div class="grid">
+        <div class="cell">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+        <div class="cell">2a</div>
+        <div class="cell">
+            3a <br>
+            3b
+        </div>
+        <div class="cell">4a</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1a <br>
+        1b <br>
+        1c
+    </div>
+    <div class="cell">2a</div>
+    <div class="cell">
+        3a <br>
+        3b
+    </div>
+    <div class="cell">4a</div>
+</div></script></code></pre>
+</section>
+
+            <section class="chapter" id="vertical-layout">
+    <h1 class="h2">3: Vertical layout</h1>
+    <p>Cells within a <span class="mono">.grid</span> element can be vertically ordered by adding the <span class="mono">.grid--vertical</span> class.</p>
+
+    <p>Please note that <span class="mono">.cell</span> elements with <a href="#cell-sizes">specific sizes</a> (for example &frac14; of the screen width), will not occupy &frac14; of the viewport height when using a vertical layout. Cells will merely be converted to rows that take up the height of it's child elements.</p>
+
+    <div class="grid grid--vertical">
+        <div class="cell">1</div>
+        <div class="cell">2</div>
+        <div class="cell">3</div>
+        <div class="cell">4</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--vertical">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
+</section>
+
+
+            <section class="chapter" id="nested-grid-sections">
+    <h1 class="h2">4: Nested grid sections</h1>
+
+    <p>Grids can be nested by adding a new <span class="mono">.grid</span> element within a <span class="mono">.cell</span> element. The width of the parent cell will dictate the width of the grid. All other behaviour remains the same as in the basic setup.</p>
+
+    <div class="grid">
+        <div class="cell">
+            1
+
+            <div class="grid">
+                <div class="cell">1.1</div>
+                <div class="cell">1.2</div>
+            </div>
+        </div>
+        <div class="cell">
+            2
+
+            <div class="grid">
+                <div class="cell">2.1</div>
+                <div class="cell">2.2</div>
+            </div>
+        </div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1
+
+        <div class="grid">
+            <div class="cell">1.1</div>
+            <div class="cell">1.2</div>
+        </div>
+    </div>
+    <div class="cell">
+        2
+
+        <div class="grid">
+            <div class="cell">2.1</div>
+            <div class="cell">2.2</div>
+        </div>
+    </div>
+</div></script></code></pre>
+
+</section>
+
+            <section class="chapter" id="cell-sizes">
+	<h1 class="h2">5: Cells with specific sizes</h1>
+
+	<p>By adding a <span class="mono">.cell--{fraction}</span> class to a <span class="mono">.cell</span> element a percentual width can be applied to the cell. A <span class="mono">.cell--1/4</span> class means that the element will take up one quarter of the available space. An element with the <span class="mono">.cell--1/2</span> class will take up half the available space etc.</p>
+
+	<div class="grid">
+		<div class="cell cell--2/3">1</div>
+		<div class="cell cell--1/3">2</div>
+	</div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+	<div class="cell cell--2/3">1</div>
+	<div class="cell cell--1/3">2</div>
+</div></script></code></pre>
+
+	<p>By only applying a <span class="mono">.cell-{fraction}</span> to specific cells, a width can be set for these cells. The remaining cells will automatically divide the remaining space within the grid section equally.</p>
+
+	<div class="grid">
+		<div class="cell cell--1/2">1</div>
+		<div class="cell">2</div>
+		<div class="cell">3</div>
+	</div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+	<div class="cell cell--1/2">1</div>
+	<div class="cell">2</div>
+	<div class="cell">3</div>
+</div></script></code></pre>
+
+</section>
+
+
+            <section class="chapter" id="stretching-cell-content">
+	<h1 class="h2">6: Stretching cell content</h1>
+	<p>By default all direct children of specific or multiple cells within a grid section can be forced to stretch so they take up the full width and height of the parent cell.</p>
+
+	<section id="stretching-cell-content-all-cells">
+		<h1 class="h3">6.1: For all cells within a grid section</h1>
+
+		<p>The direct children of all cells within a grid section can be forced to stretch by adding the <span class="mono">.grid--content-stretch</span> class to the <span class="mono">.grid</span> element.</p>
+
+		<p>If the default content stretch behaviour has been set to <span class="bold">stretch</span> the <span class="mono">.grid--content-unstretch</span> class can be used to disable this behaviour for a specific grid section.</p>
+
+		<div class="grid grid--content-stretch">
+			<div class="cell">
+				<div class="box">
+					1a <br>
+					1b <br>
+					1c
+				</div>
+			</div>
+			<div class="cell">
+				<div class="box">
+					2a
+				</div>
+			</div>
+			<div class="cell">
+				<div class=" box">
+					3a <br>
+					3b
+				</div>
+			</div>
+			<div class="cell">
+				<div class="box">
+					4a
+				</div>
+			</div>
+		</div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--content-stretch">
+	<div class="cell">
+		<div class="box">
+			1a <br>
+			1b <br>
+			1c
+		</div>
+	</div>
+	<div class="cell">
+		<div class="box">
+			2a
+		</div>
+	</div>
+	<div class="cell">
+		<div class=" box">
+			3a <br>
+			3b
+		</div>
+	</div>
+	<div class="cell">
+		<div class="box">
+			4a
+		</div>
+	</div>
+</div>
+</script></code></pre>
+
+	</section>
+
+	<section id="stretching-cell-content-specific-cells">
+		<h1 class="h3">6.2: For specific cells</h1>
+
+		<p>The direct children of a specific cell can forced to stretch by adding the <span class="mono">.cell--content-stretch</span> class to the <span class="mono">.cell</span> element.</p>
+
+		<p>If the default content stretch behaviour has been set to <span class="bold">stretch</span> the <span class="mono">.cell--content-unstretch</span> class can be used to disable this behaviour for a specific cell.</p>
+
+		<div class="grid">
+			<div class="cell">
+				<div class="box">
+					1a <br>
+					1b <br>
+					1c
+				</div>
+			</div>
+			<div class="cell">
+				<div class="box">
+					2a
+				</div>
+			</div>
+			<div class="cell">
+				<div class=" box">
+					3a <br>
+					3b
+				</div>
+			</div>
+			<div class="cell cell--content-stretch">
+				<div class="box">
+					4a
+				</div>
+			</div>
+		</div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+	<div class="cell">
+		<div class="box">
+			1a <br>
+			1b <br>
+			1c
+		</div>
+	</div>
+	<div class="cell">
+		<div class="box">
+			2a
+		</div>
+	</div>
+	<div class="cell">
+		<div class=" box">
+			3a <br>
+			3b
+		</div>
+	</div>
+	<div class="cell cell--content-stretch">
+		<div class="box">
+			4a
+		</div>
+	</div>
+</div>
+</script></code></pre>
+
+	</section>
+</section>
+
+        </article>
+
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-scss.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.js"></script>
+
+    </body>
+</html>

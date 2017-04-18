@@ -1,0 +1,56 @@
+<div class="chapter" id="grid-align">
+    <h1 class="h2">3: Alignment of all cells within a grid section</h1>
+
+    <h2 class="h3" id="grid-align-stretch">3.1: Align stretch (default)</h2>
+
+    <article class="align-stretch">
+        <section style="min-height: 12rem;">1</section>
+        <section>2</section>
+        <section style="min-height: 6rem;">3</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-align(stretch);
+}
+</code></pre>
+
+    <h2 class="h3" id="grid-align-start">3.2: Align start</h2>
+
+    <article class="align-start">
+        <section style="min-height: 12rem;">1</section>
+        <section>2</section>
+        <section style="min-height: 6rem;">3</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-align(start);
+}
+</code></pre>
+
+    <h2 class="h3" id="grid-align-end">3.3: Align end</h2>
+
+    <article class="align-end">
+        <section style="min-height: 12rem;">1</section>
+        <section>2</section>
+        <section style="min-height: 6rem;">3</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-align(end);
+}
+</code></pre>
+
+    <h2 class="h3" id="grid-align-center">3.4: Align center</h2>
+
+    <article class="align-center">
+        <section style="min-height: 12rem;">1</section>
+        <section>2</section>
+        <section style="min-height: 6rem;">3</section>
+    </article>
+
+<pre class="line-numbers"><code>article {
+    @include grid-align(center);
+}
+</code></pre>
+
+</div>

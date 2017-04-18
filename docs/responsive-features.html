@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>EZPZ Flexbox Grid Demo - Responsive features</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/grid.css" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism-coy.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.css" />
+    </head>
+    <body class="language-html">
+        <header class="header">
+            <div>
+                <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
+
+                <nav class="nav">
+    <ul class="nav__list">
+        <li class="nav__item "><a href="./index.html">Default features</a></li>
+        <li class="nav__item "><a href="./optional-features.html">Optional features</a></li>
+        <li class="nav__item is-active"><a href="./responsive-features.html">Responsive features</a></li>
+        <li class="nav__item "><a href="./mixins.html">Using mixins</a></li>
+        <li class="nav__item"><a href="https://github.com/vicompany/ezpz-flexbox-grid/tree/master/docs">Documentation</a></li>
+    </ul>
+</nav>
+
+            </div>
+        </header>
+
+        <article class="example-flex-grid">
+            <h1>Responsive features</h1>
+            <p>This page contains examples of the responsive features of the grid. They are best shown by upsizing your browser, start with a mobile device width.</p>
+
+            <div class="toc">
+    <ul class="toc__list">
+        <li class="toc__item">1: <a href="#grid-orientation">Changing the grid orientation</a></li>
+        <li class="toc__item">2: <a href="#cell-sizes">Changing cell sizes</a></li>
+        <li class="toc__item">3: <a href="#order">Changing cell order</a></li>
+        <li class="toc__item">4: <a href="#offset">Changing cell offset</a></li>
+        <li class="toc__item">5: <a href="#alignment">Changing cell alignment</a>
+            <ul>
+                <li>5.1: <a href="#alignment-grid">For all cells within a grid section</a></li>
+                <li>5.2: <a href="#alignment-cell">For specific cells</a></li>
+            </ul>
+        </li>
+        <li class="toc__item">6: <a href="#gutters">Changing gutters</a>
+            <ul>
+                <li>6.1: <a href="#gutters-grid">For all cells within a grid section</a></li>
+                <li>6.2: <a href="#gutters-cell">For specific cells</a></li>
+            </ul>
+        </li>
+        <li class="toc__item">7: <a href="#grid-wrapping">Changing wrapping</a></li>
+        <li class="toc__item">8: <a href="#stretching-content">Changing content stretching behaviour</a>
+            <ul>
+                <li>8.1: <a href="#stretching-content-all-cells">For all cells within a grid section</a></li>
+                <li>8.2: <a href="#stretching-content-specific-cells">For specific cells</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+            <section class="chapter" id="grid-orientation">
+    <h1 class="h2">1: Changing the grid orientation</h1>
+    <p>The orientation of the grid can be changed by adding <span class="mono">.grid--{breakpoint}-vertical</span> and <span class="mono">.grid--{breakpoint}-horizontal</span> classes to the <span class="mono">.grid</span> element.</p>
+
+    <div class="grid grid--small-vertical grid--medium-horizontal">
+        <div class="cell">1</div>
+        <div class="cell">2</div>
+        <div class="cell">3</div>
+        <div class="cell">4</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--small-vertical grid--medium-horizontal">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
+</section>
+
+            <section class="chapter" id="cell-sizes">
+    <h1 class="h2">2: Changing cell sizes</h1>
+
+    <p>The size of specific cells can be altered from certain breakpoints and up by adding the <span class="mono">.cell--{breakpoint}-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
+
+    <div class="grid">
+        <div class="cell cell--small-1/3 cell--medium-2/3">1</div>
+        <div class="cell cell--small-2/3 cell--medium-1/3">2</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell cell--small-1/3 cell--medium-2/3">1</div>
+    <div class="cell cell--small-2/3 cell--medium-1/3">2</div>
+</div></script></code></pre>
+
+</section>
+
+            <section class="chapter" id="order">
+    <h1 class="h2">3. Changing cell order</h1>
+    <p>The order of cells within a grid section can be changed by adding a <span class="mono">.cell--{breakpoint}-order-{#}</span>, <span class="mono">.cell--{breakpoint}-order-start</span> or <span class="mono">.cell--{breakpoint}-order-end</span> class to a <span class="mono">.cell</span> element.</p>
+
+    <p>The amount of numerical order classes will match the amount of fractions that were chosen.</p>
+
+    <div class="grid">
+        <div class="cell cell--medium-order-2">1</div>
+        <div class="cell cell--tiny-order-end cell--small-order-start">2</div>
+        <div class="cell">3</div>
+        <div class="cell">4</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell cell--medium-order-2">1</div>
+    <div class="cell cell--tiny-order-end cell--small-order-start">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
+</section>
+
+            <section class="chapter" id="offset">
+    <h1 class="h2">4: Changing cell offset</h1>
+
+    <p>A cell can be offset by adding a <span class="mono">.cell--{breakpoint}-offset-{fraction}</span> class to a <span class="mono">.cell</span> element.</p>
+
+    <div class="grid">
+        <div class="cell">1</div>
+        <div class="cell cell--small-offset-1/4 cell--medium-offset-1/2">2</div>
+        <div class="cell">3</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">1</div>
+    <div class="cell cell--small-offset-1/4 cell--medium-offset-1/2">2</div>
+    <div class="cell">3</div>
+</div></script></code></pre>
+
+</section>
+
+
+            <section class="chapter" id="alignment">
+    <h1 class="h2">5: Changing cell alignment</h1>
+    <p>The alignment of cells within a grid section can be changed in two ways. For all cells or for specific cells.</p>
+
+    <section id='alignment-grid'>
+        <h1 class="h3">5.1: For all cells within a grid section</h1>
+        <p>The alignment of all cells within a grid section can be changed by adding the <span class="mono">.grid--{breakpoint}-align-start</span>, <span class="mono">.grid--{breakpoint}-align-end</span>, <span class="mono">.grid--{breakpoint}-align-center</span>, <span class="mono">.grid--{breakpoint}-align-stretch</span> and <span class="mono">.grid--{breakpoint}-align-baseline</span> classes to the <span class="mono">.grid</span> element</p>
+
+        <div class="grid grid--tiny-align-start grid--small-align-center grid--medium-align-end grid--large-align-stretch">
+            <div class="cell">
+                1a<br>
+                2a<br>
+                3a
+            </div>
+            <div class="cell">
+                2a
+            </div>
+            <div class="cell">
+                3a<br>
+                3b
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--tiny-align-start grid--small-align-center grid--medium-align-end grid--large-align-stretch">
+    <div class="cell">
+        1a<br>
+        2a<br>
+        3a
+    </div>
+    <div class="cell">
+        2a
+    </div>
+    <div class="cell">
+        3a<br>
+        3b
+    </div>
+</div></script></code></pre>
+
+    </section>
+
+    <section id="alignment-cell">
+        <h1 class="h3">5.2: For specific cells</h1>
+        <p>The alignment of specific cells within a grid section can be changed by adding the <span class="mono">.cell--{breakpoint}-align-start</span>, <span class="mono">.cell--{breakpoint}-align-end</span>, <span class="mono">.cell--{breakpoint}-align-center</span>, <span class="mono">.cell--{breakpoint}-align-stretch</span> and <span class="mono">.cell--{breakpoint}-align-baseline</span> classes to the <span class="mono">.cell</span> element</p>
+
+        <p>Please note that the <span class="mono">.cell--{breakpoint}-align-baseline</span> class has to be applied to at least two <span class="mono">.cell</span> elements within a <span class="mono">.grid</span> section for this property to have effect.</p>
+
+        <div class="grid">
+            <div class="cell">
+                1a<br>
+                1b<br>
+                1c<br>
+            </div>
+            <div class="cell cell--tiny-align-start cell--small-align-center cell--medium-align-end cell--large-align-stretch">
+                2a
+            </div>
+            <div class="cell">
+                3a<br>
+                3b
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1a<br>
+        1b<br>
+        1c<br>
+    </div>
+    <div class="cell cell--tiny-align-start cell--small-align-center cell--medium-align-end cell--large-align-stretch">
+        2a
+    </div>
+    <div class="cell">
+        3a<br>
+        3b
+    </div>
+</div></script></code></pre>
+
+    </section>
+</section>
+
+            <section class="chapter" id="gutters">
+    <h1 class="h2">6: Changing gutters</h1>
+
+    <section id="gutters-grid">
+        <h1 class="h3">6.1: For all cells within a grid section</h1>
+
+        <p>Gutters for all cells within a grid section can be collapsed or expanded by adding the <span class="mono">.grid--{breakpoint]-collapsed</span> and <span class="mono">.grid--{breakpoint}-expanded</span> classes to the <span class="mono">.grid</span> element.</p>
+
+        <div class="grid grid--collapsed grid--small-expanded grid--medium-collapsed">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--collapsed grid--small-expanded grid--medium-collapsed">
+    <div class="cell">1</div>
+    <div class="cell">2</div>
+    <div class="cell">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
+    </section>
+
+    <section id="gutters-cell">
+        <h1 class="h3">6.2: For specific cells</h1>
+
+        <p>Gutters for specific cells within a grid section can be collapsed or expanded by adding the <span class="mono">.cell--{breakpoint]-collapsed</span> and <span class="mono">.cell--{breakpoint}-expanded</span> classes to the <span class="mono">.cell</span> element.</p>
+
+        <p>Please note that this ONLY WORKS when combined with a specific .cell--{#} or .cell--{fraction} class. Otherwise the other cells will take up the newly freed up space created by the lack of gutters on the cell.</p>
+
+        <div class="grid">
+            <div class="cell">1</div>
+            <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">2</div>
+            <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">3</div>
+            <div class="cell">4</div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">1</div>
+    <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">2</div>
+    <div class="cell cell--3 cell--collapsed cell--small-expanded cell--medium-collapsed">3</div>
+    <div class="cell">4</div>
+</div></script></code></pre>
+
+    </section>
+</section>
+
+            <section class="chapter" id="grid-wrapping">
+    <h1 class="h2">7: Changing wrapping</h1>
+    <p>Wrapping functionality that has initialy been set to a <span class="mono">.grid</span> element can be disabled from a specific breakpoint by applying the <span class="mono">.grid--{breakpoint}-nowrap</span> class to the <span class="mono">.grid</span> element.</p>
+
+    <div class="grid grid--wrap grid--small-nowrap">
+        <div class="cell">1</div>
+        <div class="cell cell--12 cell--small-4">2</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--wrap grid--small-nowrap">
+    <div class="cell">1</div>
+    <div class="cell cell--12 cell--small-4">2</div>
+</div></script></code></pre>
+
+</section>
+
+            <section class="chapter" id="stretching-content">
+    <h1 class="h2">8: Changing content stretching behaviour</h1>
+
+    <section id="stretching-content-all-cells">
+        <h1 class="h3">8.1: For all cells within a grid section</h1>
+
+        <p>The stretching behaviour of the direct children of all the cells within a grid section can be changed by adding the <span class="mono">.grid--{breakpoint}-content-stretch</span> and <span class="mono">.grid--{breakpoint}-content-unstretch</span> classes to the <span class="mono">.grid</span> element.</p>
+
+        <div class="grid grid--small-content-stretch grid--medium-content-unstretch grid--large-content-stretch">
+            <div class="cell">
+                <div class="box">
+                    1a <br>
+                    1b <br>
+                    1c
+                </div>
+            </div>
+            <div class="cell">
+                <div class="box">
+                    2a
+                </div>
+            </div>
+            <div class="cell">
+                <div class=" box">
+                    3a <br>
+                    3b
+                </div>
+            </div>
+            <div class="cell">
+                <div class="box">
+                    4a
+                </div>
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--small-content-stretch grid--medium-content-unstretch grid--large-content-stretch">
+    <div class="cell">
+        <div class="box">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            2a
+        </div>
+    </div>
+    <div class="cell">
+        <div class=" box">
+            3a <br>
+            3b
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            4a
+        </div>
+    </div>
+</div>
+</script></code></pre>
+
+    </section>
+
+    <section id="stretching-content-specific-cells">
+        <h1 class="h3">8.2: For specific cells</h1>
+
+        <p>The stretching behaviour of the direct children of a specific cell be changed by adding the <span class="mono">.cell--{breakpoint}-content-stretch</span> and <span class="mono">.cell--{breakpoint}-content-unstretch</span> classes to the <span class="mono">.cell</span> element.</p>
+
+        <div class="grid">
+            <div class="cell">
+                <div class="box">
+                    1a <br>
+                    1b <br>
+                    1c
+                </div>
+            </div>
+            <div class="cell">
+                <div class="box">
+                    2a
+                </div>
+            </div>
+            <div class="cell">
+                <div class=" box">
+                    3a <br>
+                    3b
+                </div>
+            </div>
+            <div class="cell cell--small-content-stretch cell--medium-content-unstretch cell--large-content-stretch">
+                <div class="box">
+                    4a
+                </div>
+            </div>
+        </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        <div class="box">
+            1a <br>
+            1b <br>
+            1c
+        </div>
+    </div>
+    <div class="cell">
+        <div class="box">
+            2a
+        </div>
+    </div>
+    <div class="cell">
+        <div class=" box">
+            3a <br>
+            3b
+        </div>
+    </div>
+    <div class="cell cell--small-content-stretch cell--medium-content-unstretch cell--large-content-stretch">
+        <div class="box">
+            4a
+        </div>
+    </div>
+</div>
+</script></code></pre>
+
+    </section>
+</section>
+
+        </article>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-scss.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/plugins/show-language/prism-show-language.min.js"></script>
+
+    </body>
+</html>

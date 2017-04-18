@@ -1,0 +1,24 @@
+<section class="chapter" id="cell-order">
+    <h1 class="h2">1: Cell order</h1>
+
+    <p>The order of cells in a grid section can be altered by adding a <span class="mono">cell--order-{#}</span> class to the cells. In the example below the HTML elements exist in alphabetical order, but the classes re-order them without altering the HTML order.</p>
+
+    <p>The <span class="mono">.cell--order-start</span> and <span class="mono">.cell--order-end</span> classes will move the cell to the start/end of the grid section.</p>
+
+    <p>If two cells have the same position they will be placed according to their order in the DOM.</p>
+
+    <div class="grid">
+        <div class="cell cell--order-4">1</div>
+        <div class="cell cell--order-1">2</div>
+        <div class="cell cell--order-start">3</div>
+        <div class="cell cell--order-2">4</div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell cell--order-4">1</div>
+    <div class="cell cell--order-1">2</div>
+    <div class="cell cell--order-start">3</div>
+    <div class="cell cell--order-2">4</div>
+</div></script></code></pre>
+
+</section>

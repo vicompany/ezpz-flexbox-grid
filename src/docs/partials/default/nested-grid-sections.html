@@ -1,0 +1,44 @@
+<section class="chapter" id="nested-grid-sections">
+    <h1 class="h2">4: Nested grid sections</h1>
+
+    <p>Grids can be nested by adding a new <span class="mono">.grid</span> element within a <span class="mono">.cell</span> element. The width of the parent cell will dictate the width of the grid. All other behaviour remains the same as in the basic setup.</p>
+
+    <div class="grid">
+        <div class="cell">
+            1
+
+            <div class="grid">
+                <div class="cell">1.1</div>
+                <div class="cell">1.2</div>
+            </div>
+        </div>
+        <div class="cell">
+            2
+
+            <div class="grid">
+                <div class="cell">2.1</div>
+                <div class="cell">2.2</div>
+            </div>
+        </div>
+    </div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+    <div class="cell">
+        1
+
+        <div class="grid">
+            <div class="cell">1.1</div>
+            <div class="cell">1.2</div>
+        </div>
+    </div>
+    <div class="cell">
+        2
+
+        <div class="grid">
+            <div class="cell">2.1</div>
+            <div class="cell">2.2</div>
+        </div>
+    </div>
+</div></script></code></pre>
+
+</section>

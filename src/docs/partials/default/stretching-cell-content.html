@@ -1,0 +1,128 @@
+<section class="chapter" id="stretching-cell-content">
+	<h1 class="h2">6: Stretching cell content</h1>
+	<p>By default all direct children of specific or multiple cells within a grid section can be forced to stretch so they take up the full width and height of the parent cell.</p>
+
+	<section id="stretching-cell-content-all-cells">
+		<h1 class="h3">6.1: For all cells within a grid section</h1>
+
+		<p>The direct children of all cells within a grid section can be forced to stretch by adding the <span class="mono">.grid--content-stretch</span> class to the <span class="mono">.grid</span> element.</p>
+
+		<p>If the default content stretch behaviour has been set to <span class="bold">stretch</span> the <span class="mono">.grid--content-unstretch</span> class can be used to disable this behaviour for a specific grid section.</p>
+
+		<div class="grid grid--content-stretch">
+			<div class="cell">
+				<div class="box">
+					1a <br>
+					1b <br>
+					1c
+				</div>
+			</div>
+			<div class="cell">
+				<div class="box">
+					2a
+				</div>
+			</div>
+			<div class="cell">
+				<div class=" box">
+					3a <br>
+					3b
+				</div>
+			</div>
+			<div class="cell">
+				<div class="box">
+					4a
+				</div>
+			</div>
+		</div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid grid--content-stretch">
+	<div class="cell">
+		<div class="box">
+			1a <br>
+			1b <br>
+			1c
+		</div>
+	</div>
+	<div class="cell">
+		<div class="box">
+			2a
+		</div>
+	</div>
+	<div class="cell">
+		<div class=" box">
+			3a <br>
+			3b
+		</div>
+	</div>
+	<div class="cell">
+		<div class="box">
+			4a
+		</div>
+	</div>
+</div>
+</script></code></pre>
+
+	</section>
+
+	<section id="stretching-cell-content-specific-cells">
+		<h1 class="h3">6.2: For specific cells</h1>
+
+		<p>The direct children of a specific cell can forced to stretch by adding the <span class="mono">.cell--content-stretch</span> class to the <span class="mono">.cell</span> element.</p>
+
+		<p>If the default content stretch behaviour has been set to <span class="bold">stretch</span> the <span class="mono">.cell--content-unstretch</span> class can be used to disable this behaviour for a specific cell.</p>
+
+		<div class="grid">
+			<div class="cell">
+				<div class="box">
+					1a <br>
+					1b <br>
+					1c
+				</div>
+			</div>
+			<div class="cell">
+				<div class="box">
+					2a
+				</div>
+			</div>
+			<div class="cell">
+				<div class=" box">
+					3a <br>
+					3b
+				</div>
+			</div>
+			<div class="cell cell--content-stretch">
+				<div class="box">
+					4a
+				</div>
+			</div>
+		</div>
+
+<pre class="line-numbers"><code><script type="text/plain"><div class="grid">
+	<div class="cell">
+		<div class="box">
+			1a <br>
+			1b <br>
+			1c
+		</div>
+	</div>
+	<div class="cell">
+		<div class="box">
+			2a
+		</div>
+	</div>
+	<div class="cell">
+		<div class=" box">
+			3a <br>
+			3b
+		</div>
+	</div>
+	<div class="cell cell--content-stretch">
+		<div class="box">
+			4a
+		</div>
+	</div>
+</div>
+</script></code></pre>
+
+	</section>
+</section>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>EZPZ Flexbox Grid Demo - Optional features</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/grid.css" />
+
+        {{partials/shared/prism-stylesheets}}
+    </head>
+    <body class="language-html">
+        <header class="header">
+            <div>
+                <h1><a href="https://github.com/vicompany/ezpz-flexbox-grid">EZPZ Flexbox Grid</a></h1>
+
+                {{partials/shared/nav}}
+            </div>
+        </header>
+
+        <article class="example-flex-grid">
+            <h1>Optional features</h1>
+
+            <p>This page contains examples of the grid features that are <span class="bold">disabled by default</span> to reduce CSS footprint.</p>
+
+            {{partials/optional/toc}}
+
+            {{partials/optional/cell-order}}
+
+            {{partials/optional/cell-offset}}
+
+            {{partials/optional/alignment-grid-sections}}
+
+            {{partials/optional/alignment-individual-cells}}
+
+            {{partials/optional/collapsed-gutters}}
+
+            {{partials/optional/wrapping}}
+        </article>
+
+        {{partials/shared/prism-scripts}}
+    </body>
+</html>

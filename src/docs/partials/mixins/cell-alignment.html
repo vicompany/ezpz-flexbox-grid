@@ -1,0 +1,22 @@
+<div class="chapter" id="cell-align">
+    <h1 class="h2">5: Alignment of individual cells</h1>
+
+    <article>
+        <section style="min-height: 12rem;">1</section>
+        <section class="align-end">2</section>
+        <section class="align-start">3</section>
+        <section class="align-center">4</section>
+    </article>
+
+<pre class="line-numbers"><code>section {
+    @include cell-align(stretch); // default
+    // or
+    @include cell-align(start);
+    // or
+    @include cell-align(end);
+    // or
+    @include cell-align(center);
+}
+</code></pre>
+
+</div>
