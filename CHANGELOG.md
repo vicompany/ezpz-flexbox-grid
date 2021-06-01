@@ -1,3 +1,6 @@
+## 4.0.1 (2021-05-21)
+- Fixed: The `/` should not be used as a division operation anymore, all division should use `math.div()` instead.
+
 ## 4.0.0 (2017-04-12)
 - Removed: The `column` grid type is no longer supported, `fractions` is the only remaining grid type. The last version to support columns is 3.0.1
 

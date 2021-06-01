@@ -36,6 +36,7 @@ $ezpz-cell-align:					false !default;
 $ezpz-gutter-collapse:				false !default;
 
 
+@use 'sass:math';
 
 
 // Grid generator - !!!DO NOT EDIT OR REMOVE ANTHING BELOW THIS LINE!!!
@@ -72,7 +73,7 @@ $total-cells: length($ezpz-fractions);
 			$modifier: format-modifier($key, $val);
 
 			& > #{$ezpz-cell-namespace}#{$breakpoint}#{$modifier} {
-				@include create-cell($key / $val);
+				@include create-cell(math.div($key, $val));
 			}
 		}
 	}
@@ -268,7 +269,7 @@ $total-cells: length($ezpz-fractions);
 			$modifier: format-modifier($key, $val);
 
 			&#{$breakpoint}offset-#{$modifier} {
-				@include cell-offset($key / $val);
+				@include cell-offset(math.div($key, $val));
 			}
 		}
 	}
@@ -405,7 +406,7 @@ $total-cells: length($ezpz-fractions);
 }
 
 @mixin gutter-expanded() {
-	padding: 0 ($ezpz-gutter / 2);
+	padding: 0 (0.5 * $ezpz-gutter);
 }
 
 // Create responsive classes for all additional options
@@ -471,8 +472,8 @@ $total-cells: length($ezpz-fractions);
 	@include grid-wrap($ezpz-grid-default-wrap);
 	@include grid-align($ezpz-grid-default-align);
 
-	margin-right: -($ezpz-gutter / 2);
-	margin-left: -($ezpz-gutter / 2);
+	margin-right: (-0.5 * $ezpz-gutter);
+	margin-left: (-0.5 * $ezpz-gutter);
 
 	@include grid-content-stretch($ezpz-grid-default-content-stretch);
 }
@@ -487,7 +488,7 @@ $total-cells: length($ezpz-fractions);
 
 	box-sizing: border-box;
 	max-width: 100%;
-	padding: 0 ($ezpz-gutter / 2);
+	padding: 0 (0.5 * $ezpz-gutter);
 }
 
 @mixin generate-full-grid() {
