@@ -1,118 +1,119 @@
 @charset 'utf-8';
 
-$ezpz-auto-generate:			false;
+@use 'sass:math';
 
-@import 'shared';
-@import './node_modules/ezpz-grid/lib/ezpz-flexbox-grid';
+@use 'shared';
+
+@use 'pkg:ezpz-grid' with ($ezpz-auto-generate: false);
 
 article {
-	@include create-grid();
+	@include ezpz-grid.create-grid();
 
 	&.horizontal {
-		@include grid-layout(horizontal);
+		@include ezpz-grid.grid-layout(horizontal);
 	}
 
 	&.vertical {
-		@include grid-layout(vertical);
+		@include ezpz-grid.grid-layout(vertical);
 	}
 
 	&.align-start {
-		@include grid-align(start);
+		@include ezpz-grid.grid-align(start);
 	}
 
 	&.align-end {
-		@include grid-align(end);
+		@include ezpz-grid.grid-align(end);
 	}
 
 	&.align-center {
-		@include grid-align(center);
+		@include ezpz-grid.grid-align(center);
 	}
 
 	&.align-stretch {
-		@include grid-align(stretch);
+		@include ezpz-grid.grid-align(stretch);
 	}
 
 	&.wrap {
-		@include grid-wrap(wrap);
+		@include ezpz-grid.grid-wrap(wrap);
 	}
 
 	&.reverse-wrap {
-		@include grid-wrap(reverse);
+		@include ezpz-grid.grid-wrap(reverse);
 	}
 
 	&.nowrap {
-		@include grid-wrap();
+		@include ezpz-grid.grid-wrap();
 	}
 
 	&.is-collapsed {
-		> section {
-			@include gutter-collapsed();
+		>section {
+			@include ezpz-grid.gutter-collapsed();
 		}
 	}
 
-	> section {
-		@include create-grid-cell();
+	>section {
+		@include ezpz-grid.create-grid-cell();
 
 		@extend %cell;
 
 		&.offset-1 {
-			@include cell-offset(1/8);
+			@include ezpz-grid.cell-offset(math.div(1, 8));
 		}
 
 		&.offset-3 {
-			@include cell-offset(1/4);
+			@include ezpz-grid.cell-offset(math.div(1, 4));
 		}
 
 		&.order-start {
-			@include cell-order(start);
+			@include ezpz-grid.cell-order(start);
 		}
 
 		&.order-1 {
-			@include cell-order(1);
+			@include ezpz-grid.cell-order(1);
 		}
 
 		&.order-4 {
-			@include cell-order(4);
+			@include ezpz-grid.cell-order(4);
 		}
 
 		&.order-2 {
-			@include cell-order(2);
+			@include ezpz-grid.cell-order(2);
 		}
 
 		&.align-start {
-			@include cell-align(start);
+			@include ezpz-grid.cell-align(start);
 		}
 
 		&.align-end {
-			@include cell-align(end);
+			@include ezpz-grid.cell-align(end);
 		}
 
 		&.align-center {
-			@include cell-align(center);
+			@include ezpz-grid.cell-align(center);
 		}
 
 		&.align-stretch {
-			@include cell-align(stretch);
+			@include ezpz-grid.cell-align(stretch);
 		}
 
 		&.is-collapsed {
-			@include gutter-collapsed();
+			@include ezpz-grid.gutter-collapsed();
 		}
 	}
 }
 
 .col-2 {
-	@include create-cell(1/6);
+	@include ezpz-grid.create-cell(math.div(1, 6));
 }
 
 .col-3 {
-	@include create-cell(1/4);
+	@include ezpz-grid.create-cell(math.div(1, 4));
 }
 
 .col-4 {
-	@include create-cell(1/3);
+	@include ezpz-grid.create-cell(math.div(1, 3));
 }
 
 .col-5 {
-	@include create-cell(1/2);
+	@include ezpz-grid.create-cell(math.div(1, 2));
 }

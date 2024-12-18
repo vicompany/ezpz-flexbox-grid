@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-@import 'shared';
+@use 'shared';
 
 // Base
 // ========================================================================== //
@@ -87,11 +87,11 @@ h3,
 
 	font-family: monospace, sans-serif;
 
-	background-color: $gray;
+	background-color: shared.$gray;
 }
 
 .header {
-	padding: 0 ($gutter / 2);
+	padding: 0 calc(shared.$gutter / 2);
 	margin: 0 auto;
 	max-width: 90rem;
 
@@ -105,8 +105,8 @@ h3,
 .nav {
 	padding: 1rem 0;
 
-	border-top: 1px solid $gray;
-	border-bottom: 1px solid $gray;
+	border-top: 1px solid shared.$gray;
+	border-bottom: 1px solid shared.$gray;
 
 
 	&__list {
@@ -145,7 +145,7 @@ h3,
 	padding: 1rem;
 	margin: 0 0 1.5rem;
 
-	background-color: $gray;
+	background-color: shared.$gray;
 	border-radius: 3px;
 
 	&__list {
@@ -161,20 +161,20 @@ h3,
 }
 
 .box {
-	background: $example-color-5;
+	background: shared.$example-color-5;
 }
 
 /* Example grid markup - Only used to highlight functionality, do not use in production
    ========================================================================== */
 .example-flex-grid {
-	padding: 0 ($gutter / 2);
+	padding: 0 calc(shared.$gutter / 2);
 	margin: 0 auto;
 	max-width: 90rem;
 
 	.chapter {
 		margin-bottom: 2.75rem;
 
-		border-top: 1px solid $gray;
+		border-top: 1px solid shared.$gray;
 	}
 
 	.cell {
@@ -184,19 +184,19 @@ h3,
 		> .grid {
 			> .cell {
 				&:nth-child(1) {
-					background: $example-color-2;
+					background: shared.$example-color-2;
 				}
 
 				&:nth-child(2) {
-					background: $example-color-3;
+					background: shared.$example-color-3;
 				}
 
 				&:nth-child(3) {
-					background: $example-color-1;
+					background: shared.$example-color-1;
 				}
 
 				&:nth-child(4) {
-					background: $example-color-4;
+					background: shared.$example-color-4;
 				}
 			}
 		}
@@ -205,19 +205,19 @@ h3,
 			> .grid {
 				>.cell {
 					&:nth-child(1) {
-						background: $example-color-4;
+						background: shared.$example-color-4;
 					}
 
 					&:nth-child(2) {
-						background: $example-color-1;
+						background: shared.$example-color-1;
 					}
 
 					&:nth-child(3) {
-						background: $example-color-2;
+						background: shared.$example-color-2;
 					}
 
 					&:nth-child(4) {
-						background: $example-color-3;
+						background: shared.$example-color-3;
 					}
 				}
 			}
@@ -245,7 +245,7 @@ h3,
 		}
 	}
 
-	@each $breakpoint, $size in $breakpoints {
+	@each $breakpoint, $size in shared.$breakpoints {
 		@media (min-width: $size) {
 			.grid--#{$breakpoint}-collapsed {
 				& > .cell {
@@ -285,8 +285,7 @@ h3,
 // PrismJS
 pre[class*="language-"] {
 	box-shadow: none  !important;
-	// border-left: none  !important;
-	border: 1px solid $gray !important;
+	border: 1px solid shared.$gray !important;
 
 	&:before,
 	&:after {

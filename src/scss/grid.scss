@@ -1,10 +1,9 @@
 @charset 'utf-8';
 
-$ezpz-grid-align:				true;
-$ezpz-grid-wrap:				true;
-$ezpz-cell-order:				true;
-$ezpz-cell-offset:				true;
-$ezpz-cell-align:				true;
-$ezpz-gutter-collapse:			true;
 
-@import './node_modules/ezpz-grid/lib/ezpz-flexbox-grid';
+@use 'pkg:ezpz-grid' with ($ezpz-grid-align: true,
+	$ezpz-grid-wrap: true,
+	$ezpz-cell-order: true,
+	$ezpz-cell-offset: true,
+	$ezpz-cell-align: true,
+	$ezpz-gutter-collapse: true);

@@ -58,7 +58,7 @@ $example-color-5:					#6A4A3C;
 	// pseudo elements to illustrate gutters
 	&:before {
 		content: '';
-		width: ($gutter / 2);
+		width: calc($gutter / 2);
 		height: 100%;
 		display: block;
 		position: absolute;
@@ -71,7 +71,7 @@ $example-color-5:					#6A4A3C;
 
 	&:after {
 		content: '';
-		width: ($gutter / 2);
+		width: calc($gutter / 2);
 		height: 100%;
 		display: block;
 		position: absolute;

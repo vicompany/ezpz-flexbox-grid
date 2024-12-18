@@ -1,6 +1,6 @@
-const fs = require('fs');
-const globby = require('globby');
-const path = require('path');
+import fs from 'node:fs';
+import path from 'node:path';
+import { globby } from 'globby';
 
 const PATTERN_TAG = /\{\{(.+)\}\}/g;
 
@@ -14,7 +14,7 @@ const buildPage = (file) => {
 	const newContent = content.toString().replace(PATTERN_TAG, (match, filePath) => {
 		const fileName = path.basename(file, '.html');
 		const variableName = `${fileName}-state`;
-		let partialContents = fs.readFileSync(`${__dirname}/${filePath}.html`).toString();
+		let partialContents = fs.readFileSync(`${import.meta.dirname}/${filePath}.html`).toString();
 
 		if (filePath.includes('nav')) {
 			partialContents = partialContents
@@ -24,13 +24,14 @@ const buildPage = (file) => {
 		return partialContents;
 	});
 
+
 	const newFileName = path.basename(file);
 
-	fs.writeFileSync(`${__dirname}/../../${newFileName}`, newContent);
+	fs.writeFileSync(`${import.meta.dirname}/../../${newFileName}`, newContent);
 };
 
-globby([`${__dirname}/*.html`])
-	.then((files) => {
-		files.forEach(buildPage);
-	}
-);
+const files = await globby(['*.html']);
+
+for (const file of files) {
+	buildPage(file)
+}
