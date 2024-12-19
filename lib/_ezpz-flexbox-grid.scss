@@ -36,12 +36,15 @@ $ezpz-cell-align:					false !default;
 $ezpz-gutter-collapse:				false !default;
 
 
+@use "sass:list";
+@use "sass:map";
 @use 'sass:math';
+@use "sass:meta";
 
 
 // Grid generator - !!!DO NOT EDIT OR REMOVE ANTHING BELOW THIS LINE!!!
 // ==========================================================================
-$total-cells: length($ezpz-fractions);
+$total-cells: list.length($ezpz-fractions);
 
 
 // Utils
@@ -86,7 +89,7 @@ $total-cells: length($ezpz-fractions);
 	flex: 0 0 auto;
 
 	@if ($cell) {
-		width: percentage($cell);
+		width: math.percentage($cell);
 	} @else {
 		@error 'create-cell: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
 	}
@@ -101,7 +104,7 @@ $total-cells: length($ezpz-fractions);
 		unstretch: 'inline-block'
 	);
 
-	@if map-has-key($values, $value) {
+	@if map.has-key($values, $value) {
 		.cell {
 			@include cell-content-stretch($value);
 		}
@@ -134,8 +137,8 @@ $total-cells: length($ezpz-fractions);
 		baseline: 'baseline'
 	);
 
-	@if map-has-key($values, $value) {
-		align-items: #{map-get($values, $value)};
+	@if map.has-key($values, $value) {
+		align-items: #{map.get($values, $value)};
 	} @else {
 		@error 'grid-align: Please enter a valid property; "flex-start", "flex-end", "center", "stretch", or "baseline"';
 	}
@@ -174,8 +177,8 @@ $total-cells: length($ezpz-fractions);
 		nowrap: 'nowrap'
 	);
 
-	@if map-has-key($values, $value) {
-		flex-wrap: #{map-get($values, $value)};
+	@if map.has-key($values, $value) {
+		flex-wrap: #{map.get($values, $value)};
 	} @else {
 		@error "grid-wrap: Please enter a valid property; 'nowrap', 'wrap' or 'reverse'";
 	}
@@ -214,7 +217,7 @@ $total-cells: length($ezpz-fractions);
 		order: $total-cells;
 	} @else {
 
-		@if (type-of($value) != number) {
+		@if (meta.type-of($value) != number) {
 			@error 'cell-order: Please enter a valid property; "start", "end" or a number';
 		}
 
@@ -276,12 +279,12 @@ $total-cells: length($ezpz-fractions);
 }
 
 @mixin cell-offset($value: 1) {
-	@if (type-of($value) != number) {
+	@if (meta.type-of($value) != number) {
 		@error 'Please define a number variable.';
 	}
 
 	@if ($value) {
-		margin-left: percentage($value);
+		margin-left: math.percentage($value);
 	} @else {
 		@error 'create-offset: Make sure you entered a valid fraction value. E.g. "1/2" or "3/4"';
 	}
@@ -295,8 +298,8 @@ $total-cells: length($ezpz-fractions);
 		unstretch: 'inline-block'
 	);
 
-	 @if map-has-key($values, $value) {
-		 display: #{map-get($values, $value)};
+	 @if map.has-key($values, $value) {
+		 display: #{map.get($values, $value)};
 
 		 > * {
 			 flex-grow: 1;
@@ -329,8 +332,8 @@ $total-cells: length($ezpz-fractions);
 		baseline: 'baseline'
 	);
 
-	 @if map-has-key($values, $value) {
-		 align-self: #{map-get($values, $value)};
+	 @if map.has-key($values, $value) {
+		 align-self: #{map.get($values, $value)};
 	 } @else {
 		 @error 'cell-align: Please enter a valid property; "flex-start", "flex-end", "center", "stretch" or "baseline"';
 	 }
@@ -527,8 +530,8 @@ $total-cells: length($ezpz-fractions);
 		vertical: 'column'
 	);
 
-	 @if map-has-key($values, $value) {
-		 flex-direction: #{map-get($values, $value)};
+	 @if map.has-key($values, $value) {
+		 flex-direction: #{map.get($values, $value)};
 	 } @else {
 		 @error 'grid-layout allowed properties: "horizontal" and "vertical"';
 	 }
