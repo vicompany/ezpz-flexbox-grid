@@ -31,8 +31,8 @@ The default variables used within the grid are set with a !default flag. Please 
 @use 'config';
 
 @use 'pkg:ezpz-grid' with (
-    $ezpz-namespace: '.my-grid';
-    $ezpz-gutter: config.$gutter;
+    $ezpz-namespace: '.my-grid',
+    $ezpz-gutter: config.$gutter
 );
 
 ```
