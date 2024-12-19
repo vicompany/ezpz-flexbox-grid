@@ -1,6 +1,6 @@
 {
   "name": "ezpz-grid",
-  "version": "5.0.0-0",
+  "version": "5.0.0",
   "description": "A lightweight Sass (.scss) flexbox grid system that's easy to setup and offers a lot of customisation.",
   "exports": {
     "sass": "./lib/_ezpz-flexbox-grid.scss"
