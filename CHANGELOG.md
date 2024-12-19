@@ -1,3 +1,7 @@
+## 5.0.0 (2024-12-19)
+- Removed all deprecated Dart Sass features.
+- Is a Sass Module which needs to be imported using the [Node.js Package Importer](https://sass-lang.com/documentation/at-rules/use/#node-js-package-importer).
+
 ## 4.0.1 (2021-05-21)
 - Fixed: The `/` should not be used as a division operation anymore, all division should use `math.div()` instead.
 
